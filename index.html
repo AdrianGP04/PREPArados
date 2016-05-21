@@ -1,7 +1,89 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8" />
+        <title> PREPArados | Inicio </title>
+        <link type="image/x-icon" href="./resources/favicon.ico" rel="icon" />
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+        <script src="./bootstrap/js/jquery.min.js"></script>
+        <script src="./bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <div class="container-fluid">
+            <header>
+                <img src="./resources/header.png" width="100%" height="300"/>
+            </header>
+            <nav>
+            </nav>
+            <div class="row">
+                <div class="col-lg-12">
+                    <button class="btn btn-default"  data-toggle="modal" data-target="#modalRegister"> Registrarse </button>
+                    <button class="btn btn-default" data-toggle="modal" data-target="#modalLogIn"> Inicar sesión </button>
+                </div>
+                <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Registrarse</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="userRegister"> Nombre de usuario </label>
+                                        <input type="text" class="form-control" id="userRegister" placeholder="Nombre de usuario">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="noctaRegister"> Número de cuenta </label>
+                                        <input type="text" class="form-control" id="numCuentaRegister" placeholder="Número de cuenta">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="passwordRegister"> Contraseña </label>
+                                        <input type="password" class="form-control" id="passwordRegister" placeholder="Contraseña">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="passwordRegister2"> Repetir contraseña </label>
+                                        <input type="password" class="form-control" id="passwordRegister2" placeholder="Repetir contraseña">
+                                    </div>
+                                    <button type="submit" class="btn btn-default btn-block"> Registrarse </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="modalLogIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"> Iniciar sesión </h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="noctaLogIn"> Número de cuenta </label>
+                                        <input type="text" class="form-control" id="numCuentaRegister" placeholder="Número de cuenta">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="passwordLogIn"> Contraseña </label>
+                                        <input type="password" class="form-control" id="passwordLogIn" placeholder="Contraseña">
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                        <input type="checkbox"> Recuérdame
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-default btn-block"> Iniciar sesión </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside>
+        </aside>
+        <footer>
+        </footer>
     </body>
 </html>
