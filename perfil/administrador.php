@@ -63,7 +63,7 @@
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="CreateAccounts">
           <section>
-            <h2> He aquí en donde se crearan las cuentas de coordinadores </h2>
+            <h2> <?php echo "567gh".sha1("contraseñacoordinador")."567jk" ?> </h2>
           </section>
         </div>
         <div role="tabpanel" class="tab-pane" id="SearchUsers">
