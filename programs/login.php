@@ -6,6 +6,14 @@
         $nocta = mysqli_real_escape_string($con, $_POST["numCuentaLogIn"]);
         $password = mysqli_real_escape_string($con, $_POST["passwordLogIn"]);
         mysqli_query ($con, "SET NAMES 'utf8'");
+        $admin_extraido= mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM ADMINISTRADOR WHERE ADMIN_NAME = '$nocta' "));
+        if(isset($admin_extraido["ADMIN_ID"])){
+            $cpassAdmin = substr($admin_extraido["ADMIN_PASS"], 5, 40);
+            if(sha1($password) == $cpassAdmin)
+                header("Location: ../perfil/admin.php");
+            else
+                echo "ERROR: ADMIN";
+        }
         $result = mysqli_query($con,"SELECT * FROM USUARIOS WHERE USER_NOCT ='$nocta'");
 		$extraido = mysqli_fetch_assoc($result);
         if(isset($extraido["USER_NOCT"])){
