@@ -53,22 +53,22 @@
                         <h4 class="modal-title" id="myModalLabel">Registrarse</h4>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="./programs/registro.php">
+                        <form method="POST" action="./programs/registro.php" autocomplete="off">
                             <div class="form-group">
                                 <label for="userRegister"> Nombre de usuario </label>
-                                <input type="text" class="form-control" id="userRegister" placeholder="Nombre de usuario">
+                                <input name="userRegister" type="text" class="form-control" id="userRegister" placeholder="Nombre de usuario">
                             </div>
                             <div class="form-group">
                                 <label for="noctaRegister"> Número de cuenta </label>
-                                <input type="text" class="form-control" id="numCuentaRegister" placeholder="Número de cuenta">
+                                <input name="numCuentaRegister" type="text" class="form-control" id="numCuentaRegister" placeholder="Número de cuenta">
                             </div>
                             <div class="form-group">
                                 <label for="passwordRegister"> Contraseña </label>
-                                <input type="password" class="form-control" id="passwordRegister" placeholder="Contraseña">
+                                <input name="passwordRegister" type="password" class="form-control" id="passwordRegister" placeholder="Contraseña">
                             </div>
                             <div class="form-group">
                                 <label for="passwordRegister2"> Repetir contraseña </label>
-                                <input type="password" class="form-control" id="passwordRegister2" placeholder="Repetir contraseña">
+                                <input name="passwordRegister2" type="password" class="form-control" id="passwordRegister2" placeholder="Repetir contraseña">
                             </div>
                             <button type="submit" class="btn btn-default btn-block"> Registrarse </button>
                         </form>
@@ -84,7 +84,7 @@
                         <h4 class="modal-title" id="myModalLabel"> Iniciar sesión </h4>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="./programs/login.php">
+                        <form method="POST" action="./programs/login.php" autocomplete="off">
                             <div class="form-group">
                                 <label for="noctaLogIn"> Número de cuenta </label>
                                 <input type="text" class="form-control" id="numCuentaRegister" placeholder="Número de cuenta">
