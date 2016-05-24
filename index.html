@@ -48,30 +48,30 @@
         <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div data-trigger="focus"  id="modal-header-Register"  class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Registrarse</h4>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="./programs/registro.php" autocomplete="off">
+                        <form id="RegisterForm" method="POST" action="./programs/registro.php" autocomplete="off">
                             <div class="form-group">
                                 <label for="userRegister"> Nombre de usuario </label>
-                                <input name="userRegister" type="text" class="form-control" id="userRegister" placeholder="Nombre de usuario">
+                                <input id="userRegister" data-trigger="focus" name="userRegister" type="text" class="form-control" placeholder="Nombre de usuario">
                             </div>
                             <div class="form-group">
                                 <label for="noctaRegister"> Número de cuenta </label>
-                                <input name="numCuentaRegister" type="text" class="form-control" id="numCuentaRegister" placeholder="Número de cuenta">
+                                <input id="numCuentaRegister" data-trigger="focus" name="numCuentaRegister" type="text" class="form-control" placeholder="Número de cuenta">
                             </div>
                             <div class="form-group">
                                 <label for="passwordRegister"> Contraseña </label>
-                                <input name="passwordRegister" type="password" class="form-control password" id="passwordRegister" placeholder="Contraseña">
+                                <input id="passwordRegister" data-trigger="focus" ="passwordRegister" type="password" class="form-control password" placeholder="Contraseña">
                             </div>
                             <div class="form-group">
                                 <label for="passwordRegister2"> Repetir contraseña </label>
-                                <input name="passwordRegister2" type="password" class="form-control password" id="passwordRegister2" placeholder="Repetir contraseña">
+                                <input id="passwordRegister2" data-trigger="focus" name="passwordRegister2" type="password" class="form-control password" placeholder="Repetir contraseña">
                                 <span class="help"> <span class="glyphicon glyphicon-eye-close"></span> Mostrar contraseñas </span>
                             </div>
-                            <button type="submit" class="btn btn-default btn-block"> Registrarse </button>
+                            <button id="RegisterSubmit" type="submit" class="btn btn-default btn-block"> Registrarse </button>
                         </form>
                     </div>
                 </div>

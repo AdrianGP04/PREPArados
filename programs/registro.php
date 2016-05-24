@@ -20,17 +20,16 @@
         if($password == $password2){
             $checkuser = mysqli_num_rows(mysqli_query($con,"SELECT * FROM USUARIOS WHERE USER_NOCT = '$nocta'"));
             if($checkuser > 0)
-                echo "La cuenta ya ha sido registrada.";
+                echo "ERROR: REGISTRADO";
             if($checkuser == 0){
                 mysqli_query ($con, "SET NAMES 'utf8'");
                 $cpass = randomWord(5).sha1($password).randomWord(5);
                 mysqli_query($con,"INSERT INTO USUARIOS VALUES ('$name','$nocta','$cpass')");
-                echo "Te has registrado con éxito.";
             }
         }
         else
-            echo "Las contraseñas no coinciden.";
+            echo "ERROR: CONTRASEÑA";
     }
     else
-        echo "Debes llenar todos los campos.";
+        echo "ERROR: CAMPOS";
 ?>
