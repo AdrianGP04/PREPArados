@@ -17,11 +17,11 @@
                 header("Location: ../perfil/estudiante.html");
             }
             else
-                echo "La contraseña es incorrecta";
+                echo "ERROR: CONTRASEÑA";
         }
         else
-            echo "Debes registrarte para continuar";
+            echo "ERROR: REGISTRO";
     }
     else
-        echo "Debes llenar todos los campos";
+        echo "ERROR: CAMPOS";
 ?>

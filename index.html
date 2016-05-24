@@ -79,7 +79,7 @@
         <div class="modal fade" id="modalLogIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div data-trigger="focus"  id="modal-header" class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel"> Iniciar sesión </h4>
                     </div>
@@ -87,18 +87,18 @@
                         <form method="POST" action="./programs/login.php" autocomplete="off">
                             <div class="form-group">
                                 <label for="noctaLogIn"> Número de cuenta </label>
-                                <input name="numCuentaLogIn" type="text" class="form-control" id="numCuentaLogIn" placeholder="Número de cuenta">
+                                <input  data-trigger="focus"  id="numCuentaLogIn" name="numCuentaLogIn" type="text" class="form-control" placeholder="Número de cuenta">
                             </div>
                             <div class="form-group">
                                 <label for="passwordLogIn"> Contraseña </label>
-                                <input name="passwordLogIn" type="password" class="form-control" id="passwordLogIn" placeholder="Contraseña">
+                                <input data-trigger="focus"  id="passwordLogIn" name="passwordLogIn" type="password" class="form-control" placeholder="Contraseña">
                             </div>
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox"> Recuérdame
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-default btn-block"> Iniciar sesión </button>
+                            <button id="logInSubmit" type="submit" class="btn btn-default btn-block"> Iniciar sesión </button>
                         </form>
                     </div>
                 </div>
@@ -109,4 +109,5 @@
         <footer>
         </footer>
     </body>
+    <script src="./js/index.js"></script>
 </html>
