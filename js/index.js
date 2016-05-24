@@ -11,11 +11,13 @@ $(document).ready(function(){
         },
         function(data){
             if(data == "ERROR: CAMPOS")
-            $("#modal-header").popover("toggle");
+                $("#modal-header").popover("toggle");
             else if (data == "ERROR: REGISTRO")
                 $("#numCuentaLogIn").popover("toggle");
             else if (data == "ERROR: CONTRASEÑA")
                 $("#passwordLogIn").popover("toggle");
+            else
+                $("#logInForm").submit();
         });
     });
     $("input").focus(function(){
