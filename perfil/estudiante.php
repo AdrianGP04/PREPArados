@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	if(!isset($_SESSION["ID"]))
+	  	header("Location: ../");
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,7 +33,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<span class="navbar-brand" href="#" disabled> Bienvenido [nombre del estudiante/maestro/etc...] </span>
+						<span class="navbar-brand" href="#" disabled> Bienvenido <?php echo $_SESSION["name"]; ?> </span>
 					</div>
 					<div class="hidden-xs">
 						<ul class="nav navbar-nav navbar-right">

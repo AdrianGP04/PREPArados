@@ -14,7 +14,7 @@
                 session_start();
                 $_SESSION["ID"] = $extraido["USER_NOCT"];
                 $_SESSION["name"] = $extraido["USER_NAME"];
-                header("Location: ../perfil/estudiante.html");
+                header("Location: ../perfil/estudiante.php");
             }
             else
                 echo "ERROR: CONTRASEÑA";
