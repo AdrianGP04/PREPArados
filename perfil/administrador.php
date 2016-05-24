@@ -13,6 +13,7 @@
         <link type="image/x-icon" href="../resources/favicon.ico" rel="icon" />
         <script src="../bootstrap/js/jquery.min.js"></script>
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../styles/administrador.css">
         <script src="../bootstrap/js/bootstrap.min.js"></script>
 	</head>
 	<body>
@@ -62,9 +63,29 @@
       </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="CreateAccounts">
-          <section>
-            <h2> <?php echo "567gh".sha1("contraseñacoordinador")."567jk" ?> </h2>
-          </section>
+			<br/>
+			<div class="row">
+				<div class="col-lg-6">
+					<section>
+						<form id="RegisterFormCoord" method="POST" action="./programs/registro.php" autocomplete="off">
+							<div class="form-group">
+								<label for="coordRegister"> Nombre del coordinador </label>
+								<input id="coordRegister" data-trigger="focus" name="userRegister" type="text" class="form-control" placeholder="Nombre">
+							</div>
+							<div class="form-group">
+								<label for="passwordCoordRegister"> Contraseña del coordinador </label>
+								<input id="passwordCoordRegister" data-trigger="focus" ="passwordRegister" type="password" class="form-control password" placeholder="Contraseña">
+							</div>
+							<div class="form-group">
+								<label for="passwordCoordRegister2"> Repetir contraseña </label>
+								<input id="passwordCoordRegister2" data-trigger="focus" name="passwordRegister2" type="password" class="form-control password" placeholder="Repetir contraseña">
+								<span class="help"> <span class="glyphicon glyphicon-eye-close"></span> Mostrar contraseñas </span>
+							</div>
+							<button id="CoordRegisterSubmit" type="submit" class="btn btn-default btn-block"> Registrar coordinador </button>
+						</form>
+					</section>
+				</div>
+			</div>
         </div>
         <div role="tabpanel" class="tab-pane" id="SearchUsers">
           <section>
@@ -81,8 +102,8 @@
             <h2> Eliminación de usuarios </h2>
           </section>
         </div>
-
       </div>
     </div>
   </body>
+  <script src="../js/administrador.js"></script>
 </html>
