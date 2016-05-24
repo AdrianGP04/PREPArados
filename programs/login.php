@@ -9,8 +9,12 @@
         $admin_extraido= mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM ADMINISTRADOR WHERE ADMIN_NAME = '$nocta' "));
         if(isset($admin_extraido["ADMIN_ID"])){
             $cpassAdmin = substr($admin_extraido["ADMIN_PASS"], 5, 40);
-            if(sha1($password) == $cpassAdmin)
-                header("Location: ../perfil/admin.php");
+            if(sha1($password) == $cpassAdmin){
+                session_start();
+                $_SESSION["ID"] = $admin_extraido["ADMIN_ID"];
+                $_SESSION["name"] = $admin_extraido["ADMIN_NAME"];
+                header("Location: ../perfil/administrador.php");
+            }
             else
                 echo "ERROR: ADMIN";
         }
