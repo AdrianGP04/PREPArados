@@ -60,9 +60,44 @@
       </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="CreateAccounts">
-          <section>
-            <h2> He aquí en donde se crearan las cuentas</h2>
-          </section>
+            <br/>
+			<div class="row">
+				<div class="col-lg-6">
+					<section>
+						<form id="RegisterFormCoord" method="POST" action="./programs/registro.php" autocomplete="off">
+							<div class="form-group">
+								<label for="coordRegister"> Nombre del profesor </label>
+								<input id="coordRegister" data-trigger="focus" name="userRegister" type="text" class="form-control" placeholder="Nombre">
+							</div>
+							<div class="form-group">
+								<label for="areaCoord"> Área de estudio a la que pertenece </label>
+								<select id="areaCoord" class="form-control">
+									<option value="1"> Área I: Ciencias Físico - Matemáticas y de las Ingenierías </option>
+									<option value="2"> Área II: Ciencias Biológicas y de la Salud </option>
+									<option value="3"> Área III: Ciencias Sociales </option>
+									<option value="4"> Área IV: Humanidades y Artes </option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="colegioCoord"> Colegio al que pertenece </label>
+								<select id="colegioCoord" class="form-control">
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="passwordCoordRegister"> Contraseña del coordinador </label>
+								<input id="passwordCoordRegister" data-trigger="focus" type="password" class="form-control password" placeholder="Contraseña">
+							</div>
+							<div class="form-group">
+								<label for="passwordCoordRegister2"> Repetir contraseña </label>
+								<input id="passwordCoordRegister2" data-trigger="focus" name="passwordRegister2" type="password" class="form-control password" placeholder="Repetir contraseña">
+								<br/>
+								<span class="help"> <span class="glyphicon glyphicon-eye-close"></span> Mostrar contraseñas </span>
+							</div>
+							<button id="CoordRegisterSubmit" type="submit" class="btn btn-default btn-block"> Registrar coordinador </button>
+						</form>
+					</section>
+				</div>
+			</div>
         </div>
         <div role="tabpanel" class="tab-pane" id="ApproveQuestions">
           <section>
