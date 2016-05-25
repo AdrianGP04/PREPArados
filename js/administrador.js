@@ -15,11 +15,37 @@ $(document).ready(function(){
             $("#colegioCoord").append(data);
         });
     });
+    $("#CoordRegisterSubmit").click(function(event){
+        event.preventDefault();
+        $.post("../programs/registro_coordinador.php",
+        {
+            coordRegister: $("#coordRegister").val(),
+            areaCoord: $("#areaCoord").val(),
+            colegioCoord: $("#colegioCoord").val(),
+            passwordCoordRegister: $("#passwordCoordRegister").val(),
+            passwordCoordRegister2: $("#passwordCoordRegister2").val()
+        },
+        function(data){
+            if(data == "ERROR: CAMPOS")
+                $("#passwordCoordRegister2").popover("show");
+            else if (data == "ERROR: REGISTRADO")
+                $("#coordRegister").popover("show");
+            else if (data == "ERROR: CONTRASEÑA")
+                $("#passwordCoordRegister").popover("show");
+            else{
+                // $("#RegisterForm").submit();
+                // window.location.href = "";
+            }
+            alert(data);
+        });
+    });
     $("#coordRegister").popover({title: "Número de cuenta registrado", content: "El número de cuenta ingresado ya ha sido registrado", placement: "right"});
     $("#passwordCoordRegister").popover({title: "Contraseñas diferentes", content: "Las contraseñas deben ser iguales", placement: "right"});
     $("#passwordCoordRegister2").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
-    $("#coordRegister").popover("show");
-    $("#passwordCoordRegister").popover("show");
-    $("#passwordCoordRegister2").popover("show");
+    $("input").focus(function(){
+        $("#coordRegister").popover("hide");
+        $("#passwordCoordRegister").popover("hide");
+        $("#passwordCoordRegister2").popover("hide");
+    });
 
 });
