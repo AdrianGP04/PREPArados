@@ -9,16 +9,42 @@
         $coord_extraido = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM COORDINADOR WHERE COORD_NAME = '$consulta' "));
         $alumno_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM USUARIOS WHERE USER_NOCT ='$consulta'"));
         if(isset($coord_extraido)){
-                echo $coord_extraido["COORD_ID"], $coord_extraido["COORD_NAME"], $coord_extraido["COORD_AREA"], $coord_extraido["COORD_COL"];
+            echo '<thead class="tab-result">
+              <tr>
+                <th> ID </th>
+                <th> Nombre </th>
+                <th> Área </th>
+                <th> Colegio </th>
+              </tr>
+            </thead>
+            <tbody class="tab-result">
+              <tr>
+                <td>'.$coord_extraido["COORD_ID"].'</td>
+                <td>'.$coord_extraido["COORD_NAME"].'</td>
+                <td>'.$coord_extraido["COORD_AREA"].'</td>
+                <td>'.$coord_extraido["COORD_COL"].'</td>
+              </tr>
+            </tbody>';
         }
         elseif(isset($admin_extraido)){
-                echo $admin_extraido["ADMIN_ID"], $admin_extraido["ADMIN_NAME"];
+            echo '<thead class="tab-result">
+              <tr>
+                <th> ID </th>
+                <th> Nombre </th>
+              </tr>
+            </thead>
+            <tbody class="tab-result">
+              <tr>
+                <td>'.$admin_extraido["ADMIN_ID"].'</td>
+                <td>'.$admin_extraido["ADMIN_NAME"].'</td>
+              </tr>
+            </tbody>';
         }
         elseif(isset($alumno_extraido)){
             echo '<thead class="tab-result">
               <tr>
-                <th>Nombre</th>
-                <th>Número de cuenta</th>
+                <th> Nombre </th>
+                <th> Número de cuenta </th>
               </tr>
             </thead>
             <tbody class="tab-result">
@@ -27,7 +53,6 @@
                 <td>'.$alumno_extraido["USER_NOCT"].'</td>
               </tr>
             </tbody>';
-                // echo = $alumno_extraido["USER_NOCT"], $alumno_extraido["USER_NAME"];
         }
         else
             echo "ERROR: 404";

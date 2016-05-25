@@ -62,7 +62,8 @@ $(document).ready(function(){
                 $("#ConsultaUsuario").popover("show");
             else if (data == "ERROR: 404")
                 $("#ConsultaUsuarioSubmit").popover("show");
-            else if(!data.includes("ERROR")){
+            else{
+                $("#ConsultaUsuarioSubmit").popover("hide");
                 $("#ConsultaResult").append(data);
             }
         });
