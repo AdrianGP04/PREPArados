@@ -72,17 +72,113 @@
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="Game">
 					<section>
-						<h2> He aquí en donde irá el juego </h2>
+						<div class="container">
+							<h1 class="text-center"> Juego </h1>
+							<form class="form-inline" role="form" align="center">
+								<div class="form-group">
+									<label for="GameMode"> <h2> Modo de juego </h2> </label> <br/>
+									<label class="radio-inline"><input type="radio" name="GameMode"> Un solo jugador <span class="glyphicon glyphicon-user" style="color:green"></span></label>
+									<label class="radio-inline"><input type="radio" name="GameMode">Versus <span class="glyphicon glyphicon-user" style="color:red"></span> <span class="glyphicon glyphicon-user" style="color:blue"></span></label>
+									<label class="radio-inline"><input type="radio" name="GameMode">For glory <span class="glyphicon glyphicon-user" style="color:green"></span> <span class="glyphicon glyphicon-globe" style="color:red"></span></label>
+								</div> <br/> <br/>
+								<div class="form-group">
+									<label for="Theme"> <h3> Escoge la asignatura o asignaturas que quieras jugar </h3> </label> <br/>
+									<div class="checkbox" name="Theme">
+										<div class="row">
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Mate IV</label>
+											</div>
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Mate V</label>
+											</div>
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Mate VI</label>
+											</div>
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Física</label>
+											</div>
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Química</label>
+											</div>
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Biología</label>
+											</div>
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Ética</label>
+											</div>
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Lógica</label>
+											</div>
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Etimologías</label>
+											</div>
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Salud</label>
+											</div>
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Literatura</label>
+											</div>
+											<div class="col-md-3">
+												<label><input type="checkbox" value="">Informática</label>
+											</div>
+										</div>
+									</div>
+								</div> <br/> <br/>
+								<div class="form-group">
+									<label for="Setting"> <h3> Escoge la difícultad que quieras </h3> </label> <br/>
+									<label class="radio-inline"><input type="radio" name="GameMode"> Fácil <span class="glyphicon glyphicon-pawn" style="color:black"></span> </label>
+									<label class="radio-inline"><input type="radio" name="GameMode"> Medio <span class="glyphicon glyphicon-bishop" style="color:black"></span> </label>
+									<label class="radio-inline"><input type="radio" name="GameMode"> Difícil <span class="glyphicon glyphicon-king" style="color:black"></span> </label>
+								</div> <br/> <br/>
+								<div class="form-group">
+									<button class="btn btn-lg btn-success"> Start </button>
+								</div>
+							</form>
+						</div>
 					</section>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="Boards">
 					<section>
-						<h2> He aquí en donde iran los marcadores </h2>
+						<h2 class="text-center"> Marcadores: </h2>
+						<table class="table table-bordered table-hover table-responsive">
+							<tr class="active">
+								<th> # </th>
+								<th> Usuario </th>
+								<th> Puntaje </th>
+							</tr>
+							<tr>
+								<td> 1 </td>
+								<td> Mimicry </td>
+								<td> 28121974 </td>
+							</tr>
+							<tr>
+								<td> 2 </td>
+								<td> Skull </td>
+								<td> 18072008 </td>
+							</tr>
+							<tr>
+								<td> 3 </td>
+								<td> Noot </td>
+								<td> 15602001 </td>
+							</tr>
+						</table> <br/> <br/>
+						<table class="table table-bordered table-hover">
+							<tr>
+								<th> # </th>
+								<th> Usuario </th>
+								<th> Puntaje </th>
+							</tr>
+							<tr>
+								<td> 100 </td>
+								<td> <?php echo $_SESSION["name"]; ?> </td>
+								<td> 000 </td>
+							</tr>
+						</table>
 					</section>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="CheckOn">
 					<section>
-						<h2> He aquí en donde irá el diagnóstico del jugador </h2>
+						<h2> <?php echo $_SESSION["name"]; ?>, tus resultados son estos </h2>
 					</section>
 				</div>
 			</div>
