@@ -9,6 +9,10 @@
         $coord_extraido = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM COORDINADOR WHERE COORD_NAME = '$consulta' "));
         $alumno_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM USUARIOS WHERE USER_NOCT ='$consulta'"));
         if(isset($coord_extraido)){
+            $area = mysqli_fetch_assoc(mysqli_query($con, "SELECT AREAS.AREA_NAME AS 'AREA' FROM AREAS INNER JOIN COORDINADOR
+                ON AREAS.AREA_ID=COORDINADOR.COORD_AREA WHERE COORDINADOR.COORD_ID = '$coord_extraido[COORD_ID]'"));
+                $colegio =  mysqli_fetch_assoc(mysqli_query($con, "SELECT COLEGIOS.COL_NAME AS 'COLEGIO' FROM COLEGIOS INNER JOIN COORDINADOR
+                    ON COLEGIOS.COL_ID=COORDINADOR.COORD_COL WHERE COORDINADOR.COORD_ID = '$coord_extraido[COORD_ID]'"));
             echo '<thead class="tab-result">
               <tr>
                 <th> ID </th>
@@ -21,8 +25,8 @@
               <tr>
                 <td>'.$coord_extraido["COORD_ID"].'</td>
                 <td>'.$coord_extraido["COORD_NAME"].'</td>
-                <td>'.$coord_extraido["COORD_AREA"].'</td>
-                <td>'.$coord_extraido["COORD_COL"].'</td>
+                <td>'.$area["AREA"].'</td>
+                <td>'.$colegio["COLEGIO"].'</td>
               </tr>
             </tbody>';
         }
