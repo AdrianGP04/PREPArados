@@ -78,9 +78,10 @@ $(document).ready(function(){
             TipoUsuario: $("thead").attr("id")
         },
         function(data){
-            if(data == "SUCCESS")
+            if(data == "SUCCESS"){
                 $(".tab-result").remove();
                 $("#EliminarModal").modal("toggle");
+            }
             else if(data == "ERROR: CAMPOS"){
                 $("#ConsultaUsuario").popover("show");
             }
