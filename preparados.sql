@@ -45,6 +45,50 @@ CREATE TABLE `coordinador` (
 INSERT INTO `coordinador` (`COORD_ID`, `COORD_NAME`, `COORD_PASS`) VALUES
 (1, 'José Pérez Hernández', '567gh4573a2d309ee428d488aa259ec94e783f7b71736567jk');
 
+CREATE TABLE `areas` (
+  `AREA_ID` int(2) NOT NULL,
+  `AREA_NAME` varchar(75) COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+INSERT INTO `areas` (`AREA_ID`, `AREA_NAME`) VALUES
+(1, 'Ciencias Físico - Matemáticas y de las Ingenierías'),
+(2, 'Ciencias Biológicas y de la Salud'),
+(3, 'Ciencias Sociales'),
+(4, 'Humanidades y Artes');
+
+CREATE TABLE `colegios` (
+  `COL_NAME` varchar(35) COLLATE latin1_spanish_ci NOT NULL,
+  `AREA_ID` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+INSERT INTO `colegios` (`COL_NAME`, `AREA_ID`) VALUES
+('Física', 1),
+('Informática', 1),
+('Matemáticas', 1),
+('Biología', 2),
+('Educación Física', 2),
+('Morfología, Fisiología y Salud', 2),
+('Orientación Educativa', 2),
+('Psicologia e Higiene Mental', 2),
+('Química', 2),
+('Ciencias Sociales', 3),
+('Geografía', 3),
+('Historia', 3),
+('Alemán', 4),
+('Artes Plásticas', 4),
+('Danza', 4),
+('Dibujo y Modelado', 4),
+('Filosofía', 4),
+('Francés', 4),
+('Inglés', 4),
+('Italiano', 4),
+('Letras Clásicas', 4),
+('Literatura', 4),
+('Música', 4),
+('Teatro', 4),
+('Producción Editorial', 4);
+
+
 
 ALTER TABLE `administrador`
   ADD PRIMARY KEY (`ADMIN_ID`);
@@ -54,6 +98,9 @@ ALTER TABLE `coordinador`
 
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`USER_NOCT`);
+  
+ALTER TABLE `areas`
+ADD PRIMARY KEY (`AREA_ID`);
 
 ALTER TABLE `coordinador`
 MODIFY `COORD_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
