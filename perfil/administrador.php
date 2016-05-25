@@ -73,8 +73,22 @@
 								<input id="coordRegister" data-trigger="focus" name="userRegister" type="text" class="form-control" placeholder="Nombre">
 							</div>
 							<div class="form-group">
+								<label for="areaCoord"> Área de estudio a la que pertenece </label>
+								<select id="areaCoord" class="form-control">
+									<option value="1"> Área I: Ciencias Físico - Matemáticas y de las Ingenierías </option>
+									<option value="2"> Área II: Ciencias Biológicas y de la Salud </option>
+									<option value="3"> Área III: Ciencias Sociales </option>
+									<option value="4"> Área IV: Humanidades y Artes </option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="colegioCoord"> Colegio al que pertenece </label>
+								<select id="colegioCoord" class="form-control">
+								</select>
+							</div>
+							<div class="form-group">
 								<label for="passwordCoordRegister"> Contraseña del coordinador </label>
-								<input id="passwordCoordRegister" data-trigger="focus" ="passwordRegister" type="password" class="form-control password" placeholder="Contraseña">
+								<input id="passwordCoordRegister" data-trigger="focus" type="password" class="form-control password" placeholder="Contraseña">
 							</div>
 							<div class="form-group">
 								<label for="passwordCoordRegister2"> Repetir contraseña </label>
