@@ -24,9 +24,10 @@
             if($checkuser > 0)
                 echo "ERROR: REGISTRADO";
             if($checkuser == 0){
+                $colegio_extraido = mysqli_fetch_assoc(mysqli_query($con, "SELECT COL_ID FROM COLEGIOS WHERE COL_NAME = '$colegio'"));
                 mysqli_query ($con, "SET NAMES 'utf8'");
                 $cpass = randomWord(5).sha1($password).randomWord(5);
-                mysqli_query($con,"INSERT INTO COORDINADOR VALUES (DEFAULT, '$name','$cpass','$area','$colegio')");
+                mysqli_query($con,"INSERT INTO COORDINADOR VALUES (DEFAULT, '$name','$cpass','$area','$colegio_extraido[COL_ID]')");
             }
         }
         else

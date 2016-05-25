@@ -93,6 +93,7 @@
 							<div class="form-group">
 								<label for="passwordCoordRegister2"> Repetir contraseña </label>
 								<input id="passwordCoordRegister2" data-trigger="focus" name="passwordRegister2" type="password" class="form-control password" placeholder="Repetir contraseña">
+								<br/>
 								<span class="help"> <span class="glyphicon glyphicon-eye-close"></span> Mostrar contraseñas </span>
 							</div>
 							<button id="CoordRegisterSubmit" type="submit" class="btn btn-default btn-block"> Registrar coordinador </button>

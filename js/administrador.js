@@ -5,6 +5,14 @@ $(document).ready(function(){
     $(".help").mouseout(function(){
         $(".password").attr("type", "password");
     });
+    $("#coordRegister").popover({title: "Coordinador registrado", content: "El coordinador ingresado ya ha sido registrado", placement: "right"});
+    $("#passwordCoordRegister").popover({title: "Contraseñas diferentes", content: "Las contraseñas deben ser iguales", placement: "right"});
+    $("#passwordCoordRegister2").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
+    $("input").focus(function(){
+        $("#coordRegister").popover("hide");
+        $("#passwordCoordRegister").popover("hide");
+        $("#passwordCoordRegister2").popover("hide");
+    });
     $("#areaCoord").mouseup(function(){
         $(".col").remove();
         $.post("../programs/obtener_colegios.php",
@@ -33,19 +41,9 @@ $(document).ready(function(){
             else if (data == "ERROR: CONTRASEÑA")
                 $("#passwordCoordRegister").popover("show");
             else{
-                // $("#RegisterForm").submit();
-                // window.location.href = "";
+                $("#RegisterForm").submit();
+                window.location.href = "";
             }
-            alert(data);
         });
     });
-    $("#coordRegister").popover({title: "Número de cuenta registrado", content: "El número de cuenta ingresado ya ha sido registrado", placement: "right"});
-    $("#passwordCoordRegister").popover({title: "Contraseñas diferentes", content: "Las contraseñas deben ser iguales", placement: "right"});
-    $("#passwordCoordRegister2").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
-    $("input").focus(function(){
-        $("#coordRegister").popover("hide");
-        $("#passwordCoordRegister").popover("hide");
-        $("#passwordCoordRegister2").popover("hide");
-    });
-
 });

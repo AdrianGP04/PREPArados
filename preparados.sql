@@ -20,34 +20,18 @@ REVOKE ALL PRIVILEGES ON *.* FROM 'PREPArados'@'localhost'; GRANT ALL PRIVILEGES
 --
 
 -- --------------------------------------------------------
-
-CREATE TABLE `usuarios` (
-  `USER_NAME` varchar(40) COLLATE latin1_spanish_ci NOT NULL,
-  `USER_NOCT` char(9) COLLATE latin1_spanish_ci NOT NULL,
-  `USER_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
-  CREATE TABLE `administrador` (
+CREATE TABLE `administrador` (
     `ADMIN_ID` int(11) NOT NULL,
     `ADMIN_NAME` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
     `ADMIN_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
-  INSERT INTO `administrador` (`ADMIN_ID`, `ADMIN_NAME`, `ADMIN_PASS`) VALUES
-(1, 'ENP 6', '324fd71a26f8762c1caf1a345a83f6c846c4b010bf79c97dfe');
-
-CREATE TABLE `coordinador` (
-  `COORD_ID` int(11) NOT NULL,
-  `COORD_NAME` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `COORD_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-INSERT INTO `coordinador` (`COORD_ID`, `COORD_NAME`, `COORD_PASS`) VALUES
-(1, 'José Pérez Hernández', '567gh4573a2d309ee428d488aa259ec94e783f7b71736567jk');
+INSERT INTO `administrador` (`ADMIN_ID`, `ADMIN_NAME`, `ADMIN_PASS`) VALUES
+(1, 'ENP 6', '324fd71a26f8762c1caf1a345a83f6c846c4b010bf79c97dfe');
 
 CREATE TABLE `areas` (
-  `AREA_ID` int(2) NOT NULL,
-  `AREA_NAME` varchar(75) COLLATE latin1_spanish_ci NOT NULL
+    `AREA_ID` int(2) NOT NULL,
+    `AREA_NAME` varchar(75) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 INSERT INTO `areas` (`AREA_ID`, `AREA_NAME`) VALUES
@@ -57,50 +41,73 @@ INSERT INTO `areas` (`AREA_ID`, `AREA_NAME`) VALUES
 (4, 'Humanidades y Artes');
 
 CREATE TABLE `colegios` (
+  `COL_ID` int(2) NOT NULL,
   `COL_NAME` varchar(35) COLLATE latin1_spanish_ci NOT NULL,
   `AREA_ID` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-INSERT INTO `colegios` (`COL_NAME`, `AREA_ID`) VALUES
-('Física', 1),
-('Informática', 1),
-('Matemáticas', 1),
-('Biología', 2),
-('Educación Física', 2),
-('Morfología, Fisiología y Salud', 2),
-('Orientación Educativa', 2),
-('Psicologia e Higiene Mental', 2),
-('Química', 2),
-('Ciencias Sociales', 3),
-('Geografía', 3),
-('Historia', 3),
-('Alemán', 4),
-('Artes Plásticas', 4),
-('Danza', 4),
-('Dibujo y Modelado', 4),
-('Filosofía', 4),
-('Francés', 4),
-('Inglés', 4),
-('Italiano', 4),
-('Letras Clásicas', 4),
-('Literatura', 4),
-('Música', 4),
-('Teatro', 4),
-('Producción Editorial', 4);
+INSERT INTO `colegios` (`COL_ID`, `COL_NAME`, `AREA_ID`) VALUES
+(1, 'Fisica', 1),
+(2, 'Informatica', 1),
+(3, 'Matematicas', 1),
+(4, 'Biologia', 2),
+(5, 'Educacion Fisica', 2),
+(6, 'Morfologia, Fisiologia y Salud', 2),
+(7, 'Orientacion Educativa', 2),
+(8, 'Psicologia e Higiene Mental', 2),
+(9, 'Quimica', 2),
+(10, 'Ciencias Sociales', 3),
+(11, 'Geografia', 3),
+(12, 'Historia', 3),
+(13, 'Aleman', 4),
+(14, 'Artes Plasticas', 4),
+(15, 'Danza', 4),
+(16, 'Dibujo y Modelado', 4),
+(17, 'Filosofia', 4),
+(18, 'Frances', 4),
+(19, 'Ingles', 4),
+(20, 'Italiano', 4),
+(21, 'Letras Clasicas', 4),
+(22, 'Literatura', 4),
+(23, 'Musica', 4),
+(24, 'Teatro', 4),
+(25, 'Produccion Editorial', 4);
 
+
+CREATE TABLE `usuarios` (
+  `USER_NAME` varchar(40) COLLATE latin1_spanish_ci NOT NULL,
+  `USER_NOCT` char(9) COLLATE latin1_spanish_ci NOT NULL,
+  `USER_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+
+CREATE TABLE `coordinador` (
+  `COORD_ID` int(11) NOT NULL,
+  `COORD_NAME` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `COORD_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  `COORD_AREA` int(2) NOT NULL,
+  `COORD_COL` varchar(35) COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 
 ALTER TABLE `administrador`
   ADD PRIMARY KEY (`ADMIN_ID`);
+
+ ALTER TABLE `areas`
+  ADD PRIMARY KEY (`AREA_ID`);
+
+ALTER TABLE `colegios`
+  ADD PRIMARY KEY (`COL_ID`);
 
 ALTER TABLE `coordinador`
   ADD PRIMARY KEY (`COORD_ID`);
 
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`USER_NOCT`);
-  
-ALTER TABLE `areas`
-ADD PRIMARY KEY (`AREA_ID`);
+
 
 ALTER TABLE `coordinador`
-MODIFY `COORD_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `COORD_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `colegios`
+  MODIFY `COL_ID` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
