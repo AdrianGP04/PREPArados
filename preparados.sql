@@ -15,21 +15,11 @@ CREATE DATABASE PREPArados;
 USE PREPArados;
 REVOKE ALL PRIVILEGES ON *.* FROM 'PREPArados'@'localhost'; GRANT ALL PRIVILEGES ON *.* TO 'PREPArados'@'localhost' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Base de datos: `preparados`
 --
 
 -- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuarios`
---
 
 CREATE TABLE `usuarios` (
   `USER_NAME` varchar(40) COLLATE latin1_spanish_ci NOT NULL,
@@ -37,23 +27,33 @@ CREATE TABLE `usuarios` (
   `USER_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
---
--- Volcado de datos para la tabla `usuarios`
---
+  CREATE TABLE `administrador` (
+    `ADMIN_ID` int(11) NOT NULL,
+    `ADMIN_NAME` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
+    `ADMIN_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-INSERT INTO `usuarios` (`USER_NAME`, `USER_NOCT`, `USER_PASS`) VALUES
-('Agarpo04', '315131224', 'cunt513769aadf4349e2b304f488ccba72e926771ef82vñawf');
+  INSERT INTO `administrador` (`ADMIN_ID`, `ADMIN_NAME`, `ADMIN_PASS`) VALUES
+(1, 'ENP 6', '324fd71a26f8762c1caf1a345a83f6c846c4b010bf79c97dfe');
 
---
--- Índices para tablas volcadas
---
+CREATE TABLE `coordinador` (
+  `COORD_ID` int(11) NOT NULL,
+  `COORD_NAME` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `COORD_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
---
--- Indices de la tabla `usuarios`
---
+INSERT INTO `coordinador` (`COORD_ID`, `COORD_NAME`, `COORD_PASS`) VALUES
+(1, 'José Pérez Hernández', '567gh4573a2d309ee428d488aa259ec94e783f7b71736567jk');
+
+
+ALTER TABLE `administrador`
+  ADD PRIMARY KEY (`ADMIN_ID`);
+
+ALTER TABLE `coordinador`
+  ADD PRIMARY KEY (`COORD_ID`);
+
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`USER_NOCT`);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE `coordinador`
+MODIFY `COORD_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
