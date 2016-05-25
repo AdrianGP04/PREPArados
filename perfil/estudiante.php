@@ -126,9 +126,9 @@
 								</div> <br/> <br/>
 								<div class="form-group">
 									<label for="Setting"> <h3> Escoge la difícultad que quieras </h3> </label> <br/>
-									<label class="radio-inline"><input type="radio" name="GameMode"> Fácil <span class="glyphicon glyphicon-pawn" style="color:black"></span> </label>
-									<label class="radio-inline"><input type="radio" name="GameMode"> Medio <span class="glyphicon glyphicon-bishop" style="color:black"></span> </label>
-									<label class="radio-inline"><input type="radio" name="GameMode"> Difícil <span class="glyphicon glyphicon-king" style="color:black"></span> </label>
+									<label class="radio-inline"><input type="radio" name="Setting"> Fácil <span class="glyphicon glyphicon-pawn" style="color:black"></span> </label>
+									<label class="radio-inline"><input type="radio" name="Setting"> Medio <span class="glyphicon glyphicon-bishop" style="color:black"></span> </label>
+									<label class="radio-inline"><input type="radio" name="Setting"> Difícil <span class="glyphicon glyphicon-king" style="color:black"></span> </label>
 								</div> <br/> <br/>
 								<div class="form-group">
 									<button class="btn btn-lg btn-success"> Start </button>
