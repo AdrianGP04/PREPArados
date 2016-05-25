@@ -103,13 +103,27 @@
 			</div>
         </div>
         <div role="tabpanel" class="tab-pane" id="SearchUsers">
-          <section>
-            <h2> Consulta de gráficas mensuales </h2>
-          </section>
+			<br/>
+			<div class="row">
+				<div class="col-lg-6">
+					<section>
+						<form id="ConsultaUsuarioForm" method="POST" action="./programs/registro.php" autocomplete="off">
+							<div class="form-group">
+								<label for="ConsultaUsuario"> Número de cuenta o nombre del usuario</label>
+								<input id="ConsultaUsuario" data-trigger="focus" name="ConsultaUsuario" type="text" class="form-control" placeholder="Número de cuenta | Nombre">
+							</div>
+							<button id="ConsultaUsuarioSubmit" type="submit" class="btn btn-default btn-block"> Buscar </button>
+						</form>
+						<br/>
+						<table id="ConsultaResult" class="table table-bordered">
+						</table>
+					</section>
+				</div>
+			</div>
         </div>
         <div role="tabpanel" class="tab-pane" id="SearchGraphics">
           <section>
-            <h2> Consulta de usuarios </h2>
+            <h2> Consulta de graficas </h2>
           </section>
         </div>
         <div role="tabpanel" class="tab-pane" id="DeleteUsers">
