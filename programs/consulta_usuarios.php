@@ -13,12 +13,13 @@
                 ON AREAS.AREA_ID=COORDINADOR.COORD_AREA WHERE COORDINADOR.COORD_ID = '$coord_extraido[COORD_ID]'"));
                 $colegio =  mysqli_fetch_assoc(mysqli_query($con, "SELECT COLEGIOS.COL_NAME AS 'COLEGIO' FROM COLEGIOS INNER JOIN COORDINADOR
                     ON COLEGIOS.COL_ID=COORDINADOR.COORD_COL WHERE COORDINADOR.COORD_ID = '$coord_extraido[COORD_ID]'"));
-            echo '<thead class="tab-result">
+            echo '<thead class="tab-result" id="coordinador">
               <tr>
                 <th> ID </th>
                 <th> Nombre </th>
                 <th> Área </th>
                 <th> Colegio </th>
+                <th> Eliminar </th>
               </tr>
             </thead>
             <tbody class="tab-result">
@@ -27,6 +28,7 @@
                 <td>'.$coord_extraido["COORD_NAME"].'</td>
                 <td>'.$area["AREA"].'</td>
                 <td>'.$colegio["COLEGIO"].'</td>
+                <td class="EliminarLink"> <a> <span class="glyphicon glyphicon-remove"> </span> Eliminar usuario </a></td>
               </tr>
             </tbody>';
         }
@@ -45,16 +47,18 @@
             </tbody>';
         }
         elseif(isset($alumno_extraido)){
-            echo '<thead class="tab-result">
+            echo '<thead class="tab-result" id="alumno">
               <tr>
                 <th> Nombre </th>
                 <th> Número de cuenta </th>
+                <th> Eliminar </th>
               </tr>
             </thead>
             <tbody class="tab-result">
               <tr>
                 <td>'.$alumno_extraido["USER_NAME"].'</td>
                 <td>'.$alumno_extraido["USER_NOCT"].'</td>
+                <td class="EliminarLink"> <span class="glyphicon glyphicon-remove"></span> Eliminar usuario </td>
               </tr>
             </tbody>';
         }

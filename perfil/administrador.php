@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Coordinador | Menu </title>
+		<title> Administrador | Menu </title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +59,6 @@
         <li role="presentation" class="active"> <a href="#CreateAccounts" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span> Crear cuentas de coordinadores</a> </li>
         <li role="presentation"> <a href="#SearchGraphics" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span> Consulta de gráficas mensuales </a></li>
         <li role="presentation"> <a href="#SearchUsers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span> Consultar usuarios </a></li>
-        <li role="presentation"> <a href="#DeleteUsers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-remove"></span> Eliminar usuarios </a></li>
       </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="CreateAccounts">
@@ -126,12 +125,21 @@
             <h2> Consulta de graficas </h2>
           </section>
         </div>
-        <div role="tabpanel" class="tab-pane" id="DeleteUsers">
-          <section>
-            <h2> Eliminación de usuarios </h2>
-          </section>
-        </div>
       </div>
+	  <div class="modal fade" id="EliminarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				  <div data-trigger="focus"  id="modal-header-EliminarModal"  class="modal-header">
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					  <h4 class="modal-title" id="myModalLabel">Eliminar usuario</h4>
+				  </div>
+				  <div class="modal-body">
+						<button id="EliminarUsuario" class="btn btn-block btn-danger"> Eliminar </button>
+						<button class="btn btn-block btn-info" data-dismiss="modal"> Cancelar </button>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
     </div>
   </body>
   <script src="../js/administrador.js"></script>

@@ -66,6 +66,24 @@ $(document).ready(function(){
                 $("#ConsultaUsuarioSubmit").popover("hide");
                 $("#ConsultaResult").append(data);
             }
+            $(".EliminarLink").bind("click",function(){
+                $("#EliminarModal").modal();
+            });
+        });
+    });
+    $("#EliminarUsuario").click(function(){
+        $.post("../programs/eliminar_usuarios.php",
+        {
+            EliminarUsuario: $("#ConsultaUsuario").val(),
+            TipoUsuario: $("thead").attr("id")
+        },
+        function(data){
+            if(data == "SUCCESS")
+                $(".tab-result").remove();
+                $("#EliminarModal").modal("toggle");
+            else if(data == "ERROR: CAMPOS"){
+                $("#ConsultaUsuario").popover("show");
+            }
         });
     });
 });
