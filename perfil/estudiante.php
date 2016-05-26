@@ -14,6 +14,7 @@
         <script src="../bootstrap/js/jquery.min.js"></script>
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <script src="../bootstrap/js/bootstrap.min.js"></script>
+		<script src="../js/jquery-2.2.3.js"></script>
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -55,9 +56,10 @@
 				</div>
 			</nav>
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"> <a href="#Game" role="tab" data-toggle="tab"> Juego <span class="glyphicon glyphicon-knight"></span> </a> </li>
+				<li role="presentation" class="active" id="Intro"> <a href="#Game" role="tab" data-toggle="tab"> Juego <span class="glyphicon glyphicon-knight"></span> </a> </li>
 				<li role="presentation"> <a href="#Boards" role="tab" data-toggle="tab"> Marcadores <span class="glyphicon glyphicon-stats"></span> </a> </li>
 				<li role="presentation"> <a href="#CheckOn" role="tab" data-toggle="tab"> Diagnóstico <span class="glyphicon glyphicon-education"></span> </a> </li>
+				<li role="presentation" id="ShowTime"> <a href="#Match" role="tab" data-toggle="tab" class="hidden" id="Ninja"> Partida <span class="glyphicon glyphicon-tower"></span> </a> </li>
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <span class="glyphicon glyphicon-tint"></span> Cambiar colores <span class="caret"></span></a>
 					<ul class="dropdown-menu">
@@ -74,65 +76,67 @@
 					<section>
 						<div class="container">
 							<h1 class="text-center"> Juego </h1>
-							<form class="form-inline" role="form" align="center">
+							<form class="form-inline" role="form" align="center" id="GameSet" action="#" method="POST">
+							<fieldset>
 								<div class="form-group">
 									<label for="GameMode"> <h2> Modo de juego </h2> </label> <br/>
-									<label class="radio-inline"><input type="radio" name="GameMode"> Un solo jugador <span class="glyphicon glyphicon-user" style="color:green"></span></label>
-									<label class="radio-inline"><input type="radio" name="GameMode">Versus <span class="glyphicon glyphicon-user" style="color:red"></span> <span class="glyphicon glyphicon-user" style="color:blue"></span></label>
-									<label class="radio-inline"><input type="radio" name="GameMode">For glory <span class="glyphicon glyphicon-user" style="color:green"></span> <span class="glyphicon glyphicon-globe" style="color:red"></span></label>
+									<label class="radio-inline"><input type="radio" name="GameMode" value="1" class="Mode"> Un solo jugador <span class="glyphicon glyphicon-user" style="color:green"></span></label>
+									<label class="radio-inline"><input type="radio" name="GameMode" value="2" class="Mode">Versus <span class="glyphicon glyphicon-user" style="color:red"></span> <span class="glyphicon glyphicon-user" style="color:blue"></span></label>
+									<label class="radio-inline"><input type="radio" name="GameMode" value="3" class="Mode">For glory <span class="glyphicon glyphicon-user" style="color:green"></span> <span class="glyphicon glyphicon-globe" style="color:red"></span></label>
 								</div> <br/> <br/>
 								<div class="form-group">
 									<label for="Theme"> <h3> Escoge la asignatura o asignaturas que quieras jugar </h3> </label> <br/>
 									<div class="checkbox" name="Theme">
 										<div class="row">
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Mate IV</label>
+												<label><input type="checkbox" value="1" name="subject">Mate IV</label>
 											</div>
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Mate V</label>
+												<label><input type="checkbox" value="2" name="subject">Mate V</label>
 											</div>
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Mate VI</label>
+												<label><input type="checkbox" value="3" name="subject">Mate VI</label>
 											</div>
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Física</label>
+												<label><input type="checkbox" value="4" name="subject">Física</label>
 											</div>
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Química</label>
+												<label><input type="checkbox" value="5" name="subject">Química</label>
 											</div>
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Biología</label>
+												<label><input type="checkbox" value="6" name="subject">Biología</label>
 											</div>
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Ética</label>
+												<label><input type="checkbox" value="7" name="subject">Ética</label>
 											</div>
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Lógica</label>
+												<label><input type="checkbox" value="8" name="subject">Lógica</label>
 											</div>
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Etimologías</label>
+												<label><input type="checkbox" value="9" name="subject">Etimologías</label>
 											</div>
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Salud</label>
+												<label><input type="checkbox" value="10" name="subject">Salud</label>
 											</div>
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Literatura</label>
+												<label><input type="checkbox" value="11" name="subject">Literatura</label>
 											</div>
 											<div class="col-md-3">
-												<label><input type="checkbox" value="">Informática</label>
+												<label><input type="checkbox" value="12" name="subject">Informática</label>
 											</div>
 										</div>
 									</div>
 								</div> <br/> <br/>
 								<div class="form-group">
 									<label for="Setting"> <h3> Escoge la difícultad que quieras </h3> </label> <br/>
-									<label class="radio-inline"><input type="radio" name="Setting"> Fácil <span class="glyphicon glyphicon-pawn" style="color:black"></span> </label>
-									<label class="radio-inline"><input type="radio" name="Setting"> Medio <span class="glyphicon glyphicon-bishop" style="color:black"></span> </label>
-									<label class="radio-inline"><input type="radio" name="Setting"> Difícil <span class="glyphicon glyphicon-king" style="color:black"></span> </label>
+									<label class="radio-inline"><input type="radio" name="Setting" class="Set" value="1"> Fácil <span class="glyphicon glyphicon-pawn" style="color:black"></span> </label>
+									<label class="radio-inline"><input type="radio" name="Setting" class="Set" value="2"> Medio <span class="glyphicon glyphicon-bishop" style="color:black"></span> </label>
+									<label class="radio-inline"><input type="radio" name="Setting" class="Set" value="3"> Difícil <span class="glyphicon glyphicon-king" style="color:black"></span> </label>
 								</div> <br/> <br/>
-								<div class="form-group">
-									<button class="btn btn-lg btn-success"> Start </button>
+								<div class="form-group" >
+									<input type="submit" id="Help" class="btn btn-lg btn-success" value="Start" >
 								</div>
+							</fieldset>
 							</form>
 						</div>
 					</section>
@@ -181,7 +185,28 @@
 						<h2> <?php echo $_SESSION["name"]; ?>, tus resultados son estos </h2>
 					</section>
 				</div>
+				<div role="tabpanel" class="tab-pane" id="Match">
+					<section>
+						<h2> Game On!</h2>
+						<div class="jumbotron">
+							<div class="row">
+								<div class="col-md-5">
+									<p> Aquí va una imagen </p>
+								</div>
+								<div class="col-md-7">
+									<h2 class="text-center"> Pregunta </h2>
+									<button class="btn btn-block btn-warning"> Respuesta 1 </button>
+									<button class="btn btn-block btn-warning"> Respuesta 2 </button>
+									<button class="btn btn-block btn-warning"> Respuesta 3 </button>
+									<button class="btn btn-block btn-warning"> Respuesta 4 </button>
+								</div>
+							</div>
+						</div>
+						<h3 id="Status"> </h3>
+					</section>
+				</div>
 			</div>
 		</div>
+		<script src="../js/Juego.js"></script>
 	</body>
 </html>
