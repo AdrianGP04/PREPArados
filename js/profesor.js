@@ -39,4 +39,20 @@ $(document).ready(function(){
             $("#PlanResult").append(data);
         });
     });
+    $("#QuestionRegisterSubmit").click(function(event){
+        event.preventDefault();
+        $.post("../programs/registrar_pregunta.php",
+        {
+            subject: $("#subject").val(),
+            question: $("#question").val(),
+            c_Answer: $("#c_Answer").val(),
+            i_Answer1: $("#i_Answer1").val(),
+            i_Answer2: $("#i_Answer2").val(),
+            i_Answer3: $("#i_Answer3").val(),
+            q_Img: $("#q_Img").val()
+        },
+        function(data){
+            alert(data);
+        });
+    });
 });

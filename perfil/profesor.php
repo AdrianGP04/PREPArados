@@ -66,7 +66,7 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<section>
-								<form id="RegisterFormCoord" method="POST" action="./programs/registro_pregunta.php" autocomplete="off">
+								<form id="RegisterFormCoord" method="POST" action="./programs/registro_pregunta.php" autocomplete="off" enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="subject"> Seleccione la asignatura </label>
 										<select id="subject" name="subject" class="form-control">
@@ -82,7 +82,7 @@
 									</div>
 									<div class="form-group">
 										<label for="subject"> Introduzca respuestas incorrectas </label>
-										<input id="i_Answer1" autocomplete=""type="text" name="i_Answer1" placeholder="Respuesta incorrecta" class="form-control">
+										<input id="i_Answer1" type="text" name="i_Answer1" placeholder="Respuesta incorrecta" class="form-control" >
 									</div>
 									<div class="form-group">
 										<input id="i_Answer2" type="text" name="i_Answer2" placeholder="Respuesta incorrecta" class="form-control">
@@ -96,6 +96,7 @@
 									</div>
 									<button id="QuestionRegisterSubmit" type="submit" class="btn btn-default btn-block"> Registrar pregunta </button>
 								</form>
+								<img src="">
 							</section>
 						</div>
 					</div>
