@@ -91,7 +91,7 @@
 										<input id="i_Answer3" type="text" name="i_Answer3" placeholder="Respuesta incorrecta" class="form-control">
 									</div>
 									<div class="form-group">
-										<label for="q_Img"> Agregar una imagen a la pregunta </label>
+										<label for="q_Img"> Agregar una imagen a la pregunta (opcional) </label>
 										<input id="q_Img" type="file" name="q_Img" class="form-control">
 									</div>
 									<button id="QuestionRegisterSubmit" type="submit" class="btn btn-default btn-block"> Registrar pregunta </button>
@@ -149,8 +149,6 @@
 					</form>
 					<table id="PlanResult" class="table table-bordered">
 					</table>
-						<!-- <h2> Planes de estudio </h2> -->
-						<!-- <a href="http://dgenp.unam.mx/planesdeestudio/sexto/1601.pdf" download> lol </a> -->
 				</div>
 
 			</div>

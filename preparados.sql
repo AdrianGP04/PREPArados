@@ -149,7 +149,10 @@ INSERT INTO `materias` (`MAT_ID`, `MAT_NAME`, `MAT_COL`) VALUES
 (1713, 'Latin', 21),
 (1714, 'Griego', 21),
 (1715, 'Comunicacion Visual', 16),
-(1717, 'Estetica', 17);
+(1717, 'Estetica', 17),
+(1600, 'Matematicas VI (Area I y II)', 3),
+(1619, 'Matematicas VI (Area III)', 3),
+(1620, 'Matematicas VI (Area IV)', 3);
 
 CREATE TABLE `profesor` (
   `PROF_ID` int(11) NOT NULL,
