@@ -16,6 +16,9 @@
         while ($row = mysqli_fetch_assoc($area_extraido)){
             echo "<option class='mat' value='".$row["MAT_NAME"]."'> ".$row["MAT_NAME"]." </option>";
         }
+        if(empty(mysqli_fetch_assoc($area_extraido))){
+            echo "NO SUBJECTS";
+        }
 
     }
 ?>

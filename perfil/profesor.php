@@ -111,6 +111,10 @@
 					</section>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="Check_P" style="height: 100%;">
+					<br/>
+					<div class="row">
+						<div class="col-lg-6">
+
 					<form id="PlanesEstudio" autocomplete="off">
 						<div class="form-group">
 							<label for="colegioPlan"> Colegio </label>
@@ -143,12 +147,14 @@
 						</div>
 						<div class="form-group">
 							<label for="materiaPlan"> Materia </label>
-							<select id="materiaPlan" class="form-control">
+							<select id="materiaPlan"  data-trigger="focus" class="form-control">
 							</select>
 						</div>
 					</form>
 					<table id="PlanResult" class="table table-bordered">
 					</table>
+				</div>
+			</div>
 				</div>
 
 			</div>

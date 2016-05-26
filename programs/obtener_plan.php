@@ -16,6 +16,7 @@
         <th> Clave </th>
         <th> Nombre </th>
         <th> Plan de estudios </th>
+        <th> Descargar plan </th>
       </tr>
     </thead>
     <tbody class="tab-result">
@@ -23,5 +24,7 @@
         <td>'.$materia_extraido["MAT_ID"].'</td>
         <td>'.$materia_extraido["MAT_NAME"].'</td>
         <td> <a href="http://dgenp.unam.mx/planesdeestudio/'.$mat_grado.'/'.$materia_extraido["MAT_ID"].'.pdf" target="_blank"> Plan de estudios </a></td>
+        <td> <a href="http://dgenp.unam.mx/planesdeestudio/'.$mat_grado.'/'.$materia_extraido["MAT_ID"].'.pdf"> Descargar </a></td>
       </tr>
-    </tbody>';?>
+    </tbody>';
+?>

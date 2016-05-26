@@ -8,12 +8,25 @@ $(document).ready(function(){
     });
     $("#colegioPlan").mouseup(function(){
         $(".mat").remove();
+        $(".tab-result").remove();
         $.post("../programs/obtener_materias.php",
         {
             colegio: $("#colegioPlan").val()
         },
         function(data){
-            $("#materiaPlan").append(data);
+            if(data != "NO SUBJECTS"){
+                $("#materiaPlan").append(data);
+                $("#materiaPlan").removeAttr("disabled");
+                $("#materiaPlan").popover("hide");
+                $("#materiaPlan").focus(function(){
+                    $("#materiaPlan").popover("hide");
+                });
+            }
+            else{
+                $("#materiaPlan").attr("disabled","on");
+                $("#materiaPlan").popover({title: "Sin resultados", content: "No se han encontrado materias", placement: "right"});
+                $("#materiaPlan").popover("show");
+            }
         });
     });
     $("#materiaPlan").mouseup(function(){
