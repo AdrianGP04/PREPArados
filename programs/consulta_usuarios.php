@@ -28,7 +28,7 @@
                 <td>'.$coord_extraido["COORD_NAME"].'</td>
                 <td>'.$area["AREA"].'</td>
                 <td>'.$colegio["COLEGIO"].'</td>
-                <td class="EliminarLink"> <a> <span class="glyphicon glyphicon-remove"> </span> Eliminar usuario </a></td>
+                <td class="EliminarLink"> <span class="glyphicon glyphicon-remove"> </span> Eliminar usuario </td>
               </tr>
             </tbody>';
         }
@@ -49,7 +49,7 @@
         elseif(isset($alumno_extraido)){
             echo '<thead class="tab-result" id="alumno">
               <tr>
-                <th> Nombre </th>
+                <th> Nombre de usuario </th>
                 <th> Número de cuenta </th>
                 <th> Eliminar </th>
               </tr>

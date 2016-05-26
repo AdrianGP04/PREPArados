@@ -131,7 +131,7 @@
 			  <div class="modal-content">
 				  <div data-trigger="focus"  id="modal-header-EliminarModal"  class="modal-header">
 					  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					  <h4 class="modal-title" id="myModalLabel">Eliminar usuario</h4>
+					  <h4 class="modal-title" id="myModalLabel"> Eliminar usuario </h4>
 				  </div>
 				  <div class="modal-body">
 						<button id="EliminarUsuario" class="btn btn-block btn-danger"> Eliminar </button>

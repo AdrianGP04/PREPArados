@@ -5,7 +5,7 @@ $(document).ready(function(){
     $(".help").mouseout(function(){
         $(".password").attr("type", "password");
     });
-    $("#numCuentaLogIn").popover({title: "Número de cuenta incorrecto", content: "El número de cuenta ingresado es erróneo", placement: "right"});
+    $("#numCuentaLogIn").popover({title: "Identifiación incorrecta", content: "El indentificador de cuenta ingresado es erróneo", placement: "right"});
     $("#numCuentaLogIn").tooltip({title: "En caso de otro tipo de cuenta, ingrese su nombre", placement: "right"});
     $("#passwordLogIn").popover({title: "Contraseña incorrecta", content: "La contraseña ingresada es errónea", placement: "right"});
     $("#modal-header-LogIn").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
