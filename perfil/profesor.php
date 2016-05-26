@@ -58,6 +58,7 @@
 				<li role="presentation" class="active"> <a href="#Add" role="tab" data-toggle="tab"> Agregar Preguntas <span class="glyphicon glyphicon-pencil"></span> </a> </li>
 				<li role="presentation"> <a href="#Check_Q" role="tab" data-toggle="tab"> Checar preguntas <span class="glyphicon glyphicon-search"></span> </a> </li>
 				<li role="presentation"> <a href="#Check_S" role="tab" data-toggle="tab"> Diagnóstico de estudiantes <span class="glyphicon glyphicon-list-alt"></span> </a> </li>
+				<li role="presentation"> <a href="#Check_P" role="tab" data-toggle="tab"> Planes de estudio <span class="glyphicon glyphicon-blackboard"></span> </a> </li>
 			</ul>
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="Add">
@@ -109,6 +110,49 @@
 						<h2> He aquí en donde irá el diagnóstico de los jugadores</h2>
 					</section>
 				</div>
+				<div role="tabpanel" class="tab-pane" id="Check_P" style="height: 100%;">
+					<form id="PlanesEstudio" autocomplete="off">
+						<div class="form-group">
+							<label for="colegioPlan"> Colegio </label>
+							<select id="colegioPlan" class="form-control">
+								<option value="1"> Fisica</option>
+								<option value="2"> Informatica </option>
+								<option value="3"> Matematicas </option>
+								<option value="4"> Biologia </option>
+								<option value="5"> Educacion Fisica </option>
+								<option value="6"> Morfologia, Fisiologia y Salud </option>
+								<option value="7"> Orientacion Educativa </option>
+								<option value="8"> Psicologia e Higiene Mental </option>
+								<option value="9"> Quimica </option>
+								<option value="10"> Ciencias Sociales </option>
+								<option value="11"> Geografia </option>
+								<option value="12"> Historia </option>
+								<option value="13"> Aleman </option>
+								<option value="14"> Artes Plasticas </option>
+								<option value="15"> Danza </option>
+								<option value="16"> Dibujo y Modelado </option>
+								<option value="17"> Filosofia </option>
+								<option value="18"> Frances </option>
+								<option value="19"> Ingles </option>
+								<option value="20"> Italiano </option>
+								<option value="21"> Letras Clasicas </option>
+								<option value="22"> Literatura</option>
+								<option value="23"> Musica </option>
+								<option value="24"> Teatro </option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="materiaPlan"> Materia </label>
+							<select id="materiaPlan" class="form-control">
+							</select>
+						</div>
+					</form>
+					<table id="PlanResult" class="table table-bordered">
+					</table>
+						<!-- <h2> Planes de estudio </h2> -->
+						<!-- <a href="http://dgenp.unam.mx/planesdeestudio/sexto/1601.pdf" download> lol </a> -->
+				</div>
+
 			</div>
 		</div>
 	</body>
