@@ -26,7 +26,7 @@ $(document).ready(function(){
                 $("#modal-header-LogIn").popover("toggle");
             else if (data == "ERROR: REGISTRO")
                 $("#numCuentaLogIn").popover("toggle");
-            else if (data == "ERROR: ALUMNO" || data == "ERROR: ADMIN" || data == "ERROR: COORD")
+            else if (data == "ERROR: ALUMNO" || data == "ERROR: ADMIN" || data == "ERROR: COORD" || data == "ERROR: PROF")
                 $("#passwordLogIn").popover("toggle");
             else
                 $("#logInForm").submit();
