@@ -41,7 +41,7 @@
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <span class="glyphicon glyphicon-user"> </span> Mi cuenta <span class="caret"> </span> </a>
 								<ul class="dropdown-menu">
 									<li> <a href="#"> Configuraciones <span class="glyphicon glyphicon-cog"></span> </a> </li>
-									<li> <a href="#"> Salir de mi cuenta <span class="glyphicon glyphicon-log-out"></span> </a> </li>
+									<li> <a href="../programs/cerrar.php"> Salir de mi cuenta <span class="glyphicon glyphicon-log-out"></span> </a> </li>
 								</ul>
 							</li>
 						</ul>
@@ -49,7 +49,7 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right visible-xs">
                             <li> <a href="#"> Configuraciones <span class="glyphicon glyphicon-cog"></span> </a> </li>
-                            <li> <a href="#"> Salir de mi cuenta <span class="glyphicon glyphicon-log-out"></span> </a> </li>
+                            <li> <a href="../programs/cerrar.php"> Salir de mi cuenta <span class="glyphicon glyphicon-log-out"></span> </a> </li>
 	                    </ul>
 					</div>
 				</div>
@@ -61,45 +61,43 @@
 			</ul>
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="Add">
-					<section>
-						<h2 class="text-center"> Agregue una pregunta </h2>
-						<div class="container">
-							<form class="form-horizontal">
-								<div class="form-group">
-									<label for="subject"> Seleccione la asignatura </label>
-									<select name="subject" class="form-control">
-										<option value="1"> Matemáticas IV </option>
-										<option value="2"> Química </option>
-										<option value="3"> Física </option>
-										<option value="4"> Biología </option>
-									</select>
-								</div>
-								<div class="form-group">
-									<label for="Question"> Introduzca una pregunta </label>
-									<input type="text" name="Question" placeholder="Introduce la pregunta que quieras aquí" class="form-control">
-								</div>
-								<div class="form-group">
-									<label for="subject"> Introduzca la respuesta correcta </label>
-									<input type="text" name="C_Answer" placeholder="Introduce aquí la respuesta correcta" class="form-control">
-								</div>
-								<div class="form-group">
-									<label for="subject"> Introduzca respuestas incorrectas </label>
-									<input type="text" name="I_Answer1" placeholder="Introduce aquí una respuesta incorrecta" class="form-control">
-								</div>
-								<div class="form-group">
-									<input type="text" name="I_Answer2" placeholder="Introduce aquí una respuesta incorrecta" class="form-control">
-								</div>
-								<div class="form-group">
-									<input type="text" name="I_Answer3" placeholder="Introduce aquí una respuesta incorrecta" class="form-control">
-								</div>
-								<div class="form-group">
-									<label for="Q_Img"> Agregar una imagen a la pregunta </label>
-									<input type="file" name="Q_Img" class="form-control">
-								</div>
-								<button class="btn btn-info btn-block"> Enviar </button>
-							</form>
+					<br/>
+					<div class="row">
+						<div class="col-lg-6">
+							<section>
+								<form id="RegisterFormCoord" method="POST" action="./programs/registro_pregunta.php" autocomplete="off">
+									<div class="form-group">
+										<label for="subject"> Seleccione la asignatura </label>
+										<select id="subject" name="subject" class="form-control">
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="question"> Introduzca una pregunta </label>
+										<input id="question" type="text" name="question" placeholder="Pregunta" class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="subject"> Introduzca la respuesta correcta </label>
+										<input id="c_Answer" type="text" name="c_Answer" placeholder="Respuesta correcta" class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="subject"> Introduzca respuestas incorrectas </label>
+										<input id="i_Answer1" autocomplete=""type="text" name="i_Answer1" placeholder="Respuesta incorrecta" class="form-control">
+									</div>
+									<div class="form-group">
+										<input id="i_Answer2" type="text" name="i_Answer2" placeholder="Respuesta incorrecta" class="form-control">
+									</div>
+									<div class="form-group">
+										<input id="i_Answer3" type="text" name="i_Answer3" placeholder="Respuesta incorrecta" class="form-control">
+									</div>
+									<div class="form-group">
+										<label for="q_Img"> Agregar una imagen a la pregunta </label>
+										<input id="q_Img" type="file" name="q_Img" class="form-control">
+									</div>
+									<button id="QuestionRegisterSubmit" type="submit" class="btn btn-default btn-block"> Registrar pregunta </button>
+								</form>
+							</section>
 						</div>
-					</section>
+					</div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="Check_Q">
 					<section>
@@ -114,4 +112,5 @@
 			</div>
 		</div>
 	</body>
+	<script src="../js/profesor.js"></script>
 </html>
