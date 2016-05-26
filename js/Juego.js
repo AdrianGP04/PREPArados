@@ -4,7 +4,7 @@ $("#Help").on("click",function()
 	event.preventDefault();
 	$("#Ninja").attr("class","");
 	$("fieldset").attr("disabled","");
-	
+
 	var Mode= $(".Mode:checked").val();
 	var Set= $(".Set:checked").val();
 	/*$("input[name='subject']:checked").each(function()
@@ -17,9 +17,9 @@ $("#Help").on("click",function()
 	var x=100;
 	
 	$.ajax({
-		
+
 		url: "../programs/Status.php",
-		
+
 		data:{
 			Mode: Mode,
 			Set: Set= Set
@@ -265,6 +265,7 @@ $(".Answers").on("click", function()      //Para cuando el juego empieza
 	});		
 	
 	
-	
-	
+
+
+
 });

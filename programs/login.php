@@ -9,6 +9,7 @@
         $admin_extraido = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM ADMINISTRADOR WHERE ADMIN_NAME = '$nocta' "));
         $coord_extraido = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM COORDINADOR WHERE COORD_NAME = '$nocta' "));
         $alumno_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM USUARIOS WHERE USER_NOCT ='$nocta'"));
+        $profesor_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM PROFESOR WHERE PROF_NAME ='$nocta'"));
         if(isset($coord_extraido)){
             $cpassCoord = substr($coord_extraido["COORD_PASS"], 5, 40);
             if(sha1($password) == $cpassCoord){
@@ -41,6 +42,18 @@
             }
             else
                 echo "ERROR: ALUMNO";
+        }
+        elseif(isset($profesor_extraido)){
+            $cpassProf = substr($profesor_extraido["PROF_PASS"], 5, 40);
+            if(sha1($password) == $cpassProf){
+                session_start();
+                $_SESSION["ID"] = $profesor_extraido["PROF_ID"];
+                $_SESSION["name"] = $profesor_extraido["PROF_NAME"];
+                $_SESSION["COL"] = $profesor_extraido["PROF_COL"];
+                header("Location: ../perfil/profesor.php");
+            }
+            else
+                echo "ERROR: PROF";
         }
         else
             echo "ERROR: REGISTRO";
