@@ -57,7 +57,7 @@
 			</nav>
       <ul class="nav nav-tabs text-center" role="tablist">
         <li role="presentation" class="active"> <a href="#CreateAccounts" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span> Crear cuentas de profesores</a> </li>
-        <li role="presentation"> <a href="ApproveQuestions" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span> Aprobar preguntas</a></li>
+        <li role="presentation"> <a href="#ApproveQuestions" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span> Aprobar preguntas</a></li>
       </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="CreateAccounts">
@@ -100,11 +100,36 @@
 				</div>
 			</div>
         </div>
-        <div role="tabpanel" class="tab-pane" id="ApproveQuestions">
-          <section>
-            <h2> He aquí en donde se aprovaran las preguntas</h2>
-          </section>
-        </div>
+		<div role="tabpanel" class="tab-pane" id="ApproveQuestions">
+			<br/>
+			<div class="row">
+				<div class="col-lg-6">
+					<section>
+						<form id="Approve" method="POST" action="./programs/____.php" autocomplete="off">
+							<div class="form-group">
+								<label for="approveArea"> Seleccione un área de estudio </label>
+								<select id="approveArea" class="form-control">
+									<option value="1"> Área I: Ciencias Físico - Matemáticas y de las Ingenierías </option>
+									<option value="2"> Área II: Ciencias Biológicas y de la Salud </option>
+									<option value="3"> Área III: Ciencias Sociales </option>
+									<option value="4"> Área IV: Humanidades y Artes </option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="approveColegio"> Seleccione un colegio </label>
+								<select id="approveColegio" class="form-control">
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="approveMateria"> Seleccione una materia </label>
+								<select id="approveMateria" class="form-control">
+								</select>
+							</div>
+						</form>
+					</section>
+				</div>
+			</div>
+		</div>
       </div>
     </div>
   </body>

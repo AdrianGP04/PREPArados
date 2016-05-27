@@ -46,4 +46,38 @@ $(document).ready(function(){
             }
         });
     });
+    $("#approveArea").mouseup(function(){
+        $(".col").remove();
+        $.post("../programs/obtener_colegios.php",
+        {
+            area: $(this).val()
+        },
+        function(data){
+            $("#approveColegio").append(data);
+        });
+    });
+    $("#approveColegio").mouseup(function(){
+        $(".mat").remove();
+        $(".tab-result").remove();
+        $.post("../programs/obtener_materias.php",
+        {
+            colegio: $(this).val(),
+            aprobar: true
+        },
+        function(data){
+            if(data != "NO SUBJECTS"){
+                $("#approveMateria").append(data);
+                $("#materiaPlan").removeAttr("disabled");
+                $("#materiaPlan").popover("hide");
+                $("#materiaPlan").focus(function(){
+                    $("#materiaPlan").popover("hide");
+                });
+            }
+            else{
+                $("#materiaPlan").attr("disabled","on");
+                $("#materiaPlan").popover({title: "Sin resultados", content: "No se han encontrado materias", placement: "right"});
+                $("#materiaPlan").popover("show");
+            }
+        });
+    });
 });
