@@ -79,6 +79,25 @@ $(document).ready(function(){
         function(data){
             $("#preguntaResultProf").append(data);
             $('[data-toggle="tooltip"]').tooltip();
+            $(".delete").click(function(){
+                pregunta_id = $(this).attr("id"); //global
+                pregunta_id = pregunta_id.slice(3);
+            });
+        });
+    });
+    $("#EliminarConfirm").click(function(){
+        $.post("../programs/eliminar_pregunta.php",
+        {
+            pregunta: pregunta_id
+        },
+        function(data){
+            if(data == "SUCCESS"){
+                $(".tab-result").remove();
+                $("#preguntaDelete").modal("toggle");
+            }
+            else {
+                alert("error");
+            }
         });
     });
     $("input").focus(function(){
