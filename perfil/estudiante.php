@@ -194,15 +194,21 @@
 									<p> Aquí va una imagen </p>
 								</div>
 								<div class="col-md-7">
-									<h2 class="text-center"> Pregunta </h2>
-									<button class="btn btn-block btn-warning"> Respuesta 1 </button>
-									<button class="btn btn-block btn-warning"> Respuesta 2 </button>
-									<button class="btn btn-block btn-warning"> Respuesta 3 </button>
-									<button class="btn btn-block btn-warning"> Respuesta 4 </button>
+									<h2 class="text-center" id="Question"> Pregunta </h2>
+									<button class="btn btn-block btn-warning Answers" id="A1" value="0"> Respuesta 1 </button>
+									<button class="btn btn-block btn-warning Answers" id="A2" value="0"> Respuesta 2 </button>
+									<button class="btn btn-block btn-warning Answers" id="A3" value="0"> Respuesta 3 </button>
+									<button class="btn btn-block btn-warning Answers" id="A4" value="0"> Respuesta 4 </button>
 								</div>
 							</div>
 						</div>
 						<h3 id="Status"> </h3>
+						<h3> Tiempo: </h3>
+						<div class="progress">
+							<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" style="width:0%" id="Barra">
+								<span class="glyphicon glyphicon-time" style="color:black"></span>
+							</div>
+						</div>
 					</section>
 				</div>
 			</div>
