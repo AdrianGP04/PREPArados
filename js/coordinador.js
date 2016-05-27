@@ -103,6 +103,7 @@ $(document).ready(function(){
                     id: pregunta_id
                 },
                 function(data){
+                    $("#modalApprove").modal("show");
                 });
             });
         });
