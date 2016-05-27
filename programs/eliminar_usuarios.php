@@ -6,19 +6,19 @@
         $name = mysqli_real_escape_string($con, $_POST["EliminarUsuario"]);
         $type = mysqli_real_escape_string($con, $_POST["TipoUsuario"]);
         mysqli_query ($con, "SET NAMES 'utf8'");
-        if($type == "alumno"){
+        if($type == "alumno"){ /* En caso de que el usuario sea un alumno */
             mysqli_query($con,"DELETE FROM USUARIOS WHERE USER_NOCT = '$name'");
             echo "SUCCESS";
         }
-        else if($type == "coordinador"){
+        else if($type == "coordinador"){ /* En caso de que el usuario sea un coordinador */
             mysqli_query($con,"DELETE FROM COORDINADOR WHERE COORD_NAME = '$name'");
             echo "SUCCESS";
         }
-        else if($type == "profesor"){
+        else if($type == "profesor"){ /* En caso de que el usuario sea un profesor */
             mysqli_query($con,"DELETE FROM PROFESOR WHERE PROF_NAME = '$name'");
             echo "SUCCESS";
         }
     }
     else
-        echo "ERROR: CAMPOS";
+        echo "ERROR: CAMPOS"; /* En caso de que haya campos vacios */
 ?>
