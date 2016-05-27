@@ -132,5 +132,13 @@ $("#ModFormPregunta").on("submit", function(event){
     function(data){
         $(".tab-result").remove();
         $("#ModFormPregunta").modal("hide");
+        $.post("../programs/obtener_preguntas.php",
+        {
+            badge: true,
+            profesor: true
+        },
+        function(data){
+            $(".badge").html(data);
+        });
     });
 });
