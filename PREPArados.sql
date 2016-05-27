@@ -49,7 +49,7 @@ CREATE TABLE `Alumnos` (
   `Num_Alumno` int(11) NOT NULL,
   `Contra_Alumno` varchar(50) DEFAULT NULL,
   `Usr_Alumno` varchar(50) DEFAULT NULL,
-  `Anio_Materia` varchar(50) DEFAULT NULL,
+  `Anio_Materia` int(11) DEFAULT NULL,
   PRIMARY KEY (`Num_Alumno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -122,7 +122,7 @@ DROP TABLE IF EXISTS `Materias`;
 CREATE TABLE `Materias` (
   `Num_Materia` int(11) NOT NULL,
   `Nom_Materia` varchar(50) DEFAULT NULL,
-  `Anio_Materia` varchar(50) DEFAULT NULL,
+  `Anio_Materia` int(11) DEFAULT NULL,
   `Num_Colegio` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`Num_Materia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -138,6 +138,29 @@ LOCK TABLES `Materias` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Media`
+--
+
+DROP TABLE IF EXISTS `Media`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Media` (
+  `Num_Pregunta` int(11) NOT NULL,
+  `Media_Media` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`Num_Pregunta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Media`
+--
+
+LOCK TABLES `Media` WRITE;
+/*!40000 ALTER TABLE `Media` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Media` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Preguntas`
 --
 
@@ -146,7 +169,7 @@ DROP TABLE IF EXISTS `Preguntas`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Preguntas` (
   `Num_Pregunta` int(11) NOT NULL,
-  `Num_Profesor` varchar(50) DEFAULT NULL,
+  `Num_Profesor` int(11) DEFAULT NULL,
   `Preg_Pregunta` varchar(100) DEFAULT NULL,
   `Num_Materia` int(11) DEFAULT NULL,
   PRIMARY KEY (`Num_Pregunta`)
@@ -242,4 +265,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-26 22:28:13
+-- Dump completed on 2016-05-26 23:35:12
