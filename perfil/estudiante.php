@@ -187,14 +187,21 @@
 						<canvas id="mycanvas" width="56px" height="56px"> </canvas>
 					</section>
 				</div>
-				<div role="tabpanel" class="tab-pane" id="Match">
+				<div role="tabpanel" class="tab-pane" id="Match"> <br/>
 					<section>
-						<div class="row">
-							<div class="col-md-6">
-								<h2 id="Title" > Game On!</h2>
-							</div>
-							<div class="col-md-6">
-								<h2>Puntaje: <small> 0 </small> </h2> 
+						<div class="container">
+							<div class="well" style="width:300; height:150" id="Status">
+								<div class="row">
+									<div class="col-md-3">
+										<h2 id="Title" > Game On!</h2>
+									</div>
+									<div class="col-md-3">
+										<h2>Puntaje: <small> 0 </small> </h2> 
+									</div>
+									<div class="col-md-3">
+										<h2 id="ShowMode" class="text-center"> ... </h2>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="jumbotron">

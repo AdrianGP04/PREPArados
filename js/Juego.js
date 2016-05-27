@@ -8,6 +8,9 @@ $("#Help").on("click",function()
 	$("fieldset").attr("disabled","");
 	$(".Answers").prop("disabled",false);
 	$("#Title").html("Game On!");
+	$("small").html("0");
+	var puntaje=0;
+	var Loop=0;
 
 	var Mode= $(".Mode:checked").val();
 	var Set= $(".Set:checked").val();
@@ -17,6 +20,22 @@ $("#Help").on("click",function()
 	});
 	alert(Mode);
 	alert(Set); */
+	
+	if (Mode==1)
+	{
+		$("#ShowMode").html("Solo <span class='glyphicon glyphicon-user'></span>");
+		$("#Status").css("background-color","#66ff66");
+	}
+	if (Mode==2)
+	{
+		$("#ShowMode").html("Versus <span class='glyphicon glyphicon-user'></span> <span class='glyphicon glyphicon-flash'></span> <span class='glyphicon glyphicon-user'></span> ");
+		$("#Status").css("background-color","#ff4d4d");
+	}
+	if (Mode==3)
+	{
+		$("#ShowMode").html("Glory <span class='glyphicon glyphicon-globe'></span>");
+		$("#Status").css("background-color","#ffe066");
+	}
 	
 	var x=100;
 	
@@ -356,4 +375,7 @@ $(".Answers").on("click", function()      //Para cuando el juego empieza
 	
 	if (chosen==1)
 		Loop++;
+	
+	var puntaje= (Set*40*Loop);
+	alert(puntaje);
 });
