@@ -177,6 +177,17 @@ CREATE TABLE `coordinador` (
   `COORD_COL` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+CREATE TABLE `pregunta` (
+  `PREG_ID` int(11) NOT NULL,
+  `PREG_MAT` int(2) NOT NULL,
+  `PREG_TEXT` varchar(200) COLLATE latin1_spanish_ci NOT NULL,
+  `PREG_CORR` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `PREG_INCUNO` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `PREG_INCDOS` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `PREG_INCTRES` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `PREG_PROF` int(11) NOT NULL,
+  `PREG_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 ALTER TABLE `administrador`
   ADD PRIMARY KEY (`ADMIN_ID`);
@@ -196,6 +207,9 @@ ALTER TABLE `profesor`
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`USER_NOCT`);
 
+ALTER TABLE `pregunta`
+  ADD PRIMARY KEY (`PREG_ID`);
+
 ALTER TABLE `colegios`
   MODIFY `COL_ID` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
@@ -204,3 +218,6 @@ ALTER TABLE `coordinador`
 
 ALTER TABLE `profesor`
   MODIFY `PROF_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+  ALTER TABLE `pregunta`
+    MODIFY `PREG_ID` int(11) NOT NULL AUTO_INCREMENT;

@@ -59,7 +59,6 @@ $(document).ready(function(){
                 $("#RegisterFormPregunta").submit();
                 window.location.href = "";
             }
-            // alert(data);
         });
     });
     $("input").focus(function(){
