@@ -240,7 +240,8 @@ DROP TABLE IF EXISTS `Puntuaciones`;
 CREATE TABLE `Puntuaciones` (
   `Num_Alumno` int(11) DEFAULT NULL,
   `Num_Materia` int(11) DEFAULT NULL,
-  `Puntos_Puntuaciones` int(11) DEFAULT NULL
+  `Puntos_Puntuaciones` int(11) DEFAULT NULL,
+  `Nivel_Puntuaciones` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -288,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-27 13:07:20
+-- Dump completed on 2016-05-27 13:38:36
