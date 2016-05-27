@@ -4,8 +4,16 @@ $(document).ready(function(){
         sesion: true
     },
     function(data){
+        $("#subjectPregunta").append(data);
+    });
+    $.post("../programs/obtener_materias.php",
+    {
+        sesion: true
+    },
+    function(data){
         $("#subject").append(data);
     });
+
     $("#colegioPlan").mouseup(function(){
         $(".mat").remove();
         $(".tab-result").remove();
@@ -59,6 +67,18 @@ $(document).ready(function(){
                 $("#RegisterFormPregunta").submit();
                 window.location.href = "";
             }
+        });
+    });
+    $("#subjectPregunta").mouseup(function(){
+        $(".tab-result").remove();
+        $.post("../programs/obtener_preguntas.php",
+        {
+            materia: $(this).val(),
+            profesor: true
+        },
+        function(data){
+            $("#preguntaResultProf").append(data);
+            $('[data-toggle="tooltip"]').tooltip();
         });
     });
     $("input").focus(function(){

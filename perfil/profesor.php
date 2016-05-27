@@ -101,9 +101,36 @@
 					</div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="Check_Q">
-					<section>
-						<h2> He aquí en donde iran las preguntas ya puestas </h2>
-					</section>
+					<br/>
+					<div class="row">
+						<div class="col-lg-12">
+							<section>
+								<form id="ConsultPreguntas" method="POST" action="./programs/registro_pregunta.php" autocomplete="off" enctype="multipart/form-data">
+									<div class="form-group">
+										<label for="subject"> Seleccione la asignatura </label>
+										<select id="subjectPregunta" name="subject" class="form-control">
+										</select>
+									</div>
+								</form>
+								<table id="preguntaResultProf" class="table table-bordered table-hover table-condensed">
+									<thead class="tab-head">
+							          <tr>
+							            <th> ID </th>
+							            <th> Pregunta </th>
+							            <th> Respuesta correcta </th>
+							            <th> Respuesta incorrecta </th>
+							            <th> Respuesta incorrecta </th>
+							            <th> Respuesta incorrecta </th>
+							            <th> Fecha de registro </th>
+							            <th> Estado </th>
+										<th> Modificar </th>
+										<th> Eliminar </th>
+							          </tr>
+							        </thead>
+								</table>
+							</section>
+						</div>
+					</div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="Check_S">
 					<section>
@@ -156,9 +183,26 @@
 				</div>
 			</div>
 				</div>
-
 			</div>
 		</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 	</body>
 	<script src="../js/profesor.js"></script>
 </html>
