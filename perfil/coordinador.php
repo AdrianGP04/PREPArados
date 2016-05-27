@@ -85,7 +85,7 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<label for="passwordProfRegister"> Contraseña del coordinador </label>
+								<label for="passwordProfRegister"> Contraseña del profesor </label>
 								<input id="passwordProfRegister" data-trigger="focus" type="password" class="form-control password" placeholder="Contraseña">
 							</div>
 							<div class="form-group">
@@ -103,9 +103,9 @@
 		<div role="tabpanel" class="tab-pane" id="ApproveQuestions">
 			<br/>
 			<div class="row">
-				<div class="col-lg-6">
+				<div class="col-lg-12">
 					<section>
-						<form id="Approve" method="POST" action="./programs/____.php" autocomplete="off">
+						<form id="Approve" autocomplete="off">
 							<div class="form-group">
 								<label for="approveArea"> Seleccione un área de estudio </label>
 								<select id="approveArea" class="form-control">
@@ -125,6 +125,8 @@
 								<select id="approveMateria" class="form-control">
 								</select>
 							</div>
+							<table id="preguntaResult" class="table table-bordered">
+							</table>
 						</form>
 					</section>
 				</div>

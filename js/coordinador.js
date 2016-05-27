@@ -46,8 +46,12 @@ $(document).ready(function(){
             }
         });
     });
+    $("#approveColegio").attr("disabled","on");
+    $("#approveMateria").attr("disabled","on");
+
     $("#approveArea").mouseup(function(){
         $(".col").remove();
+        $("#approveColegio").removeAttr("disabled");
         $.post("../programs/obtener_colegios.php",
         {
             area: $(this).val()
@@ -57,6 +61,7 @@ $(document).ready(function(){
         });
     });
     $("#approveColegio").mouseup(function(){
+        $("#approveMateria").removeAttr("disabled");
         $(".mat").remove();
         $(".tab-result").remove();
         $.post("../programs/obtener_materias.php",
@@ -67,17 +72,28 @@ $(document).ready(function(){
         function(data){
             if(data != "NO SUBJECTS"){
                 $("#approveMateria").append(data);
-                $("#materiaPlan").removeAttr("disabled");
-                $("#materiaPlan").popover("hide");
-                $("#materiaPlan").focus(function(){
-                    $("#materiaPlan").popover("hide");
+                $("#approveMateria").removeAttr("disabled");
+                $("#approveMateria").popover("hide");
+                $("#approveMateria").focus(function(){
+                    $(this).popover("hide");
                 });
             }
             else{
-                $("#materiaPlan").attr("disabled","on");
-                $("#materiaPlan").popover({title: "Sin resultados", content: "No se han encontrado materias", placement: "right"});
-                $("#materiaPlan").popover("show");
+                $("#approveMateria").attr("disabled","on");
+                $("#approveMateria").popover({title: "Sin resultados", content: "No se han encontrado materias", placement: "right"});
+                $("#approveMateria").popover("show");
             }
+        });
+    });
+    $("#approveMateria").mouseup(function(){
+        $(".tab-result").remove();
+        $.post("../programs/obtener_preguntas.php",
+        {
+            materia: $(this).val()
+        },
+        function(data){
+            $("#preguntaResult").append(data);
+            console.log(data);
         });
     });
 });
