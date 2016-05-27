@@ -231,6 +231,29 @@ LOCK TABLES `Profesores_has_Materias` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Puntuaciones`
+--
+
+DROP TABLE IF EXISTS `Puntuaciones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Puntuaciones` (
+  `Num_Alumno` int(11) DEFAULT NULL,
+  `Num_Materia` int(11) DEFAULT NULL,
+  `Puntos_Puntuaciones` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Puntuaciones`
+--
+
+LOCK TABLES `Puntuaciones` WRITE;
+/*!40000 ALTER TABLE `Puntuaciones` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Puntuaciones` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Respuestas`
 --
 
@@ -265,4 +288,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-26 23:35:12
+-- Dump completed on 2016-05-27 13:07:20
