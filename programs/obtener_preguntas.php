@@ -39,6 +39,14 @@
             </tbody>';
         }
     }
+    else if(isset($_POST["badge"])){
+        $numBadge = 0;
+        $badge_extraido= mysqli_query($con, "SELECT PREG_ID FROM PREGUNTA WHERE PREG_REV = '1'");
+        while ($preguntas = mysqli_fetch_assoc($badge_extraido)){
+            $numBadge++;
+        }
+        echo $numBadge;
+    }
     else {
         $materia = mysqli_real_escape_string($con, $_POST["materia"]);
         $materia_ID = mysqli_fetch_assoc(mysqli_query($con, "SELECT MAT_ID FROM MATERIAS WHERE MAT_NAME = '$materia'"));

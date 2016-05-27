@@ -6,6 +6,14 @@ $(document).ready(function(){
     function(data){
         $("#subjectPregunta").append(data);
     });
+    $.post("../programs/obtener_preguntas.php",
+    {
+        badge: true,
+        profesor: true
+    },
+    function(data){
+        $(".badge").html(data);
+    });
     $.post("../programs/obtener_materias.php",
     {
         sesion: true

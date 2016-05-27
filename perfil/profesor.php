@@ -56,7 +56,7 @@
 			</nav>
 			<ul class="nav nav-tabs" role="tablist">
 				<li role="presentation" class="active"> <a href="#Add" role="tab" data-toggle="tab"> Agregar Preguntas <span class="glyphicon glyphicon-pencil"></span> </a> </li>
-				<li role="presentation"> <a href="#Check_Q" role="tab" data-toggle="tab"> Checar preguntas <span class="glyphicon glyphicon-search"></span> </a> </li>
+				<li role="presentation"> <a href="#Check_Q" role="tab" data-toggle="tab"> Consultar preguntas <span class="glyphicon glyphicon-search"></span> <span class="badge"></span> </a> </li>
 				<li role="presentation"> <a href="#Check_S" role="tab" data-toggle="tab"> Diagnóstico de estudiantes <span class="glyphicon glyphicon-list-alt"></span> </a> </li>
 				<li role="presentation"> <a href="#Check_P" role="tab" data-toggle="tab"> Planes de estudio <span class="glyphicon glyphicon-blackboard"></span> </a> </li>
 			</ul>
