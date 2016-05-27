@@ -151,7 +151,7 @@
 							</select>
 						</div>
 					</form>
-					<table id="PlanResult" class="table table-bordered">
+					<table id="PlanResult" class="table table-bordered table-hover table-condensed">
 					</table>
 				</div>
 			</div>

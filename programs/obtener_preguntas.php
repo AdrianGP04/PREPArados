@@ -7,6 +7,11 @@
     $materia_ID = mysqli_fetch_assoc(mysqli_query($con, "SELECT MAT_ID FROM MATERIAS WHERE MAT_NAME = '$materia'"));
     $preguntas_extraido = mysqli_query($con, "SELECT * FROM PREGUNTA WHERE PREG_MAT = '$materia_ID[MAT_ID]'");
     while ($preguntas = mysqli_fetch_assoc($preguntas_extraido)){
+        $profesor = mysqli_fetch_assoc(mysqli_query($con, "SELECT PROF_NAME FROM PROFESOR WHERE PROF_ID = '$preguntas[PREG_PROF]'"));
+        if($preguntas["PREG_APROB"] == "0")
+            $estado = "<span style='color: red'> No aprobada </span>";
+        else
+            $estado = "<span style='color: green'> Aprobada </span>";
         echo '<thead class="tab-result">
           <tr>
             <th> ID </th>
@@ -28,9 +33,9 @@
             <td>'.$preguntas["PREG_INCUNO"].'</td>
             <td>'.$preguntas["PREG_INCDOS"].'</td>
             <td>'.$preguntas["PREG_INCTRES"].'</td>
-            <td>'.$preguntas["PREG_PROF"].'</td>
+            <td>'.$profesor["PROF_NAME"].'</td>
             <td>'.$preguntas["PREG_DATE"].'</td>
-            <td>'.$preguntas["PREG_APROB"].'</td>
+            <td>'.$estado.'</td>
           </tr>
         </tbody>';
     }

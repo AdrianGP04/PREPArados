@@ -125,7 +125,7 @@
 								<select id="approveMateria" class="form-control">
 								</select>
 							</div>
-							<table id="preguntaResult" class="table table-bordered">
+							<table id="preguntaResult" class="table table-bordered table-hover table-condensed">
 							</table>
 						</form>
 					</section>
