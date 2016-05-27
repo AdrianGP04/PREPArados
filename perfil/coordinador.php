@@ -85,7 +85,7 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<label for="passwordProfRegister"> Contraseña del coordinador </label>
+								<label for="passwordProfRegister"> Contraseña del profesor </label>
 								<input id="passwordProfRegister" data-trigger="focus" type="password" class="form-control password" placeholder="Contraseña">
 							</div>
 							<div class="form-group">
