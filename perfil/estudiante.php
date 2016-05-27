@@ -195,10 +195,10 @@
 								</div>
 								<div class="col-md-7">
 									<h2 class="text-center" id="Question"> Pregunta </h2>
-									<button class="btn btn-block btn-warning Answers" id="A1"> Respuesta 1 </button>
-									<button class="btn btn-block btn-warning Answers" id="A2"> Respuesta 2 </button>
-									<button class="btn btn-block btn-warning Answers" id="A3"> Respuesta 3 </button>
-									<button class="btn btn-block btn-warning Answers" id="A4"> Respuesta 4 </button>
+									<button class="btn btn-block btn-warning Answers" id="A1" value="0"> Respuesta 1 </button>
+									<button class="btn btn-block btn-warning Answers" id="A2" value="0"> Respuesta 2 </button>
+									<button class="btn btn-block btn-warning Answers" id="A3" value="0"> Respuesta 3 </button>
+									<button class="btn btn-block btn-warning Answers" id="A4" value="0"> Respuesta 4 </button>
 								</div>
 							</div>
 						</div>

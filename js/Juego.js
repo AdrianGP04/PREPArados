@@ -63,6 +63,28 @@ $("#Help").on("click",function()
 		
 	});
 	
+	var A= ["#A1","#A2","#A3","#A4"];
+	function shuffle(array) {
+		var currentIndex = array.length, temporaryValue, randomIndex;
+
+		// While there remain elements to shuffle...
+		while (0 !== currentIndex) {
+
+			// Pick a remaining element...
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+
+			// And swap it with the current element.
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}
+
+	return array;
+	}
+	
+	shuffle(A);
+	
 	section=1;
 	
 	$.ajax({
@@ -79,7 +101,7 @@ $("#Help").on("click",function()
 		dataType: "text",
 		success: function(data)
 		{
-			$("#A1").html(data);
+			$(A[0]).html(data);
 		}
 
 	});
@@ -100,7 +122,7 @@ $("#Help").on("click",function()
 		dataType: "text",
 		success: function(data)
 		{
-			$("#A2").html(data);
+			$(A[1]).html(data);
 		}
 
 	});	
@@ -121,7 +143,7 @@ $("#Help").on("click",function()
 		dataType: "text",
 		success: function(data)
 		{
-			$("#A3").html(data);
+			$(A[2]).html(data);
 		}
 
 	});	
@@ -143,7 +165,7 @@ $("#Help").on("click",function()
 		dataType: "text",
 		success: function(data)
 		{
-			$("#A4").html(data);
+			$(A[3]).html(data);
 		}
 
 	});		
@@ -179,6 +201,29 @@ $(".Answers").on("click", function()      //Para cuando el juego empieza
 		
 	});
 	
+	var A= ["#A1","#A2","#A3","#A4"];
+	function shuffle(array) {
+		var currentIndex = array.length, temporaryValue, randomIndex;
+
+		// While there remain elements to shuffle...
+		while (0 !== currentIndex) {
+
+			// Pick a remaining element...
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+
+			// And swap it with the current element.
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
+		}
+
+	return array;
+	}
+	
+	
+	shuffle(A);
+	
 	section=1;                   //De aquí en adelante es el mismo código, es para sacar las respuestas, lo trate de hacer con un for 
 	
 	$.ajax({
@@ -195,7 +240,7 @@ $(".Answers").on("click", function()      //Para cuando el juego empieza
 		dataType: "text",
 		success: function(data)
 		{
-			$("#A1").html(data);
+			$(A[0]).html(data);
 		}
 
 	});
@@ -216,7 +261,7 @@ $(".Answers").on("click", function()      //Para cuando el juego empieza
 		dataType: "text",
 		success: function(data)
 		{
-			$("#A2").html(data);
+			$(A[1]).html(data);
 		}
 
 	});	
@@ -237,7 +282,7 @@ $(".Answers").on("click", function()      //Para cuando el juego empieza
 		dataType: "text",
 		success: function(data)
 		{
-			$("#A3").html(data);
+			$(A[2]).html(data);
 		}
 
 	});	
@@ -259,7 +304,7 @@ $(".Answers").on("click", function()      //Para cuando el juego empieza
 		dataType: "text",
 		success: function(data)
 		{
-			$("#A4").html(data);
+			$(A[3]).html(data);
 		}
 
 	});		
