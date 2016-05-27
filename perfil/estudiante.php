@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <script src="../bootstrap/js/bootstrap.min.js"></script>
 		<script src="../js/jquery-2.2.3.js"></script>
+		<script type="text/javascript" src="../js/Chart.js"></script>
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -183,6 +184,7 @@
 				<div role="tabpanel" class="tab-pane" id="CheckOn">
 					<section>
 						<h2> <?php echo $_SESSION["name"]; ?>, tus resultados son estos </h2>
+						<canvas id="mycanvas" width="56px" height="56px"> </canvas>
 					</section>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="Match">
@@ -221,5 +223,42 @@
 			</div>
 		</div>
 		<script src="../js/Juego.js"></script>
+		    <script>
+				$(document).ready(function(){
+					var ctx = $('#mycanvas').get(0).getContext("2d");
+
+
+					var data = {
+						datasets: [{
+								data: [
+									90,
+									90,
+									90,
+									90
+								],
+								backgroundColor: [
+									"blue",
+									"green",
+									"yellow",
+									"black"
+								],
+								label: 'My dataset' // for legend
+						}],
+						labels: [
+							"Aldair Coronel",
+							"Mauricio Carrasco",
+							"Adrian Garcia",
+							"Jose Lucatero"
+						]
+					};
+						//Dibujar
+					var piechart = new Chart(ctx, {
+						type: 'polarArea',
+						data: data,
+					});
+					
+
+				});
+			</script>
 	</body>
 </html>
