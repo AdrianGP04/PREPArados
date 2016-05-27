@@ -9,22 +9,10 @@
     while ($preguntas = mysqli_fetch_assoc($preguntas_extraido)){
         $profesor = mysqli_fetch_assoc(mysqli_query($con, "SELECT PROF_NAME FROM PROFESOR WHERE PROF_ID = '$preguntas[PREG_PROF]'"));
         if($preguntas["PREG_APROB"] == "0")
-            $estado = "<span style='color: red'> No aprobada </span>";
+            $estado = "<span id='num".$preguntas["PREG_ID"]."' class='no-approve' data-toggle='tooltip' data-placement='top' title='¿Aprobar?' style='color: red'> No aprobada </span>";
         else
             $estado = "<span style='color: green'> Aprobada </span>";
-        echo '<thead class="tab-result">
-          <tr>
-            <th> ID </th>
-            <th> Pregunta </th>
-            <th> Respuesta correcta </th>
-            <th> Respuesta incorrecta </th>
-            <th> Respuesta incorrecta </th>
-            <th> Respuesta incorrecta </th>
-            <th> Profesor </th>
-            <th> Fecha de registro </th>
-            <th> Estado </th>
-          </tr>
-        </thead>
+        echo '
         <tbody class="tab-result">
           <tr>
             <td>'.$preguntas["PREG_ID"].'</td>

@@ -5,6 +5,7 @@ $(document).ready(function(){
     $(".help").mouseout(function(){
         $(".password").attr("type", "password");
     });
+
     $("#profRegister").popover({title: "Coordinador registrado", content: "El coordinador ingresado ya ha sido registrado", placement: "right"});
     $("#passwordProfRegister").popover({title: "Contraseñas diferentes", content: "Las contraseñas deben ser iguales", placement: "right"});
     $("#passwordProfRegister2").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
@@ -93,7 +94,17 @@ $(document).ready(function(){
         },
         function(data){
             $("#preguntaResult").append(data);
-            console.log(data);
+            $('[data-toggle="tooltip"]').tooltip();
+            $(".no-approve").click(function(){
+                var pregunta_id = $(this).attr("id");
+                pregunta_id = pregunta_id.slice(3);
+                $.post("../programs/aprobar_pregunta.php",
+                {
+                    id: pregunta_id
+                },
+                function(data){
+                });
+            });
         });
     });
 });

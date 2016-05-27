@@ -126,6 +126,19 @@
 								</select>
 							</div>
 							<table id="preguntaResult" class="table table-bordered table-hover table-condensed">
+								<thead class="tab-head">
+						          <tr>
+						            <th> ID </th>
+						            <th> Pregunta </th>
+						            <th> Respuesta correcta </th>
+						            <th> Respuesta incorrecta </th>
+						            <th> Respuesta incorrecta </th>
+						            <th> Respuesta incorrecta </th>
+						            <th> Profesor </th>
+						            <th> Fecha de registro </th>
+						            <th> Estado </th>
+						          </tr>
+						        </thead>
 							</table>
 						</form>
 					</section>
