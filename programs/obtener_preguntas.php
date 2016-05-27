@@ -9,10 +9,19 @@
         $preguntas_extraido = mysqli_query($con, "SELECT * FROM PREGUNTA WHERE PREG_MAT = '$materia_ID[MAT_ID]'");
         while ($preguntas = mysqli_fetch_assoc($preguntas_extraido)){
             $profesor = mysqli_fetch_assoc(mysqli_query($con, "SELECT PROF_NAME FROM PROFESOR WHERE PROF_ID = '$preguntas[PREG_PROF]'"));
-            if($preguntas["PREG_APROB"] == "0")
-            $estado = "<span id='num".$preguntas["PREG_ID"]."' class='no-approve' data-toggle='tooltip' data-placement='top' title='¿Aprobar?'> No aprobada </span>";
-            else
-            $estado = "<span class='approved'> Aprobada </span>";
+            if($preguntas["PREG_APROB"] == "0"){
+                $estado = "<span id='num".$preguntas["PREG_ID"]."' class='no-approve' data-toggle='tooltip' data-placement='top' title='¿Aprobar?'> No aprobada </span>";
+            }
+            else{
+                $estado = "<span class='approved'> Aprobada </span>";
+            }
+            if($preguntas["PREG_APROB"] == "0" && $preguntas["PREG_REV"] == "0"){
+                $revision = '<button id="rev'.$preguntas["PREG_ID"].'" data-toggle="modal" data-target="#preguntaMod" type="button" class="btn btn-link rev"> Pedir revisión </button>';
+
+            }
+            else {
+                $revision = '<button type="button" class="btn btn-link" disabled="disabled"> Pedir revisión </button>';
+            }
             echo '
             <tbody class="tab-result">
             <tr>
@@ -25,6 +34,7 @@
             <td>'.$profesor["PROF_NAME"].'</td>
             <td>'.$preguntas["PREG_DATE"].'</td>
             <td>'.$estado.'</td>
+            <td>'.$revision.'</td>
             </tr>
             </tbody>';
         }
@@ -44,6 +54,10 @@
                 $modificar = '<button type="button" class="btn btn-link" disabled="disabled"> Modificar </button>';
                 $eliminar = '<button type="button" class="btn btn-link" disabled="disabled"> Eliminar </button>';
             }
+            if($preguntas["PREG_REV"] == "0")
+                $revision = '<span> No hay petición </span>';
+            else
+                $revision = '<span> Se ha pedidio su correción </span>';
             echo '
             <tbody class="tab-result">
             <tr>
@@ -57,6 +71,7 @@
             <td>'.$estado.'</td>
             <td>'.$modificar.'</td>
             <td>'.$eliminar.'</td>
+            <td>'.$revision.'</td>
             </tr>
             </tbody>';
         }
