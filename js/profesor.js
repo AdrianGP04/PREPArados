@@ -39,6 +39,7 @@ $(document).ready(function(){
             $("#PlanResult").append(data);
         });
     });
+    $("#QuestionRegisterSubmit").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
     $("#QuestionRegisterSubmit").click(function(event){
         event.preventDefault();
         $.post("../programs/registrar_pregunta.php",
@@ -48,11 +49,20 @@ $(document).ready(function(){
             c_Answer: $("#c_Answer").val(),
             i_Answer1: $("#i_Answer1").val(),
             i_Answer2: $("#i_Answer2").val(),
-            i_Answer3: $("#i_Answer3").val(),
-            q_Img: $("#q_Img").val()
+            i_Answer3: $("#i_Answer3").val()
         },
         function(data){
-            alert(data);
+            if(data == "ERROR: CAMPOS"){
+                $("#QuestionRegisterSubmit").popover("show");
+            }
+            else{
+                $("#RegisterFormPregunta").submit();
+                window.location.href = "";
+            }
+            // alert(data);
         });
+    });
+    $("input").focus(function(){
+        $("#QuestionRegisterSubmit").popover("hide");
     });
 });
