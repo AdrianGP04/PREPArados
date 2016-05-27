@@ -183,8 +183,10 @@
 				</div>
 				<div role="tabpanel" class="tab-pane" id="CheckOn">
 					<section>
-						<h2> <?php echo $_SESSION["name"]; ?>, tus resultados son estos </h2>
-						<canvas id="mycanvas" width="56px" height="56px"> </canvas>
+						<h2 class="text-center"> <?php echo $_SESSION["name"]; ?>, tus resultados son estos </h2>
+						<div width="50px" height="50px">
+							<canvas id="mycanvas"> </canvas>
+						</div>
 					</section>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="Match"> <br/>
