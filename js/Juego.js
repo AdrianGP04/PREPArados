@@ -1,9 +1,13 @@
+var score=0;
+
 $("#Help").on("click",function()
 {
 	alert("Has iniciado una partida");
 	event.preventDefault();
 	$("#Ninja").attr("class","");
 	$("fieldset").attr("disabled","");
+	$(".Answers").prop("disabled",false);
+	$("#Title").html("Game On!");
 
 	var Mode= $(".Mode:checked").val();
 	var Set= $(".Set:checked").val();
@@ -16,19 +20,28 @@ $("#Help").on("click",function()
 	
 	var x=100;
 	
-	$.ajax({
+	$.ajax({                      //Contador
 
 		url: "../programs/Status.php",
 
 		data:{
 			Mode: Mode,
-			Set: Set= Set
+			Set: Set
 		},
 		type:"GET",
 		dataType:"text",
 		success: function(data)
 		{
-			setInterval(function(){
+			
+			var Interval=setInterval(function(){
+				if (x==0)
+				{
+					alert("Ha terminado");
+					$(".Answers").attr("disabled","on");
+					$("fieldset").prop("disabled",false);
+					$("#Title").html("Game Over");
+					clearInterval(Interval);
+				}
 				$("#Barra").attr("style","width:"+x+"%");
 				x-=10;
 				$(".Answers").on("click", function(){
@@ -87,7 +100,7 @@ $("#Help").on("click",function()
 	
 	section=1;
 	
-	$.ajax({
+	$.ajax({                   //De aquí para abajo es para sacar respuestas
 			
 		
 		url: "../programs/Juego_Beta.php",
@@ -102,6 +115,7 @@ $("#Help").on("click",function()
 		success: function(data)
 		{
 			$(A[0]).html(data);
+			$(A[0]).attr("value","1");
 		}
 
 	});
@@ -123,6 +137,7 @@ $("#Help").on("click",function()
 		success: function(data)
 		{
 			$(A[1]).html(data);
+			$(A[1]).attr("value","0");
 		}
 
 	});	
@@ -144,6 +159,7 @@ $("#Help").on("click",function()
 		success: function(data)
 		{
 			$(A[2]).html(data);
+			$(A[2]).attr("value","0");
 		}
 
 	});	
@@ -166,6 +182,7 @@ $("#Help").on("click",function()
 		success: function(data)
 		{
 			$(A[3]).html(data);
+			$(A[3]).attr("value","0");
 		}
 
 	});		
@@ -178,9 +195,13 @@ $("#Help").on("click",function()
 });
 
 
+var Loop=0; //Checa la cantidad de veces que has respondido
 
 $(".Answers").on("click", function()      //Para cuando el juego empieza
 {
+	var Set= $(".Set:checked").val();
+	var chosen=$(this).val();
+	console.log(chosen);
 	var random= Math.floor((Math.random() * 4) + 1);
 	var section= 0;
 	
@@ -241,6 +262,7 @@ $(".Answers").on("click", function()      //Para cuando el juego empieza
 		success: function(data)
 		{
 			$(A[0]).html(data);
+			$(A[0]).attr("value","1");
 		}
 
 	});
@@ -262,6 +284,7 @@ $(".Answers").on("click", function()      //Para cuando el juego empieza
 		success: function(data)
 		{
 			$(A[1]).html(data);
+			$(A[1]).attr("value","0");
 		}
 
 	});	
@@ -283,6 +306,7 @@ $(".Answers").on("click", function()      //Para cuando el juego empieza
 		success: function(data)
 		{
 			$(A[2]).html(data);
+			$(A[2]).attr("value","0");
 		}
 
 	});	
@@ -305,12 +329,31 @@ $(".Answers").on("click", function()      //Para cuando el juego empieza
 		success: function(data)
 		{
 			$(A[3]).html(data);
+			$(A[3]).attr("value","0");
 		}
 
 	});		
 	
+	$.ajax({                                  //Para sacar los puntajes dependiendo de la dificultad escogida
+		
+		url: "../programs/Puntaje.php",
+		
+		data:{
+			Set: Set
+		},
+		type:"GET",
+		dataType:"text",
+		success: function(data)
+		{
+			if (chosen==1)
+			{
+				$("small").html(data*Loop);
+			}
+		}
+		
+		
+	});
 	
-
-
-
+	if (chosen==1)
+		Loop++;
 });

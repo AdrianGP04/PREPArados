@@ -187,7 +187,14 @@
 				</div>
 				<div role="tabpanel" class="tab-pane" id="Match">
 					<section>
-						<h2> Game On!</h2>
+						<div class="row">
+							<div class="col-md-6">
+								<h2 id="Title" > Game On!</h2>
+							</div>
+							<div class="col-md-6">
+								<h2>Puntaje: <small> 0 </small> </h2> 
+							</div>
+						</div>
 						<div class="jumbotron">
 							<div class="row">
 								<div class="col-md-5">
