@@ -125,6 +125,7 @@
 							            <th> Estado </th>
 										<th> Modificar </th>
 										<th> Eliminar </th>
+										<th> Revisión </th>
 							          </tr>
 							        </thead>
 								</table>

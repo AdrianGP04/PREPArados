@@ -181,13 +181,14 @@ CREATE TABLE `pregunta` (
   `PREG_ID` int(11) NOT NULL,
   `PREG_MAT` int(2) NOT NULL,
   `PREG_TEXT` varchar(200) COLLATE latin1_spanish_ci NOT NULL,
-  `PREG_CORR` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `PREG_INCUNO` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `PREG_INCDOS` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `PREG_INCTRES` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+  `PREG_CORR` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  `PREG_INCUNO` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  `PREG_INCDOS` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  `PREG_INCTRES` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `PREG_PROF` int(11) NOT NULL,
   `PREG_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `PREG_APROB` int(1) NOT NULL DEFAULT '0'
+  `PREG_APROB` int(1) NOT NULL DEFAULT '0',
+  `PREG_REV` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 ALTER TABLE `administrador`

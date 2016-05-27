@@ -96,6 +96,7 @@ $(document).ready(function(){
             $("#preguntaResult").append(data);
             $('[data-toggle="tooltip"]').tooltip();
             $(".no-approve").click(function(){
+                $(".tab-result").remove();
                 var pregunta_id = $(this).attr("id");
                 pregunta_id = pregunta_id.slice(3);
                 $.post("../programs/aprobar_pregunta.php",
@@ -104,6 +105,18 @@ $(document).ready(function(){
                 },
                 function(data){
                     $("#modalApprove").modal("show");
+                });
+            });
+            $(".rev").click(function(){
+                $(".tab-result").remove();
+                var pregunta_id = $(this).attr("id");
+                pregunta_id = pregunta_id.slice(3);
+                $.post("../programs/revisar_pregunta.php",
+                {
+                    id: pregunta_id
+                },
+                function(data){
+                    $("#modalRev").modal("show");
                 });
             });
         });

@@ -20,6 +20,7 @@
             mysqli_query($con, "UPDATE PREGUNTA SET PREG_INCDOS = '$i_Answer2' WHERE PREG_ID = '$id'");
         if(!empty($i_Answer3))
             mysqli_query($con, "UPDATE PREGUNTA SET PREG_INCTRES = '$i_Answer3' WHERE PREG_ID = '$id'");
+        mysqli_query($con, "UPDATE PREGUNTA SET PREG_REV = 0 WHERE PREG_ID = '$id'");
     }
     else
         echo "ERROR: CAMPOS";
