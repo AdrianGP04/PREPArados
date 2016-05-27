@@ -15,7 +15,8 @@
         mysqli_query ($con, "SET NAMES 'utf8'");
         session_start();
         $materia = mysqli_fetch_assoc(mysqli_query($con , "SELECT MAT_ID FROM MATERIAS WHERE MAT_NAME = '$subject'"));
-        mysqli_query($con,"INSERT INTO PREGUNTA VALUES (DEFAULT, '$materia[MAT_ID]','$question','$c_Answer','$i_Answer1', '$i_Answer2', '$i_Answer3', '$_SESSION[ID]', DEFAULT, DEFAULT)");
+        mysqli_query($con,"INSERT INTO PREGUNTA VALUES (DEFAULT, '$materia[MAT_ID]','$question','$c_Answer','$i_Answer1', '$i_Answer2', '$i_Answer3', '$_SESSION[ID]', DEFAULT, DEFAULT,DEFAULT)");
+        echo "string";
     }
     else
         echo "ERROR: CAMPOS";
