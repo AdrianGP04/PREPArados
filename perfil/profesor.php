@@ -186,19 +186,40 @@
 			</div>
 		</div>
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="preguntaMod" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel"> Modificar pregunta </h4>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+		  <form id="ModFormPregunta" method="POST" action="./programs/modificar_pregunta.php" autocomplete="off" enctype="multipart/form-data">
+  			<div class="form-group">
+  				<label for="questionMod"> Introduzca la nueva pregunta </label>
+  				<input id="questionMod" type="text" name="question" placeholder="Pregunta" class="form-control">
+  			</div>
+  			<div class="form-group">
+  				<label for="c_AnswerMod"> Introduzca la nueva respuesta correcta </label>
+  				<input id="c_AnswerMod" type="text" name="c_Answer" placeholder="Respuesta correcta" class="form-control">
+  			</div>
+  			<div class="form-group">
+  				<label for="subject"> Introduzca las respuestas incorrectas </label>
+  				<input id="i_Answer1Mod" type="text" name="i_Answer1" placeholder="Respuesta incorrecta" class="form-control" >
+  			</div>
+  			<div class="form-group">
+  				<input id="i_Answer2Mod" type="text" name="i_Answer2" placeholder="Respuesta incorrecta" class="form-control">
+  			</div>
+  			<div class="form-group">
+  				<input id="i_Answer3Mod" type="text" name="i_Answer3" placeholder="Respuesta incorrecta" class="form-control">
+  			</div>
+  			<div class="form-group">
+  				<label for="q_ImgMod"> Agregar una imagen a la pregunta (opcional) </label>
+  				<input id="q_ImgMod" type="file" name="q_Img" class="form-control">
+  			</div>
+			<input id="QuestionRegisterSubmit" type="submit" class="btn btn-primary btn-block" value="Guardar cambios">
+			<button type="button" class="btn btn-default btn-block" data-dismiss="modal"> Cancelar </button>
+  		</form>
       </div>
     </div>
   </div>

@@ -36,7 +36,7 @@
         while ($preguntas = mysqli_fetch_assoc($preguntas_extraido)){
             if($preguntas["PREG_APROB"] == "0"){
                 $estado = "<span class='no-approve'> No aprobada </span>";
-                $modificar = '<button id="eli'.$preguntas["PREG_ID"].'" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-link modify"> Modificar </button>';
+                $modificar = '<button id="eli'.$preguntas["PREG_ID"].'" data-toggle="modal" data-target="#preguntaMod" type="button" class="btn btn-link modify"> Modificar </button>';
                 $eliminar = '<button id="mod'.$preguntas["PREG_ID"].'" data-toggle="modal" data-target="#preguntaDelete" type="button" class="btn btn-link delete"> Eliminar </button>';
             }
             else{

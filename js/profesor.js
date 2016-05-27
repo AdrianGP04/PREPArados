@@ -83,6 +83,10 @@ $(document).ready(function(){
                 pregunta_id = $(this).attr("id"); //global
                 pregunta_id = pregunta_id.slice(3);
             });
+            $(".modify").click(function(){
+                pregunta_id = $(this).attr("id"); //global
+                pregunta_id = pregunta_id.slice(3);
+            });
         });
     });
     $("#EliminarConfirm").click(function(){
@@ -100,7 +104,25 @@ $(document).ready(function(){
             }
         });
     });
+
     $("input").focus(function(){
         $("#QuestionRegisterSubmit").popover("hide");
+    });
+});
+$("#ModFormPregunta").on("submit", function(event){
+    event.preventDefault();
+    $.post("../programs/modificar_pregunta.php",
+    {
+        pregunta: pregunta_id,
+        questionMod: $("#questionMod").val(),
+        c_AnswerMod: $("#c_AnswerMod").val(),
+        i_Answer1Mod: $("#i_Answer1Mod").val(),
+        i_Answer2Mod: $("#i_Answer2Mod").val(),
+        i_Answer3Mod: $("#i_Answer3Mod").val()
+
+    },
+    function(data){
+        $(".tab-result").remove();
+        $("#ModFormPregunta").modal("hide");
     });
 });
