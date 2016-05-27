@@ -14,6 +14,10 @@
             mysqli_query($con,"DELETE FROM COORDINADOR WHERE COORD_NAME = '$name'");
             echo "SUCCESS";
         }
+        else if($type == "profesor"){
+            mysqli_query($con,"DELETE FROM PROFESOR WHERE PROF_NAME = '$name'");
+            echo "SUCCESS";
+        }
     }
     else
         echo "ERROR: CAMPOS";
