@@ -15,7 +15,7 @@ Instrucciones de instalacion:
   
   1.-Clonar en git o descargar como .zip las carpetas e insertarlas en htdocs de xampp.
   
-  2.-Ejecutar index.html.
+  2.-Ejecutar index.html y cargar la base de datos .sql en phpmyadmin.
   
   3.-Ingresar como administrador con usuario: ENP 6 y contraseña: contraseñaadmin.
   
