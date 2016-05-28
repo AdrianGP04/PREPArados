@@ -15,7 +15,7 @@ Instrucciones de instalacion:
 
   1.-Clonar en git o descargar como .zip las carpetas e insertarlas en htdocs de xampp.
 
-  2.-Ejecutar index.html y cargar la base de datos .sql en phpmyadmin.
+  2.-Ejecutar index.html y cargar la base de datos preparados.sql en phpmyadmin.
 
   3.-Ingresar como administrador con usuario: ENP 6 y contraseña: contraseñaadmin.
 
@@ -37,7 +37,7 @@ Instrucciones de instalacion:
 
   11.-Ingresen al sistema como alumno y seran capaces de iniciar una partida individual, versus o for glory, seleccionar una materia y
   escoger la dificultad. Tambien seran capaces de ver los mejores marcadores, ver su grafica de rendimiento en cada materia y cambiar el color de su perfil.
-   
+
 Ese es la manera de usar nuestro sistema de juego PREPArados que hemos desarrollado con cari;o para nuestra comunidad escolar.
 
 Espero la hayan disfrutado tanto como nosotros en desarrollarla.
