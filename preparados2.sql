@@ -165,7 +165,10 @@ CREATE TABLE `profesor` (
 CREATE TABLE `usuarios` (
   `USER_NAME` varchar(40) COLLATE latin1_spanish_ci NOT NULL,
   `USER_NOCT` char(9) COLLATE latin1_spanish_ci NOT NULL,
-  `USER_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL
+  `USER_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  `puntaje` int(5) NOT NULL,
+  `Prom_RC` int(5) NOT NULL,
+  `Prom_RI` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 
