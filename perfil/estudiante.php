@@ -42,17 +42,68 @@
 							<li class="dropdown pull-right">
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <span class="glyphicon glyphicon-user"> </span> Mi cuenta <span class="caret"> </span> </a>
 								<ul class="dropdown-menu">
-									<li> <a href="#"> Configuraciones <span class="glyphicon glyphicon-cog"></span> </a> </li>
+									<li class="dropdown-header"> Configuraciones <span class="glyphicon glyphicon-cog"></span> </li>
+									<li> <a data-toggle="modal" data-target="#modalName"> Cambiar nombre  </a> </li>
+									<li> <a data-toggle="modal" data-target="#modalPassword"> Cambiar contraseña  </a> </li>
+									<li role="separator" class="divider"></li>
 									<li> <a href="../programs/cerrar.php"> Salir de mi cuenta <span class="glyphicon glyphicon-log-out"></span> </a> </li>
 								</ul>
 							</li>
 						</ul>
 					</div>
+					<div class="modal fade" id="modalName" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	            <div class="modal-dialog" role="document">
+	                <div class="modal-content">
+	                    <div data-trigger="focus"  id="modal-header-newName"  class="modal-header">
+	                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                        <h4 class="modal-title" id="myModalLabel">Configuración de <?php echo $_SESSION["name"]; ?></h4>
+	                    </div>
+	                    <div class="modal-body">
+	                        <form id="ConfigurationName" method="POST" action="./programs/configurarNombre.php" autocomplete="off">
+	                            <div class="form-group">
+	                                <label for="newName"> Nuevo nombre </label>
+	                                <input id="newName" data-trigger="focus" name="newUserName" type="text" class="form-control" placeholder="Nuevo nombre">
+	                            </div>
+	                            <div class="form-group">
+	                                <label for="newName2"> Repetir nuevo nombre </label>
+	                                <input id="newName2" data-trigger="focus" name="newUserName2" type="text" class="form-control" placeholder="Repetir nuevo nombre">
+	                                <br/>
+															</div>
+	                            <button id="configureName" type="submit" class="btn btn-default btn-block"> Cambiar nombre </button>
+	                        </form>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+					<div class="modal fade" id="modalPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal-dialog" role="document">
+									<div class="modal-content">
+											<div data-trigger="focus"  id="modal-header-newPassword"  class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+													<h4 class="modal-title" id="myModalLabel">Configuración de <?php echo $_SESSION["name"]; ?></h4>
+											</div>
+											<div class="modal-body">
+													<form id="ConfigurationPassword" method="POST" action="./programs/configurarContra.php" autocomplete="off">
+															<div class="form-group">
+																	<label for="newPassword"> Nueva contraseña </label>
+																	<input id="newPassword" data-trigger="focus" name="newUserPassword" type="text" class="form-control" placeholder="Nueva contraseña">
+															</div>
+															<div class="form-group">
+																	<label for="newPassword2"> Repetir nueva contraseña </label>
+																	<input id="newPassword2" data-trigger="focus" name="newUserPassword2" type="text" class="form-control" placeholder="Repetir nueva contraseña">
+																	<br/>
+															</div>
+															<button id="configurePassword" type="submit" class="btn btn-default btn-block"> Cambiar contraseña </button>
+													</form>
+											</div>
+									</div>
+							</div>
+					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right visible-xs">
                             <li> <a href="#"> Configuraciones <span class="glyphicon glyphicon-cog"></span> </a> </li>
                             <li> <a href="../programs/cerrar.php"> Salir de mi cuenta <span class="glyphicon glyphicon-log-out"></span> </a> </li>
-	                    </ul>
+	        	</ul>
 					</div>
 				</div>
 			</nav>
@@ -76,7 +127,6 @@
 				<div role="tabpanel" class="tab-pane active" id="Game">
 					<section>
 						<div class="container">
-							<h1 class="text-center"> Juego </h1>
 							<form class="form-inline" role="form" align="center" id="GameSet" action="#" method="POST">
 							<fieldset>
 								<div class="form-group">
@@ -198,7 +248,7 @@
 										<h2 id="Title" > Game On!</h2>
 									</div>
 									<div class="col-md-3">
-										<h2>Puntaje: <small> 0 </small> </h2> 
+										<h2>Puntaje: <small> 0 </small> </h2>
 									</div>
 									<div class="col-md-3">
 										<h2 id="ShowMode" class="text-center"> ... </h2>
@@ -265,7 +315,7 @@
 						type: 'polarArea',
 						data: data,
 					});
-					
+
 
 				});
 			</script>
