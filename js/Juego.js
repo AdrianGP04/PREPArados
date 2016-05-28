@@ -55,7 +55,7 @@ $("#START").click(function()
 			var point=0;
 			
 			var Interval=setInterval(function(){
-				if (x==0 || point==15)            //Para cuando el juego acabe
+				if (x==0 || point>=14)            //Para cuando el juego acabe
 				{
 					$(".Answers").attr("disabled","on");
 					$("fieldset").prop("disabled",false);
