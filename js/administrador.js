@@ -1,15 +1,20 @@
 $(document).ready(function(){
+    /* JavaScript del administrador */
+    /* Sistema para mostrar la contraseña al hacer hover en el span clase "help" */
     $(".help").mouseenter(function(){
         $(".password").attr("type", "text");
     });
     $(".help").mouseout(function(){
         $(".password").attr("type", "password");
     });
+    /* Asignación de popovers de error */
     $("#coordRegister").popover({title: "Coordinador registrado", content: "El coordinador ingresado ya ha sido registrado", placement: "right"});
     $("#passwordCoordRegister").popover({title: "Contraseñas diferentes", content: "Las contraseñas deben ser iguales", placement: "right"});
     $("#passwordCoordRegister2").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
     $("#ConsultaUsuario").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
     $("#ConsultaUsuarioSubmit").popover({title: "Sin resultados", content: "No se han encontrado usuarios", placement: "right"});
+
+    /* Sistema para ocultar los popover al seleccionar cualquier input */
     $("input").focus(function(){
         $("#coordRegister").popover("hide");
         $("#passwordCoordRegister").popover("hide");
@@ -17,16 +22,20 @@ $(document).ready(function(){
         $("#ConsultaUsuario").popover("hide");
         $("#ConsultaUsuarioSubmit").popover("hide");
     });
+
+/* Sistema de registro de coordinadores*/
+    /* Sistema para obtener los colegios del área seleccionada por el administrador*/
     $("#areaCoord").mouseup(function(){
-        $(".col").remove();
+        $(".col").remove(); /* Remueve los colegios del area seleccionada anteriormente */
         $.post("../programs/obtener_colegios.php",
         {
-            area: $(this).val()
+            area: $(this).val() /* Area seleccionada */
         },
         function(data){
-            $("#colegioCoord").append(data);
+            $("#colegioCoord").append(data); /* Agrega los colegios del area seleccionada */
         });
     });
+    /* Sistema de registro al hacer submit */
     $("#CoordRegisterSubmit").click(function(event){
         event.preventDefault();
         $.post("../programs/registro_coordinador.php",
@@ -38,11 +47,11 @@ $(document).ready(function(){
             passwordCoordRegister2: $("#passwordCoordRegister2").val()
         },
         function(data){
-            if(data == "ERROR: CAMPOS")
+            if(data == "ERROR: CAMPOS") /* Error por campos vacios */
                 $("#passwordCoordRegister2").popover("show");
-            else if (data == "ERROR: REGISTRADO")
+            else if (data == "ERROR: REGISTRADO") /* Error por la existencia del coordinador ingresado */
                 $("#coordRegister").popover("show");
-            else if (data == "ERROR: CONTRASEÑA")
+            else if (data == "ERROR: CONTRASEÑA") /* Error por discordancia en las contraseñas */
                 $("#passwordCoordRegister").popover("show");
             else{
                 $("#RegisterForm").submit();
@@ -50,8 +59,9 @@ $(document).ready(function(){
             }
         });
     });
+/* Sistema de consuta de usuarios del sitio */
     $("#ConsultaUsuarioSubmit").click(function(event){
-        $(".tab-result").remove();
+        $(".tab-result").remove(); /* Remueve las consultas anteriores */
         event.preventDefault();
         $.post("../programs/consulta_usuarios.php",
         {
@@ -59,18 +69,19 @@ $(document).ready(function(){
         },
         function(data){
             if(data == "ERROR: CAMPOS")
-                $("#ConsultaUsuario").popover("show");
+                $("#ConsultaUsuario").popover("show"); /* Error por campos vacios */
             else if (data == "ERROR: 404")
-                $("#ConsultaUsuarioSubmit").popover("show");
+                $("#ConsultaUsuarioSubmit").popover("show"); /* Error al no encontrar resultados */
             else{
                 $("#ConsultaUsuarioSubmit").popover("hide");
                 $("#ConsultaResult").append(data);
             }
-            $(".EliminarLink").bind("click",function(){
+            $(".EliminarLink").bind("click",function(){ /* Asignacion del modal de eliminacion a la nueva consulta */
                 $("#EliminarModal").modal();
             });
         });
     });
+/* Sistema de eliminacion de usuarios */
     $("#EliminarUsuario").click(function(){
         $.post("../programs/eliminar_usuarios.php",
         {
@@ -78,12 +89,12 @@ $(document).ready(function(){
             TipoUsuario: $("thead").attr("id")
         },
         function(data){
-            if(data == "SUCCESS"){
-                $(".tab-result").remove();
-                $("#EliminarModal").modal("toggle");
+            if(data == "SUCCESS"){ /* En caso de éxito */
+                $(".tab-result").remove(); /* Se borra el resultado de la busqueda */
+                $("#EliminarModal").modal("toggle"); /* Se oculta el modal de eliminacio */
             }
             else if(data == "ERROR: CAMPOS"){
-                $("#ConsultaUsuario").popover("show");
+                $("#ConsultaUsuario").popover("show"); /* Error por campos vacios */
             }
         });
     });

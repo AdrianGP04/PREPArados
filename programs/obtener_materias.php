@@ -1,5 +1,6 @@
 <?php
     session_start();
+    /* Conexion */
     include("conexion.php");
     $con = mysqli_connect($dbHost,$dbUser,$dbPassword,"PREPArados") or die("Problemas con el servidor");
     mysqli_select_db($con,"PREPArados") or die ("Problemas al conectar la base de datos");

@@ -1,15 +1,17 @@
 <?php
     if(isset($_POST["ConsultaUsuario"]) && !empty($_POST["ConsultaUsuario"])){
+/* Conexio */
         include("conexion.php");
         $con = mysqli_connect($dbHost,$dbUser,$dbPassword,"PREPArados") or die("Problemas con el servidor");
         mysqli_select_db($con,"PREPArados") or die ("Problemas al conectar la base de datos");
         $consulta = mysqli_real_escape_string($con, $_POST["ConsultaUsuario"]);
         mysqli_query ($con, "SET NAMES 'utf8'");
+/* Eliminacion de posibles sentencias SQL en los POSTS */
         $admin_extraido = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM ADMINISTRADOR WHERE ADMIN_NAME = '$consulta' "));
         $coord_extraido = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM COORDINADOR WHERE COORD_NAME = '$consulta' "));
         $alumno_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM USUARIOS WHERE USER_NOCT ='$consulta'"));
         $profesor_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM PROFESOR WHERE PROF_NAME ='$consulta'"));
-        if(isset($coord_extraido)){
+        if(isset($coord_extraido)){ /* Sistema de muestra si se encuentra un coordinador */
             $area = mysqli_fetch_assoc(mysqli_query($con, "SELECT AREAS.AREA_NAME AS 'AREA' FROM AREAS INNER JOIN COORDINADOR
                 ON AREAS.AREA_ID=COORDINADOR.COORD_AREA WHERE COORDINADOR.COORD_ID = '$coord_extraido[COORD_ID]'"));
             $colegio =  mysqli_fetch_assoc(mysqli_query($con, "SELECT COLEGIOS.COL_NAME AS 'COLEGIO' FROM COLEGIOS INNER JOIN COORDINADOR
@@ -33,7 +35,7 @@
               </tr>
             </tbody>';
         }
-        elseif(isset($admin_extraido)){
+        elseif(isset($admin_extraido)){ /* Sistema de muestra si se encuentra un administrador */
             echo '<thead class="tab-result">
               <tr>
                 <th> ID </th>
@@ -47,7 +49,7 @@
               </tr>
             </tbody>';
         }
-        elseif(isset($alumno_extraido)){
+        elseif(isset($alumno_extraido)){ /* Sistema de muestra si se encuentra un alumno */
             echo '<thead class="tab-result" id="alumno">
               <tr>
                 <th> Nombre de usuario </th>
@@ -63,7 +65,7 @@
               </tr>
             </tbody>';
         }
-        elseif(isset($profesor_extraido)){
+        elseif(isset($profesor_extraido)){ /* Sistema de muestra si se encuentra un profesor */
             $area = mysqli_fetch_assoc(mysqli_query($con, "SELECT AREAS.AREA_NAME AS 'AREA' FROM AREAS INNER JOIN PROFESOR
                 ON AREAS.AREA_ID=PROFESOR.PROF_AREA WHERE PROFESOR.PROF_ID = '$profesor_extraido[PROF_ID]'"));
             $colegio =  mysqli_fetch_assoc(mysqli_query($con, "SELECT COLEGIOS.COL_NAME AS 'COLEGIO' FROM COLEGIOS INNER JOIN PROFESOR
@@ -88,8 +90,8 @@
             </tbody>';
         }
         else
-            echo "ERROR: 404";
+            echo "ERROR: 404"; /* En caso de que no se hayan encontrado resultados */
     }
     else
-        echo "ERROR: CAMPOS";
+        echo "ERROR: CAMPOS"; /* En caso de que haya campos vacios */
 ?>
