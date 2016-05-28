@@ -195,40 +195,56 @@
 				<div role="tabpanel" class="tab-pane" id="Boards">
 					<section>
 						<h2 class="text-center"> Marcadores: </h2>
-						<table class="table table-bordered table-hover table-responsive">
+						
+						<table class="table table-bordered table-hover">
 							<tr class="active">
 								<th> # </th>
 								<th> Usuario </th>
 								<th> Puntaje </th>
 							</tr>
-							<tr>
-								<td> 1 </td>
-								<td> Mimicry </td>
-								<td> 28121974 </td>
-							</tr>
-							<tr>
-								<td> 2 </td>
-								<td> Skull </td>
-								<td> 18072008 </td>
-							</tr>
-							<tr>
-								<td> 3 </td>
-								<td> Noot </td>
-								<td> 15602001 </td>
-							</tr>
-						</table> <br/> <br/>
+							<?php
+							
+							include("../programs/conexion.php");
+							$con = mysqli_connect($dbHost, $dbUser, $dbPassword, "PREPArados") or die("Problemas con el servidor");
+							mysqli_select_db($con, "PREPArados") or die ("Problemas al conectar la base de datos");
+							
+							$Top= "SELECT * FROM USUARIOS ORDER BY puntaje ASC LIMIT 10";
+							$Extract=mysqli_query($con, $Top);
+							$x=1;
+							while($row = mysqli_fetch_assoc($Extract)){
+								echo '<tr> <td>'.$x.'</td>';
+								echo '<td>'.$row['USER_NAME'].'</td>';
+								echo '<td>'.$row['puntaje'].'</td> </tr>';
+								$x++;
+							}
+							
+							?>
+						</table>
+						
+						<h2 class="text-center"> Tú </h2>
+						
 						<table class="table table-bordered table-hover">
-							<tr>
-								<th> # </th>
+							<tr class="active">
 								<th> Usuario </th>
 								<th> Puntaje </th>
 							</tr>
-							<tr>
-								<td> 100 </td>
-								<td> <?php echo $_SESSION["name"]; ?> </td>
-								<td> 000 </td>
-							</tr>
+							<?php
+							
+							$id=$_SESSION["ID"];
+						
+							$Me= "SELECT * FROM USUARIOS WHERE USER_NOCT ='$id'";
+							$Extract=mysqli_query($con, $Me);
+							while($row = mysqli_fetch_assoc($Extract)){
+								echo '<tr> <td>'.$row['USER_NAME'].'</td>';
+								echo '<td>'.$row['puntaje'].'</td> </tr>';
+								$x++;
+							}
+							
+							?>
 						</table>
+							
+							
+							
 					</section>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="CheckOn">
@@ -296,7 +312,7 @@
 										</div>
 									</div>
 									<div class="col-md-6">
-										<button class="btn btn-block btn-warning"> Subir mi puntación </button>
+										<button class="btn btn-block btn-warning" id="Submit"> Subir mi puntación </button>
 										<button class="btn btn-block btn-danger" id="Refresh"> Volver a Intentarlo </button>
 									</div>
 								</section>
@@ -308,42 +324,5 @@
 			</div>
 		</div>
 		<script src="../js/Juego.js"></script>
-		    <script>
-				$(document).ready(function(){
-					var ctx = $('#mycanvas').get(0).getContext("2d");
-
-
-					var data = {
-						datasets: [{
-								data: [
-									90,
-									90,
-									90,
-									90
-								],
-								backgroundColor: [
-									"blue",
-									"green",
-									"yellow",
-									"black"
-								],
-								label: 'My dataset' // for legend
-						}],
-						labels: [
-							"Aldair Coronel",
-							"Mauricio Carrasco",
-							"Adrian Garcia",
-							"Jose Lucatero"
-						]
-					};
-						//Dibujar
-					var piechart = new Chart(ctx, {
-						type: 'polarArea',
-						data: data,
-					});
-
-
-				});
-			</script>
 	</body>
 </html>
