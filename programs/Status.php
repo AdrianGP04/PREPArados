@@ -4,9 +4,9 @@
 	$Set=$_GET['Set'];
 	
 	$Time= array(
-		array('Fácil',25),
-		array('Medio',18),
-		array('Difícil',12),
+		array('Fácil',20),
+		array('Medio',15),
+		array('Difícil',7),
 	);
 	
 	if ($Mode == 1)

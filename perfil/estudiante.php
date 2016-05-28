@@ -14,7 +14,7 @@
         <script src="../bootstrap/js/jquery.min.js"></script>
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <script src="../bootstrap/js/bootstrap.min.js"></script>
-		<script src="../js/jquery-2.2.3.js"></script>
+		<!-- <script src="../js/jquery-2.2.3.js"></script> -->
 		<script type="text/javascript" src="../js/Chart.js"></script>
 	</head>
 	<body>
@@ -135,7 +135,7 @@
 									<label class="radio-inline"><input type="radio" name="Setting" class="Set" value="3"> Difícil <span class="glyphicon glyphicon-king" style="color:black"></span> </label>
 								</div> <br/> <br/>
 								<div class="form-group" >
-									<input type="submit" id="Help" class="btn btn-lg btn-success" value="Start" >
+									<input type="submit" id="START" class="btn btn-lg btn-success" value="Start" >
 								</div>
 							</fieldset>
 							</form>
@@ -228,6 +228,32 @@
 							</div>
 						</div>
 					</section>
+				</div>
+				<div class="modal fade" role="dialog" id="SeeYou" data-keyboard="false" data-backdrop="static">    <!-- Este modal aparece únicamente al terminar una partida -->
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title"> ¡Oh vaya, se acabo! </h4>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+								<section>
+									<div class="col-md-6">
+										<div class="row">
+											<p class="text-center"> ¡Se acabo el juego pero no hay de que temer! </p>
+											<p class="text-center"> Tu puntación final fue: </p>
+											<p id="ScoreShow" class="text-center"> ... </p>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<button class="btn btn-block btn-warning"> Subir mi puntación </button>
+										<button class="btn btn-block btn-danger" id="Refresh"> Volver a Intentarlo </button>
+									</div>
+								</section>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
