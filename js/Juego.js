@@ -21,7 +21,7 @@ $("#START").click(function()
 	});
 	alert(Mode);
 	alert(Set); */
-	
+
 	if (Mode==1)
 	{
 		$("#ShowMode").html("Solo <span class='glyphicon glyphicon-user'></span>");
@@ -37,9 +37,9 @@ $("#START").click(function()
 		$("#ShowMode").html("Glory <span class='glyphicon glyphicon-globe'></span>");
 		$("#Status").css("background-color","#ffe066");
 	}
-	
+
 	var x=100;
-	
+
 	$.ajax({                      //Contador
 
 		url: "../programs/Status.php",
@@ -53,9 +53,9 @@ $("#START").click(function()
 		success: function(data)
 		{
 			var point=0;
-			
+
 			var Interval=setInterval(function(){
-				if (x==0 || point>=14)            //Para cuando el juego acabe
+				if (x==0 || point==15)            //Para cuando el juego acabe
 				{
 					$(".Answers").attr("disabled","on");
 					$("fieldset").prop("disabled",false);
@@ -69,13 +69,13 @@ $("#START").click(function()
 							keyboard: false
 					});*/
 				}
-					
+
 				$("#Barra").attr("style","width:"+x+"%");
 				x-=10;
-				
-	
+
+
 			},(data)*100);
-				
+
 				$(".Answers").on("click", function(){
 					x=100;
 					point++;
@@ -83,12 +83,12 @@ $("#START").click(function()
 					//console.log(score);
 					console.log(Loop);
 				});
-				
+
 				$("#Refresh").click(function()
 				{
 					location.reload();
 				});
-					
+
 				$("#Submit").click(function()
 				{
 					alert(Set*40*Loop);
@@ -104,30 +104,30 @@ $("#START").click(function()
 						{
 							location.reload();
 						}
-							
-							
-							
+
+
+
 						});
 				});
 			}
-			
-			
-	
-	
-	
+
+
+
+
+
 	});
-	
-	
+
+
 	var random= 0;          //Este número depende de la cantidad de preguntas que haya
 	var section= 0;
-	
+
 	$.ajax({										//Para sacar la pregunta
 			url: "../programs/Juego_Beta.php",
-			
+
 			data:{
 					Random: random,
 					Section: section
-				
+
 			},
 			type:"GET",
 			dataType: "text",
@@ -135,9 +135,9 @@ $("#START").click(function()
 			{
 				$("#Question").html(data);
 			}
-		
+
 	});
-	
+
 	var A= ["#A1","#A2","#A3","#A4"];      //Acomoda las respuestas
 	function shuffle(array) {
 		var currentIndex = array.length, temporaryValue, randomIndex;
@@ -157,20 +157,20 @@ $("#START").click(function()
 
 	return array;
 	}
-	
+
 	shuffle(A);
-	
+
 	section=1;
-	
+
 	$.ajax({                   //De aquí para abajo es para sacar respuestas
-			
-		
+
+
 		url: "../programs/Juego_Beta.php",
-			
+
 		data:{
 				Random: random,
 				Section: section,
-				
+
 		},
 		type:"GET",
 		dataType: "text",
@@ -181,18 +181,18 @@ $("#START").click(function()
 		}
 
 	});
-		
+
 	section=2;
-		
+
 	$.ajax({
-			
-		
+
+
 		url: "../programs/Juego_Beta.php",
-			
+
 		data:{
 				Random: random,
 				Section: section,
-				
+
 		},
 		type:"GET",
 		dataType: "text",
@@ -202,19 +202,19 @@ $("#START").click(function()
 			$(A[1]).attr("value","0");
 		}
 
-	});	
-	
+	});
+
 	section=3;
-		
+
 	$.ajax({
-			
-		
+
+
 		url: "../programs/Juego_Beta.php",
-			
+
 		data:{
 				Random: random,
 				Section: section,
-				
+
 		},
 		type:"GET",
 		dataType: "text",
@@ -224,20 +224,20 @@ $("#START").click(function()
 			$(A[2]).attr("value","0");
 		}
 
-	});	
-	
-		
+	});
+
+
 	section=4;
-		
+
 	$.ajax({
-			
-		
+
+
 		url: "../programs/Juego_Beta.php",
-			
+
 		data:{
 				Random: random,
 				Section: section,
-				
+
 		},
 		type:"GET",
 		dataType: "text",
@@ -247,12 +247,12 @@ $("#START").click(function()
 			$(A[3]).attr("value","0");
 		}
 
-	});		
-		
-		
-		
-			
-		
+	});
+
+
+
+
+
 
 
 
@@ -267,11 +267,11 @@ $("#START").click(function()
 			console.log("Contestate");
 			$.ajax({										//Para sacar la pregunta
 					url: "../programs/Juego_Beta.php",
-					
+
 					data:{
 							Random: random,
 							Section: section
-						
+
 					},
 					type:"GET",
 					dataType: "text",
@@ -279,9 +279,9 @@ $("#START").click(function()
 					{
 						$("#Question").html(data);
 					}
-				
+
 			});
-			
+
 			var A= ["#A1","#A2","#A3","#A4"];
 			function shuffle(array) {
 				var currentIndex = array.length, temporaryValue, randomIndex;
@@ -301,21 +301,21 @@ $("#START").click(function()
 
 			return array;
 			}
-			
-			
+
+
 			shuffle(A);
-			
-			section=1;                   //De aquí en adelante es el mismo código, es para sacar las respuestas, lo trate de hacer con un for 
-			
+
+			section=1;                   //De aquí en adelante es el mismo código, es para sacar las respuestas, lo trate de hacer con un for
+
 			$.ajax({
-					
-				
+
+
 				url: "../programs/Juego_Beta.php",
-					
+
 				data:{
 						Random: random,
 						Section: section,
-						
+
 				},
 				type:"GET",
 				dataType: "text",
@@ -326,18 +326,18 @@ $("#START").click(function()
 				}
 
 			});
-				
+
 			section=2;
-				
+
 			$.ajax({
-					
-				
+
+
 				url: "../programs/Juego_Beta.php",
-					
+
 				data:{
 						Random: random,
 						Section: section,
-						
+
 				},
 				type:"GET",
 				dataType: "text",
@@ -347,19 +347,19 @@ $("#START").click(function()
 					$(A[1]).attr("value","0");
 				}
 
-			});	
-			
+			});
+
 			section=3;
-				
+
 			$.ajax({
-					
-				
+
+
 				url: "../programs/Juego_Beta.php",
-					
+
 				data:{
 						Random: random,
 						Section: section,
-						
+
 				},
 				type:"GET",
 				dataType: "text",
@@ -369,20 +369,20 @@ $("#START").click(function()
 					$(A[2]).attr("value","0");
 				}
 
-			});	
-			
-				
+			});
+
+
 			section=4;
-				
+
 			$.ajax({
-					
-				
+
+
 				url: "../programs/Juego_Beta.php",
-					
+
 				data:{
 						Random: random,
 						Section: section,
-						
+
 				},
 				type:"GET",
 				dataType: "text",
@@ -392,12 +392,12 @@ $("#START").click(function()
 					$(A[3]).attr("value","0");
 				}
 
-			});		
-			
+			});
+
 			$.ajax({                                  //Para sacar los puntajes dependiendo de la dificultad escogida
-				
+
 				url: "../programs/Puntaje.php",
-				
+
 				data:{
 					Set: Set
 				},
@@ -411,22 +411,22 @@ $("#START").click(function()
 						$("#ScoreShow").html(data*Loop);
 					}
 				}
-				
-				
+
+
 			});
-			
-			
+
+
 			if (chosen==1)
 				Loop++;
-			
+
 			var score= (Set*40*Loop);
-			
+
 			console.log(score);
 			//console.log(Loop);
-			
-			
+
+
 		});
-		
+
 });
 
 
@@ -439,7 +439,7 @@ $(document).ready(function(){
 							data: [
 								180,
 								180
-								
+
 							],
 							backgroundColor: [
 								"#99ff66",  //green
@@ -450,7 +450,7 @@ $(document).ready(function(){
 					labels: [
 						"Respuestas que has tenido correctas",
 						"Respuestas que has tenido incorrectas"
-						
+
 					]
 				};
 						//Dibujar
