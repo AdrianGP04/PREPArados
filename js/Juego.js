@@ -11,7 +11,6 @@ $("#START").click(function()
 	$("#Title").html("Game On!");
 	$("small").html("0");
 	Loop=0;
-	score=0;
 	console.log("Inicio");
 
 	var Mode= $(".Mode:checked").val();
@@ -69,13 +68,8 @@ $("#START").click(function()
 							backdrop: 'static',
 							keyboard: false
 					});*/
-					score = 0;
-					Loop = 0;
-					$("#Refresh").click(function()
-					{
-						location.reload();
-					});
 				}
+					
 				$("#Barra").attr("style","width:"+x+"%");
 				x-=10;
 				
@@ -86,10 +80,38 @@ $("#START").click(function()
 					x=100;
 					point++;
 					console.log(point);
+					//console.log(score);
+					console.log(Loop);
 				});
 				
+				$("#Refresh").click(function()
+				{
+					location.reload();
+				});
+					
+				$("#Submit").click(function()
+				{
+					alert(Set*40*Loop);
+					$.ajax({
+						url: "../programs/registrar_puntaje.php",
+						data:{
+							Score: Set*40*Loop,
+							Success: Loop
+						},
+						type:"GET",
+						dataType:"text",
+						success: function(data)
+						{
+							location.reload();
+						}
+							
+							
+							
+						});
+				});
+			}
 			
-		}	
+			
 	
 	
 	
@@ -400,9 +422,42 @@ $("#START").click(function()
 			var score= (Set*40*Loop);
 			
 			console.log(score);
-			console.log(Loop);
+			//console.log(Loop);
 			
 			
 		});
 		
+});
+
+
+
+$(document).ready(function(){
+			var ctx = $('#mycanvas').get(0).getContext("2d");
+
+			var data = {
+					datasets: [{
+							data: [
+								180,
+								180
+								
+							],
+							backgroundColor: [
+								"#99ff66",  //green
+								"#ff8080"
+							],
+							label: 'My dataset' // for legend
+					}],
+					labels: [
+						"Respuestas que has tenido correctas",
+						"Respuestas que has tenido incorrectas"
+						
+					]
+				};
+						//Dibujar
+				var piechart = new Chart(ctx, {
+						type: 'polarArea',
+						data: data,
+				});
+
+
 });
