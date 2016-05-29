@@ -1,8 +1,5 @@
 $(document).ready(function(){
-    $.post("./programs/registro_visita.php",
-    function(data){
-        // alert(data);
-    });
+    $.post("./programs/registro_visita.php");
     $(".help").mouseenter(function(){
         $(".password").attr("type", "text");
     });

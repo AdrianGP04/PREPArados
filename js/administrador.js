@@ -1,5 +1,6 @@
 $(document).ready(function(){
     /* JavaScript del administrador */
+    $.post("../programs/actualizar_graficas.php");
     /* Sistema para mostrar la contraseña al hacer hover en el span clase "help" */
     $(".help").mouseenter(function(){
         $(".password").attr("type", "text");
