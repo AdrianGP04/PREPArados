@@ -118,7 +118,6 @@ $(document).ready(function(){
             materia: $(this).val()
         },
         function(data){
-
             $("#preguntaResult").append(data); /* Se muestra la consulta */
             $('[data-toggle="tooltip"]').tooltip(); /* Se habilitan los tooltips */
             $(".no-approve").click(function(){
@@ -176,5 +175,19 @@ $(document).ready(function(){
                 });
             });
         });
+    });
+    $("#configurePassword").click(function(event){
+        event.preventDefault();
+        if($("#newPassword").val() == $("#newPassword2").val())
+            $.post("../programs/cambiar_contraseña.php",
+            {
+                password: $("#newPassword").val()
+
+            },
+            function(data){
+                $("#approveColegio").append(data); /* Integrar nueva consulta */
+            });
+        else
+            alert("Contraseñas");
     });
 });
