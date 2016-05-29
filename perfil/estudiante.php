@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	if(!isset($_SESSION))
+	{
+		header("../index.html");
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -85,47 +94,34 @@
 										<label class="radio-inline"> <input type="radio" name="GameMode" value="3" class="Mode">For glory <span class="glyphicon glyphicon-user" style="color:green"> </span> <span class="glyphicon glyphicon-globe" style="color:red"> </span> </label>
 									</div> <br/> <br/>
 									<div class="form-group">
-										<label for="Theme"> <h3> Escoge la asignatura o asignaturas que quieras jugar </h3> </label> <br/>
-										<div class="checkbox" name="Theme">
-											<div class="row">
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="1" name="subject">Mate IV</label>
-												</div>
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="2" name="subject">Mate V</label>
-												</div>
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="3" name="subject">Mate VI</label>
-												</div>
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="4" name="subject">Física</label>
-												</div>
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="5" name="subject">Química</label>
-												</div>
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="6" name="subject">Biología</label>
-												</div>
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="7" name="subject">Ética</label>
-												</div>
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="8" name="subject">Lógica</label>
-												</div>
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="9" name="subject">Etimologías</label>
-												</div>
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="10" name="subject">Salud</label>
-												</div>
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="11" name="subject">Literatura</label>
-												</div>
-												<div class="col-md-3">
-													<label> <input type="checkbox" value="12" name="subject">Informática</label>
-												</div>
-											</div>
-										</div>
+										<label for="Theme"> <h3> Escoge la asignatura o asignaturas que quieras jugar <br/> <small> (Para escoger varias asignaturas presiona la tecla Control o Shift) </small> <br/></h3> </label> <br/>
+										<select multiple name="Theme" class="form-control">
+											<option value="1"> Física </option>
+											<option value="2">Informatica</option>
+											<option value="3">Matematicas</option>
+											<option value="4">Biologia</option>
+											<option value="5">Educacion Fisica </option>
+											<option value="6">Morfologia, Fisiologia y Salud</option>
+											<option value="7">Orientacion Educativa</option>
+											<option value="8">Psicologia e Higiene Mental</option>
+											<option value="9">Quimica</option>
+											<option value="10">Ciencias Sociales</option>
+											<option value="11">Geografia</option>
+											<option value="12">Historia</option>
+											<option value="13">Aleman</option>
+											<option value="14">Artes Plasticas</option>
+											<option value="15">Danza</option>
+											<option value="16">Dibujo y Modelado</option>
+											<option value="17">Filosofia</option>
+											<option value="18">Frances</option>
+											<option value="19">Ingles</option>
+											<option value="20">Italiano</option>
+											<option value="21">Letras Clasicas</option>
+											<option value="22">Literatura</option>
+											<option value="23">Musica</option>
+											<option value="24">Teatro</option>
+											<option value="25">Produccion Editorial</option>
+										</select>
 									</div> <br/> <br/>
 									<div class="form-group">
 										<label for="Setting"> <h3> Escoge la difícultad que quieras </h3> </label> <br/>
@@ -157,7 +153,7 @@
 							$con = mysqli_connect($dbHost, $dbUser, $dbPassword, "PREPArados") or die("Problemas con el servidor");
 							mysqli_select_db($con, "PREPArados") or die ("Problemas al conectar la base de datos");
 
-							$Top= "SELECT * FROM USUARIOS ORDER BY puntaje ASC LIMIT 10";
+							$Top= "SELECT * FROM USUARIOS ORDER BY puntaje DESC LIMIT 10";
 							$Extract=mysqli_query($con, $Top);
 							$x=1;
 							while($row = mysqli_fetch_assoc($Extract)){
@@ -178,7 +174,7 @@
 								<th> Puntaje </th>
 							</tr>
 							<?php
-
+							
 							$id=$_SESSION["ID"];
 
 							$Me= "SELECT * FROM USUARIOS WHERE USER_NOCT ='$id'";
@@ -213,7 +209,7 @@
 										<h2 id="Title" > Game On!</h2>
 									</div>
 									<div class="col-md-3">
-										<h2>Puntaje: <small> 0 </small> </h2>
+										<h2>Puntaje: <small id="Score"> 0 </small> </h2>
 									</div>
 									<div class="col-md-3">
 										<h2 id="ShowMode" class="text-center"> ... </h2>
@@ -224,7 +220,7 @@
 						<div class="jumbotron">
 							<div class="row">
 								<div class="col-md-5">
-									<p> Aquí va una imagen </p>
+									<img src="../resources/Logo_P6.png" width="280" height="280">
 								</div>
 								<div class="col-md-7">
 									<h2 class="text-center" id="Question"> Pregunta </h2>
@@ -275,7 +271,7 @@
 						<div class="modal-content">
 							<div data-trigger="focus"  id="modal-header-newName"  class="modal-header">
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-								<h4 class="modal-title" id="myModalLabel">Configuración de <?php session_start(); echo $_SESSION["name"]; ?> </h4>
+								<h4 class="modal-title" id="myModalLabel">Configuración de <?php echo $_SESSION["name"]; ?> </h4>
 							</div>
 							<div class="modal-body">
 								<form id="ConfigurationName" method="POST" action="./programs/configurarNombre.php" autocomplete="off">

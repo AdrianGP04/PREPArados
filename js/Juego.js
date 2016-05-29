@@ -1,5 +1,6 @@
 var Loop=0; //Checa la cantidad de veces que has respondido
 var score=0; //Checa el puntaje
+var Correct=0; //Para graficar
 
 $("#START").click(function()
 {
@@ -9,7 +10,7 @@ $("#START").click(function()
 	$("fieldset").attr("disabled","");
 	$(".Answers").prop("disabled",false);
 	$("#Title").html("Game On!");
-	$("small").html("0");
+	$("#Score").html("0");
 	Loop=0;
 	console.log("Inicio");
 
@@ -409,7 +410,7 @@ $("#START").click(function()
 				{
 					if (chosen==1)
 					{
-						$("small").html(data*Loop);
+						$("#Score").html(data*Loop);
 						$("#ScoreShow").html(data*Loop);
 					}
 				}
@@ -435,31 +436,49 @@ $("#START").click(function()
 
 $(document).ready(function(){
 			var ctx = $('#mycanvas').get(0).getContext("2d");
+			
+			$.ajax({
+				
+				url: "../programs/Graficar_RC.php",
+				
+				data:{
+					Correct: Correct
+				},
+				type:"GET",
+				dataType:"text",
+				
+				success: function(data)
+				{
+					console.log(data);
+						var data = {
+								datasets: [{
+										data: [
+											data,
+											15-data
 
-			var data = {
-					datasets: [{
-							data: [
-								180,
-								180
+										],
+										backgroundColor: [
+											"#99ff66",  //green
+											"#ff8080"   //red
+										],
+										label: 'My dataset' // for legend
+								}],
+								labels: [
+									"Respuestas que has tenido correctas",
+									"Respuestas que has tenido incorrectas"
 
-							],
-							backgroundColor: [
-								"#99ff66",  //green
-								"#ff8080"
-							],
-							label: 'My dataset' // for legend
-					}],
-					labels: [
-						"Respuestas que has tenido correctas",
-						"Respuestas que has tenido incorrectas"
+								]
+							};
+									//Dibujar
+							var piechart = new Chart(ctx, {
+									type: 'polarArea',
+									data: data,
+							});
+				}
+			});
+				
+			
 
-					]
-				};
-						//Dibujar
-				var piechart = new Chart(ctx, {
-						type: 'polarArea',
-						data: data,
-				});
 
 
 });
