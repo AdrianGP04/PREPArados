@@ -234,25 +234,28 @@ ALTER TABLE `pregunta`
     ADD KEY `PROF_ID` (`PROF_ID`);
 
 ALTER TABLE `colegios`
-  MODIFY `COL_ID` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+    MODIFY `COL_ID` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 ALTER TABLE `profesor`
-  MODIFY `PROF_ID` int(11) NOT NULL AUTO_INCREMENT;
+    MODIFY `PROF_ID` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `pregunta`
     MODIFY `PREG_ID` int(11) NOT NULL AUTO_INCREMENT;
 
+ALTER TABLE `coordinador`
+    MODIFY `COORD_ID` int(11) NOT NULL AUTO_INCREMENT;
+
 ALTER TABLE `colegios`
-  ADD CONSTRAINT `colegios_ibfk_1` FOREIGN KEY (`AREA_ID`) REFERENCES `areas` (`AREA_ID`);
+    ADD CONSTRAINT `colegios_ibfk_1` FOREIGN KEY (`AREA_ID`) REFERENCES `areas` (`AREA_ID`);
 
 ALTER TABLE `coordinador`
-  ADD CONSTRAINT `coordinador_ibfk_1` FOREIGN KEY (`COL_ID`) REFERENCES `colegios` (`COL_ID`);
+    ADD CONSTRAINT `coordinador_ibfk_1` FOREIGN KEY (`COL_ID`) REFERENCES `colegios` (`COL_ID`);
 
 ALTER TABLE `materias`
-  ADD CONSTRAINT `materias_ibfk_1` FOREIGN KEY (`COL_ID`) REFERENCES `colegios` (`COL_ID`);
+    ADD CONSTRAINT `materias_ibfk_1` FOREIGN KEY (`COL_ID`) REFERENCES `colegios` (`COL_ID`);
 
 ALTER TABLE `pregunta`
-  ADD CONSTRAINT `pregunta_ibfk_1` FOREIGN KEY (`PROF_ID`) REFERENCES `profesor` (`PROF_ID`);
+    ADD CONSTRAINT `pregunta_ibfk_1` FOREIGN KEY (`PROF_ID`) REFERENCES `profesor` (`PROF_ID`);
 
 ALTER TABLE `profesor`
-  ADD CONSTRAINT `profesor_ibfk_1` FOREIGN KEY (`COL_ID`) REFERENCES `colegios` (`COL_ID`);
+    ADD CONSTRAINT `profesor_ibfk_1` FOREIGN KEY (`COL_ID`) REFERENCES `colegios` (`COL_ID`);

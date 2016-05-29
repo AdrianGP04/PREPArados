@@ -62,7 +62,12 @@ $(document).ready(function(){
                 $("#passwordProfRegister").popover("show"); /* En caso de que las contrasñeas no coincidan */
             else{
                 $("#RegisterForm").submit();
-                window.location.href = "";
+                $("#modalRegProf").modal("show"); /* Se muestra el mensaje de confirmacion */
+                $("#profRegister").val(""); /* Se eliminan  los campos de los inputs */
+                $("#areaCoord").val("1");
+                $("#colegioCoord").val("");
+                $("#passwordProfRegister").val("");
+                $("#passwordProfRegister2").val("");
             }
         });
     });
@@ -113,7 +118,7 @@ $(document).ready(function(){
             materia: $(this).val()
         },
         function(data){
-            
+
             $("#preguntaResult").append(data); /* Se muestra la consulta */
             $('[data-toggle="tooltip"]').tooltip(); /* Se habilitan los tooltips */
             $(".no-approve").click(function(){

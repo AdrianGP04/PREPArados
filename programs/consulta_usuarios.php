@@ -65,8 +65,7 @@
         }
         elseif(isset($profesor_extraido)){ /* Sistema de muestra si se encuentra un profesor */
             $colegio =  mysqli_fetch_assoc(mysqli_query($con, "SELECT COL_NAME FROM COLEGIOS NATURAL JOIN PROFESOR WHERE PROF_ID = '$profesor_extraido[PROF_ID]'"));
-            $area = mysqli_fetch_assoc(mysqli_query($con, "SELECT AREA_NAME FROM AREAS INNER JOIN PROFESOR
-                ON AREAS.AREA_ID=PROFESOR.PROF_AREA WHERE PROFESOR.PROF_ID = '$profesor_extraido[PROF_ID]'"));
+            $area = mysqli_fetch_assoc(mysqli_query($con, "SELECT AREA_NAME FROM AREAS NATURAL JOIN COLEGIOS WHERE COL_NAME = '$colegio[COL_NAME]'"));
             echo '<thead class="tab-result" id="profesor">
               <tr>
                   <th> ID </th>

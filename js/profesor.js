@@ -78,8 +78,14 @@ $(document).ready(function(){
                 $("#QuestionRegisterSubmit").popover("show");
             }
             else{
-                $("#RegisterFormPregunta").submit();
-                window.location.href = "";
+                $("#modalPregReg").modal("show"); /* Se muestra el mensaje de confirmacion */
+                $("#QuestionRegisterSubmit").popover("hide");
+                $("#subject").val(""); /* Se eliminan  los campos de los inputs */
+                $("#question").val("");
+                $("#c_Answer").val("");
+                $("#i_Answer1").val("");
+                $("#i_Answer2").val("");
+                $("#i_Answer3").val("");
             }
         });
     });
