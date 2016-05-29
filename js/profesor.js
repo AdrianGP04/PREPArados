@@ -123,7 +123,7 @@ $(document).ready(function(){
         $("#QuestionRegisterSubmit").popover("hide");
     });
 });
-$("#ModFormPregunta").on("submit", function(event){
+$("#QuestionModSubmit").click(function(event){
     event.preventDefault();
     $.post("../programs/modificar_pregunta.php",
     {

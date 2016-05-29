@@ -41,9 +41,9 @@ INSERT INTO `areas` (`AREA_ID`, `AREA_NAME`) VALUES
 (4, 'Humanidades y Artes');
 
 CREATE TABLE `colegios` (
-  `COL_ID` int(2) NOT NULL,
-  `COL_NAME` varchar(35) COLLATE latin1_spanish_ci NOT NULL,
-  `AREA_ID` int(2) NOT NULL
+    `COL_ID` int(2) NOT NULL,
+    `COL_NAME` varchar(35) COLLATE latin1_spanish_ci NOT NULL,
+    `AREA_ID` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 INSERT INTO `colegios` (`COL_ID`, `COL_NAME`, `AREA_ID`) VALUES
@@ -74,12 +74,12 @@ INSERT INTO `colegios` (`COL_ID`, `COL_NAME`, `AREA_ID`) VALUES
 (25, 'Produccion Editorial', 4);
 
 CREATE TABLE `materias` (
-  `MAT_ID` int(5) NOT NULL,
-  `MAT_NAME` varchar(75) COLLATE latin1_spanish_ci NOT NULL,
-  `MAT_COL` int(2) NOT NULL
+    `MAT_ID` int(5) NOT NULL,
+    `MAT_NAME` varchar(75) COLLATE latin1_spanish_ci NOT NULL,
+    `COL_ID` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-INSERT INTO `materias` (`MAT_ID`, `MAT_NAME`, `MAT_COL`) VALUES
+INSERT INTO `materias` (`MAT_ID`, `MAT_NAME`, `COL_ID`) VALUES
 (1400, 'Matematicas IV', 3),
 (1401, 'Fisica III', 1),
 (1402, 'Lengua Española', 22),
@@ -110,6 +110,7 @@ INSERT INTO `materias` (`MAT_ID`, `MAT_NAME`, `MAT_COL`) VALUES
 (1514, 'Educacion Estetica y Artistica V', 14),
 (1515, 'Orientacion Educativa V', 7),
 (1516, 'Literatura Universal', 22),
+(1600, 'Matematicas VI (Area I y II)', 3),
 (1601, 'Derecho', 10),
 (1602, 'Literatura mexicana e iberoamericana', 22),
 (1603, 'Lengua Extranjera Ingles VI', 19),
@@ -119,123 +120,139 @@ INSERT INTO `materias` (`MAT_ID`, `MAT_NAME`, `MAT_COL`) VALUES
 (1607, 'Lengua Extranjera Ingles II', 19),
 (1608, 'Lengua Extranjera Frances II', 18),
 (1609, 'Psicologia', 8),
-(1700, 'Higiene Mental', 8),
-(1701, 'Teatro VI', 24),
-(1702, 'Musica VI', 23),
-(1712, 'Estadistica y Probabilidad', 3),
 (1610, 'Dibujo Constructivo II', 16),
 (1611, 'Fisica IV', 1),
 (1612, 'Quimica IV', 9),
-(1613, 'Biologia IV', 4),
-(1706, 'Geologia y Mineralogia', 9),
-(1709, 'Fisico-Quimica', 1),
-(1710, 'Temas Selectos de Matematicas', 3),
-(1719, 'Informatica Aplicada a la Ciencia y a la Industria', 2),
-(1721, 'Cosmografia', 11),
 (1613, 'Biologia V', 4),
-(1711, 'Temas Selectos de Biologia', 4),
-(1716, 'Temas Selectos de Morfologia y Fisiologia', 6),
 (1614, 'Geografia Economica', 11),
 (1615, 'Introduccion al Estudio de las Ciencias Sociales y Economicas', 10),
 (1616, 'Problemas Socio Politicos y Economicos de Mexico', 10),
-(1704, 'Contabilidad y Gestion Administrativa', 10),
-(1707, 'Geografia Politica', 11),
-(1720, 'Sociologia', 10),
 (1617, 'Historia de la Cultura', 12),
 (1618, 'Historia de las Doctrinas Filosoficas', 17),
+(1619, 'Matematicas VI (Area III)', 3),
+(1620, 'Matematicas VI (Area IV)', 3),
+(1700, 'Higiene Mental', 8),
+(1701, 'Teatro VI', 24),
+(1702, 'Musica VI', 23),
 (1703, 'Revolucion Mexicana', 12),
+(1704, 'Contabilidad y Gestion Administrativa', 10),
 (1705, 'Pensamiento Filosofico de Mexico', 17),
+(1706, 'Geologia y Mineralogia', 9),
+(1707, 'Geografia Politica', 11),
 (1708, 'Modelado II', 16),
+(1709, 'Fisico-Quimica', 1),
+(1710, 'Temas Selectos de Matematicas', 3),
+(1711, 'Temas Selectos de Biologia', 4),
+(1712, 'Estadistica y Probabilidad', 3),
 (1713, 'Latin', 21),
 (1714, 'Griego', 21),
 (1715, 'Comunicacion Visual', 16),
+(1716, 'Temas Selectos de Morfologia y Fisiologia', 6),
 (1717, 'Estetica', 17),
-(1600, 'Matematicas VI (Area I y II)', 3),
-(1619, 'Matematicas VI (Area III)', 3),
-(1620, 'Matematicas VI (Area IV)', 3);
+(1719, 'Informatica Aplicada a la Ciencia y a la Industria', 2),
+(1720, 'Sociologia', 10),
+(1721, 'Cosmografia', 11);
 
 CREATE TABLE `profesor` (
-  `PROF_ID` int(11) NOT NULL,
-  `PROF_NAME` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `PROF_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `PROF_AREA` int(2) NOT NULL,
-  `PROF_COL` int(2) NOT NULL
+    `PROF_ID` int(11) NOT NULL,
+    `PROF_NAME` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+    `PROF_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+    `COL_ID` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 CREATE TABLE `usuarios` (
-  `USER_NAME` varchar(40) COLLATE latin1_spanish_ci NOT NULL,
-  `USER_NOCT` char(9) COLLATE latin1_spanish_ci NOT NULL,
-  `USER_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `puntaje` int(5) NOT NULL DEFAULT '0',
-  `Prom_RC` int(5) NOT NULL DEFAULT '0',
-  `Prom_RI` int(5) NOT NULL DEFAULT '0'
+    `USER_NAME` varchar(40) COLLATE latin1_spanish_ci NOT NULL,
+    `USER_NOCT` char(9) COLLATE latin1_spanish_ci NOT NULL,
+    `USER_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+    `puntaje` int(5) NOT NULL DEFAULT '0',
+    `Prom_RC` int(5) NOT NULL DEFAULT '0',
+    `Prom_RI` int(5) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 
 CREATE TABLE `coordinador` (
-  `COORD_ID` int(11) NOT NULL,
-  `COORD_NAME` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
-  `COORD_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `COORD_AREA` int(2) NOT NULL,
-  `COORD_COL` int(2) NOT NULL
+    `COORD_ID` int(11) NOT NULL,
+    `COORD_NAME` varchar(30) COLLATE latin1_spanish_ci NOT NULL,
+    `COORD_PASS` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+    `COL_ID` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 CREATE TABLE `pregunta` (
-  `PREG_ID` int(11) NOT NULL,
-  `PREG_MAT` int(2) NOT NULL,
-  `PREG_TEXT` varchar(200) COLLATE latin1_spanish_ci NOT NULL,
-  `PREG_CORR` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `PREG_INCUNO` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `PREG_INCDOS` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `PREG_INCTRES` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `PREG_PROF` int(11) NOT NULL,
-  `PREG_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `PREG_APROB` int(1) NOT NULL DEFAULT '0',
-  `PREG_REV` int(1) NOT NULL DEFAULT '0'
+    `PREG_ID` int(11) NOT NULL,
+    `PREG_MAT` int(2) NOT NULL,
+    `PREG_TEXT` varchar(200) COLLATE latin1_spanish_ci NOT NULL,
+    `PREG_CORR` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+    `PREG_INCUNO` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+    `PREG_INCDOS` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+    `PREG_INCTRES` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+    `PROF_ID` int(11) NOT NULL,
+    `PREG_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `PREG_APROB` int(1) NOT NULL DEFAULT '0',
+    `PREG_REV` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 CREATE TABLE `sitio` (
-  `SIT_NOM` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
-  `SIT_ALUMN` int(4) NOT NULL DEFAULT '0',
-  `SIT_PROF` int(4) NOT NULL DEFAULT '0',
-  `SIT_COORD` int(4) NOT NULL DEFAULT '0',
-  `SIT_ADMIN` int(2) NOT NULL DEFAULT '0',
-  `SIT_PREG` int(4) NOT NULL DEFAULT '0',
-  `SIT_VISIT` int(4) NOT NULL DEFAULT '0'
+    `SIT_NOM` varchar(25) COLLATE latin1_spanish_ci NOT NULL,
+    `SIT_ALUMN` int(4) NOT NULL DEFAULT '0',
+    `SIT_PROF` int(4) NOT NULL DEFAULT '0',
+    `SIT_COORD` int(4) NOT NULL DEFAULT '0',
+    `SIT_ADMIN` int(2) NOT NULL DEFAULT '0',
+    `SIT_PREG` int(4) NOT NULL DEFAULT '0',
+    `SIT_VISIT` int(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 INSERT INTO `SITIO` (`SIT_NOM`, `SIT_ALUMN`, `SIT_PROF`, `SIT_COORD`, `SIT_ADMIN`, `SIT_PREG`, `SIT_VISIT`) VALUES
 ('PREPArados', 0, 0, 0, 0, 0, 0);
 
 ALTER TABLE `administrador`
-  ADD PRIMARY KEY (`ADMIN_ID`);
+    ADD PRIMARY KEY (`ADMIN_ID`);
 
  ALTER TABLE `areas`
-  ADD PRIMARY KEY (`AREA_ID`);
+    ADD PRIMARY KEY (`AREA_ID`);
 
 ALTER TABLE `colegios`
-  ADD PRIMARY KEY (`COL_ID`);
+    ADD PRIMARY KEY (`COL_ID`),
+    ADD KEY `AREA_ID` (`AREA_ID`);
 
 ALTER TABLE `coordinador`
-  ADD PRIMARY KEY (`COORD_ID`);
+    ADD PRIMARY KEY (`COORD_ID`),
+    ADD KEY `COL_ID` (`COL_ID`);
+
+ALTER TABLE `materias`
+    ADD PRIMARY KEY (`MAT_ID`),
+    ADD KEY `COL_ID` (`COL_ID`);
 
 ALTER TABLE `profesor`
-  ADD PRIMARY KEY (`PROF_ID`);
+    ADD PRIMARY KEY (`PROF_ID`),
+    ADD KEY `COL_ID` (`COL_ID`);
 
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`USER_NOCT`);
+    ADD PRIMARY KEY (`USER_NOCT`);
 
 ALTER TABLE `pregunta`
-  ADD PRIMARY KEY (`PREG_ID`);
+    ADD PRIMARY KEY (`PREG_ID`),
+    ADD KEY `PROF_ID` (`PROF_ID`);
 
 ALTER TABLE `colegios`
   MODIFY `COL_ID` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
-ALTER TABLE `coordinador`
-  MODIFY `COORD_ID` int(11) NOT NULL AUTO_INCREMENT;
-
 ALTER TABLE `profesor`
   MODIFY `PROF_ID` int(11) NOT NULL AUTO_INCREMENT;
 
-  ALTER TABLE `pregunta`
+ALTER TABLE `pregunta`
     MODIFY `PREG_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `colegios`
+  ADD CONSTRAINT `colegios_ibfk_1` FOREIGN KEY (`AREA_ID`) REFERENCES `areas` (`AREA_ID`);
+
+ALTER TABLE `coordinador`
+  ADD CONSTRAINT `coordinador_ibfk_1` FOREIGN KEY (`COL_ID`) REFERENCES `colegios` (`COL_ID`);
+
+ALTER TABLE `materias`
+  ADD CONSTRAINT `materias_ibfk_1` FOREIGN KEY (`COL_ID`) REFERENCES `colegios` (`COL_ID`);
+
+ALTER TABLE `pregunta`
+  ADD CONSTRAINT `pregunta_ibfk_1` FOREIGN KEY (`PROF_ID`) REFERENCES `profesor` (`PROF_ID`);
+
+ALTER TABLE `profesor`
+  ADD CONSTRAINT `profesor_ibfk_1` FOREIGN KEY (`COL_ID`) REFERENCES `colegios` (`COL_ID`);

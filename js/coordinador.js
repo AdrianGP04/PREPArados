@@ -113,6 +113,7 @@ $(document).ready(function(){
             materia: $(this).val()
         },
         function(data){
+            
             $("#preguntaResult").append(data); /* Se muestra la consulta */
             $('[data-toggle="tooltip"]').tooltip(); /* Se habilitan los tooltips */
             $(".no-approve").click(function(){

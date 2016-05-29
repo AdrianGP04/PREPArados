@@ -8,7 +8,7 @@
         $materia_ID = mysqli_fetch_assoc(mysqli_query($con, "SELECT MAT_ID FROM MATERIAS WHERE MAT_NAME = '$materia'"));
         $preguntas_extraido = mysqli_query($con, "SELECT * FROM PREGUNTA WHERE PREG_MAT = '$materia_ID[MAT_ID]'");
         while ($preguntas = mysqli_fetch_assoc($preguntas_extraido)){
-            $profesor = mysqli_fetch_assoc(mysqli_query($con, "SELECT PROF_NAME FROM PROFESOR WHERE PROF_ID = '$preguntas[PREG_PROF]'"));
+            $profesor = mysqli_fetch_assoc(mysqli_query($con, "SELECT PROF_NAME FROM PROFESOR WHERE PROF_ID = '$preguntas[PROF_ID]'"));
             if($preguntas["PREG_APROB"] == "0"){
                 $estado = "<span id='num".$preguntas["PREG_ID"]."' class='no-approve' data-toggle='tooltip' data-placement='top' title='¿Aprobar?'> No aprobada </span>";
             }

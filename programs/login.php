@@ -49,7 +49,7 @@
                 session_start();
                 $_SESSION["ID"] = $profesor_extraido["PROF_ID"];
                 $_SESSION["name"] = $profesor_extraido["PROF_NAME"];
-                $_SESSION["COL"] = $profesor_extraido["PROF_COL"];
+                $_SESSION["COL"] = $profesor_extraido["COL_ID"];
                 header("Location: ../perfil/profesor.html");
             }
             else

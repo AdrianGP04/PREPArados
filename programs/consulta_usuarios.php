@@ -12,10 +12,8 @@
         $alumno_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM USUARIOS WHERE USER_NOCT ='$consulta'"));
         $profesor_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM PROFESOR WHERE PROF_NAME ='$consulta'"));
         if(isset($coord_extraido)){ /* Sistema de muestra si se encuentra un coordinador */
-            $area = mysqli_fetch_assoc(mysqli_query($con, "SELECT AREAS.AREA_NAME AS 'AREA' FROM AREAS INNER JOIN COORDINADOR
-                ON AREAS.AREA_ID=COORDINADOR.COORD_AREA WHERE COORDINADOR.COORD_ID = '$coord_extraido[COORD_ID]'"));
-            $colegio =  mysqli_fetch_assoc(mysqli_query($con, "SELECT COLEGIOS.COL_NAME AS 'COLEGIO' FROM COLEGIOS INNER JOIN COORDINADOR
-                ON COLEGIOS.COL_ID=COORDINADOR.COORD_COL WHERE COORDINADOR.COORD_ID = '$coord_extraido[COORD_ID]'"));
+            $colegio =  mysqli_fetch_assoc(mysqli_query($con, "SELECT COL_NAME FROM COLEGIOS NATURAL JOIN COORDINADOR WHERE COORD_ID = '$coord_extraido[COORD_ID]'"));
+            $area = mysqli_fetch_assoc(mysqli_query($con, "SELECT AREA_NAME FROM AREAS NATURAL JOIN COLEGIOS WHERE COL_NAME = '$colegio[COL_NAME]'"));
             echo '<thead class="tab-result" id="coordinador">
               <tr>
                 <th> ID </th>
@@ -29,8 +27,8 @@
               <tr>
                 <td>'.$coord_extraido["COORD_ID"].'</td>
                 <td>'.$coord_extraido["COORD_NAME"].'</td>
-                <td>'.$area["AREA"].'</td>
-                <td>'.$colegio["COLEGIO"].'</td>
+                <td>'.$area["AREA_NAME"].'</td>
+                <td>'.$colegio["COL_NAME"].'</td>
                 <td class="EliminarLink"> <span class="glyphicon glyphicon-remove"> </span> Eliminar usuario </td>
               </tr>
             </tbody>';
@@ -66,10 +64,9 @@
             </tbody>';
         }
         elseif(isset($profesor_extraido)){ /* Sistema de muestra si se encuentra un profesor */
-            $area = mysqli_fetch_assoc(mysqli_query($con, "SELECT AREAS.AREA_NAME AS 'AREA' FROM AREAS INNER JOIN PROFESOR
+            $colegio =  mysqli_fetch_assoc(mysqli_query($con, "SELECT COL_NAME FROM COLEGIOS NATURAL JOIN PROFESOR WHERE PROF_ID = '$profesor_extraido[PROF_ID]'"));
+            $area = mysqli_fetch_assoc(mysqli_query($con, "SELECT AREA_NAME FROM AREAS INNER JOIN PROFESOR
                 ON AREAS.AREA_ID=PROFESOR.PROF_AREA WHERE PROFESOR.PROF_ID = '$profesor_extraido[PROF_ID]'"));
-            $colegio =  mysqli_fetch_assoc(mysqli_query($con, "SELECT COLEGIOS.COL_NAME AS 'COLEGIO' FROM COLEGIOS INNER JOIN PROFESOR
-                ON COLEGIOS.COL_ID=PROFESOR.PROF_COL WHERE PROFESOR.PROF_ID = '$profesor_extraido[PROF_ID]'"));
             echo '<thead class="tab-result" id="profesor">
               <tr>
                   <th> ID </th>
@@ -83,8 +80,8 @@
               <tr>
                   <td>'.$profesor_extraido["PROF_ID"].'</td>
                   <td>'.$profesor_extraido["PROF_NAME"].'</td>
-                  <td>'.$area["AREA"].'</td>
-                  <td>'.$colegio["COLEGIO"].'</td>
+                  <td>'.$area["AREA_NAME"].'</td>
+                  <td>'.$colegio["COL_NAME"].'</td>
                   <td class="EliminarLink"> <span class="glyphicon glyphicon-remove"> </span> Eliminar usuario </td>
               </tr>
             </tbody>';
