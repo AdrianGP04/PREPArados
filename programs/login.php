@@ -38,7 +38,7 @@
                 session_start();
                 $_SESSION["ID"] = $alumno_extraido["USER_NOCT"];
                 $_SESSION["name"] = $alumno_extraido["USER_NAME"];
-                header("Location: ../perfil/estudiante.php");
+                header("Location: ../perfil/estudiante.html");
             }
             else
                 echo "ERROR: ALUMNO";
