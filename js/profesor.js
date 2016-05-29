@@ -1,3 +1,9 @@
+$.post("../programs/check_profesor.php",function(data){
+    if(data == "Error")
+        window.location.replace("../");
+    else
+        $("#saludo").html(data);
+});
 $(document).ready(function(){
     $.post("../programs/obtener_materias.php",
     {

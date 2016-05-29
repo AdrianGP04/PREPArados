@@ -16,7 +16,7 @@
                 session_start();
                 $_SESSION["ID"] = $coord_extraido["COORD_ID"];
                 $_SESSION["name"] = $coord_extraido["COORD_NAME"];
-                header("Location: ../perfil/coordinador.php");
+                header("Location: ../perfil/coordinador.html");
             }
             else
                 echo "ERROR: COORD";
@@ -27,7 +27,7 @@
                 session_start();
                 $_SESSION["ID"] = $admin_extraido["ADMIN_ID"];
                 $_SESSION["name"] = $admin_extraido["ADMIN_NAME"];
-                header("Location: ../perfil/administrador.php");
+                header("Location: ../perfil/administrador.html");
             }
             else
                 echo "ERROR: ADMIN";
@@ -50,7 +50,7 @@
                 $_SESSION["ID"] = $profesor_extraido["PROF_ID"];
                 $_SESSION["name"] = $profesor_extraido["PROF_NAME"];
                 $_SESSION["COL"] = $profesor_extraido["PROF_COL"];
-                header("Location: ../perfil/profesor.php");
+                header("Location: ../perfil/profesor.html");
             }
             else
                 echo "ERROR: PROF";

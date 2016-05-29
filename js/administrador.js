@@ -1,5 +1,12 @@
+$.post("../programs/check_admin.php",function(data){
+    if(data == "Error")
+    window.location.replace("../");
+    else
+    $("#saludo").html(data);
+});
 $(document).ready(function(){
     /* JavaScript del administrador */
+
     $.post("../programs/actualizar_datos.php");
     /* Sistema para mostrar la contraseña al hacer hover en el span clase "help" */
     $(".help").mouseenter(function(){
