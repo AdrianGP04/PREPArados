@@ -24,17 +24,17 @@ $("#START").click(function()
 
 	if (Mode==1)
 	{
-		$("#ShowMode").html("Solo <span class='glyphicon glyphicon-user'></span>");
+		$("#ShowMode").html("Solo <span class='glyphicon glyphicon-user'> </span>");
 		$("#Status").css("background-color","#66ff66");
 	}
 	if (Mode==2)
 	{
-		$("#ShowMode").html("Versus <span class='glyphicon glyphicon-user'></span> <span class='glyphicon glyphicon-flash'></span> <span class='glyphicon glyphicon-user'></span> ");
+		$("#ShowMode").html("Versus <span class='glyphicon glyphicon-user'> </span> <span class='glyphicon glyphicon-flash'> </span> <span class='glyphicon glyphicon-user'> </span> ");
 		$("#Status").css("background-color","#ff4d4d");
 	}
 	if (Mode==3)
 	{
-		$("#ShowMode").html("Glory <span class='glyphicon glyphicon-globe'></span>");
+		$("#ShowMode").html("Glory <span class='glyphicon glyphicon-globe'> </span>");
 		$("#Status").css("background-color","#ffe066");
 	}
 

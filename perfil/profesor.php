@@ -50,52 +50,52 @@
 						</ul>
 					</div>
 					<div class="modal fade" id="modalName" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-							<div class="modal-dialog" role="document">
-									<div class="modal-content">
-											<div data-trigger="focus"  id="modal-header-newName"  class="modal-header">
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-													<h4 class="modal-title" id="myModalLabel">Configuración del profesor <?php echo $_SESSION["name"]; ?></h4>
-											</div>
-											<div class="modal-body">
-													<form id="ConfigurationName" method="POST" action="./programs/configurarNombre.php" autocomplete="off">
-															<div class="form-group">
-																	<label for="newName"> Nuevo nombre </label>
-																	<input id="newName" data-trigger="focus" name="newUserName" type="text" class="form-control" placeholder="Nuevo nombre">
-															</div>
-															<div class="form-group">
-																	<label for="newName2"> Repetir nuevo nombre </label>
-																	<input id="newName2" data-trigger="focus" name="newUserName2" type="text" class="form-control" placeholder="Repetir nuevo nombre">
-																	<br/>
-															</div>
-															<button id="configureName" type="submit" class="btn btn-default btn-block"> Cambiar nombre </button>
-													</form>
-											</div>
-									</div>
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div data-trigger="focus"  id="modal-header-newName"  class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel">Configuración del profesor <?php echo $_SESSION["name"]; ?></h4>
+								</div>
+								<div class="modal-body">
+									<form id="ConfigurationName" method="POST" action="./programs/configurarNombre.php" autocomplete="off">
+										<div class="form-group">
+											<label for="newName"> Nuevo nombre </label>
+											<input id="newName" data-trigger="focus" name="newUserName" type="text" class="form-control" placeholder="Nuevo nombre">
+										</div>
+										<div class="form-group">
+											<label for="newName2"> Repetir nuevo nombre </label>
+											<input id="newName2" data-trigger="focus" name="newUserName2" type="text" class="form-control" placeholder="Repetir nuevo nombre">
+											<br/>
+										</div>
+										<button id="configureName" type="submit" class="btn btn-default btn-block"> Cambiar nombre </button>
+									</form>
+								</div>
 							</div>
+						</div>
 					</div>
 					<div class="modal fade" id="modalPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-							<div class="modal-dialog" role="document">
-									<div class="modal-content">
-											<div data-trigger="focus"  id="modal-header-newPassword"  class="modal-header">
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-													<h4 class="modal-title" id="myModalLabel">Configuración del profesor <?php echo $_SESSION["name"]; ?></h4>
-											</div>
-											<div class="modal-body">
-													<form id="ConfigurationPassword" method="POST" action="./programs/configurarContra.php" autocomplete="off">
-															<div class="form-group">
-																	<label for="newPassword"> Nueva contraseña </label>
-																	<input id="newPassword" data-trigger="focus" name="newUserPassword" type="text" class="form-control" placeholder="Nueva contraseña">
-															</div>
-															<div class="form-group">
-																	<label for="newPassword2"> Repetir nueva contraseña </label>
-																	<input id="newPassword2" data-trigger="focus" name="newUserPassword2" type="text" class="form-control" placeholder="Repetir nueva contraseña">
-																	<br/>
-															</div>
-															<button id="configurePassword" type="submit" class="btn btn-default btn-block"> Cambiar contraseña </button>
-													</form>
-											</div>
-									</div>
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div data-trigger="focus"  id="modal-header-newPassword"  class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel">Configuración del profesor <?php echo $_SESSION["name"]; ?></h4>
+								</div>
+								<div class="modal-body">
+									<form id="ConfigurationPassword" method="POST" action="./programs/configurarContra.php" autocomplete="off">
+										<div class="form-group">
+											<label for="newPassword"> Nueva contraseña </label>
+											<input id="newPassword" data-trigger="focus" name="newUserPassword" type="text" class="form-control" placeholder="Nueva contraseña">
+										</div>
+										<div class="form-group">
+											<label for="newPassword2"> Repetir nueva contraseña </label>
+											<input id="newPassword2" data-trigger="focus" name="newUserPassword2" type="text" class="form-control" placeholder="Repetir nueva contraseña">
+											<br/>
+										</div>
+										<button id="configurePassword" type="submit" class="btn btn-default btn-block"> Cambiar contraseña </button>
+									</form>
+								</div>
 							</div>
+						</div>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right visible-xs">
@@ -193,103 +193,101 @@
 					<br/>
 					<div class="row">
 						<div class="col-lg-6">
-
-					<form id="PlanesEstudio" autocomplete="off">
-						<div class="form-group">
-							<label for="colegioPlan"> Colegio </label>
-							<select id="colegioPlan" class="form-control">
-								<option value="1"> Fisica</option>
-								<option value="2"> Informatica </option>
-								<option value="3"> Matematicas </option>
-								<option value="4"> Biologia </option>
-								<option value="5"> Educacion Fisica </option>
-								<option value="6"> Morfologia, Fisiologia y Salud </option>
-								<option value="7"> Orientacion Educativa </option>
-								<option value="8"> Psicologia e Higiene Mental </option>
-								<option value="9"> Quimica </option>
-								<option value="10"> Ciencias Sociales </option>
-								<option value="11"> Geografia </option>
-								<option value="12"> Historia </option>
-								<option value="13"> Aleman </option>
-								<option value="14"> Artes Plasticas </option>
-								<option value="15"> Danza </option>
-								<option value="16"> Dibujo y Modelado </option>
-								<option value="17"> Filosofia </option>
-								<option value="18"> Frances </option>
-								<option value="19"> Ingles </option>
-								<option value="20"> Italiano </option>
-								<option value="21"> Letras Clasicas </option>
-								<option value="22"> Literatura</option>
-								<option value="23"> Musica </option>
-								<option value="24"> Teatro </option>
-							</select>
+							<form id="PlanesEstudio" autocomplete="off">
+								<div class="form-group">
+									<label for="colegioPlan"> Colegio </label>
+									<select id="colegioPlan" class="form-control">
+										<option value="1"> Fisica</option>
+										<option value="2"> Informatica </option>
+										<option value="3"> Matematicas </option>
+										<option value="4"> Biologia </option>
+										<option value="5"> Educacion Fisica </option>
+										<option value="6"> Morfologia, Fisiologia y Salud </option>
+										<option value="7"> Orientacion Educativa </option>
+										<option value="8"> Psicologia e Higiene Mental </option>
+										<option value="9"> Quimica </option>
+										<option value="10"> Ciencias Sociales </option>
+										<option value="11"> Geografia </option>
+										<option value="12"> Historia </option>
+										<option value="13"> Aleman </option>
+										<option value="14"> Artes Plasticas </option>
+										<option value="15"> Danza </option>
+										<option value="16"> Dibujo y Modelado </option>
+										<option value="17"> Filosofia </option>
+										<option value="18"> Frances </option>
+										<option value="19"> Ingles </option>
+										<option value="20"> Italiano </option>
+										<option value="21"> Letras Clasicas </option>
+										<option value="22"> Literatura</option>
+										<option value="23"> Musica </option>
+										<option value="24"> Teatro </option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="materiaPlan"> Materia </label>
+									<select id="materiaPlan"  data-trigger="focus" class="form-control">
+									</select>
+								</div>
+							</form>
+							<table id="PlanResult" class="table table-bordered table-hover table-condensed">
+							</table>
 						</div>
-						<div class="form-group">
-							<label for="materiaPlan"> Materia </label>
-							<select id="materiaPlan"  data-trigger="focus" class="form-control">
-							</select>
-						</div>
-					</form>
-					<table id="PlanResult" class="table table-bordered table-hover table-condensed">
-					</table>
-				</div>
-			</div>
+					</div>
 				</div>
 			</div>
 		</div>
-<!-- Modal -->
-<div class="modal fade" id="preguntaMod" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"> Modificar pregunta </h4>
-      </div>
-      <div class="modal-body">
-		  <form id="ModFormPregunta" method="POST" action="./programs/modificar_pregunta.php" autocomplete="off" enctype="multipart/form-data">
-  			<div class="form-group">
-  				<label for="questionMod"> Introduzca la nueva pregunta </label>
-  				<input id="questionMod" type="text" name="question" placeholder="Pregunta" class="form-control">
-  			</div>
-  			<div class="form-group">
-  				<label for="c_AnswerMod"> Introduzca la nueva respuesta correcta </label>
-  				<input id="c_AnswerMod" type="text" name="c_Answer" placeholder="Respuesta correcta" class="form-control">
-  			</div>
-  			<div class="form-group">
-  				<label for="subject"> Introduzca las respuestas incorrectas </label>
-  				<input id="i_Answer1Mod" type="text" name="i_Answer1" placeholder="Respuesta incorrecta" class="form-control" >
-  			</div>
-  			<div class="form-group">
-  				<input id="i_Answer2Mod" type="text" name="i_Answer2" placeholder="Respuesta incorrecta" class="form-control">
-  			</div>
-  			<div class="form-group">
-  				<input id="i_Answer3Mod" type="text" name="i_Answer3" placeholder="Respuesta incorrecta" class="form-control">
-  			</div>
-  			<div class="form-group">
-  				<label for="q_ImgMod"> Agregar una imagen a la pregunta (opcional) </label>
-  				<input id="q_ImgMod" type="file" name="q_Img" class="form-control">
-  			</div>
-			<input id="QuestionRegisterSubmit" type="submit" class="btn btn-primary btn-block" value="Guardar cambios">
-			<button type="button" class="btn btn-default btn-block" data-dismiss="modal"> Cancelar </button>
-  		</form>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="preguntaDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"> Eliminar pregunta </h4>
-      </div>
-      <div class="modal-footer">
-        <button id="EliminarConfirm" type="button" class="btn btn-danger btn-block"> Eliminar </button>
-		<button type="button" class="btn btn-primary btn-block" data-dismiss="modal"> Cancelar </button>
-      </div>
-    </div>
-  </div>
-</div>
+		<div class="modal fade" id="preguntaMod" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel"> Modificar pregunta </h4>
+					</div>
+					<div class="modal-body">
+						<form id="ModFormPregunta" method="POST" action="./programs/modificar_pregunta.php" autocomplete="off" enctype="multipart/form-data">
+							<div class="form-group">
+								<label for="questionMod"> Introduzca la nueva pregunta </label>
+								<input id="questionMod" type="text" name="question" placeholder="Pregunta" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="c_AnswerMod"> Introduzca la nueva respuesta correcta </label>
+								<input id="c_AnswerMod" type="text" name="c_Answer" placeholder="Respuesta correcta" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="subject"> Introduzca las respuestas incorrectas </label>
+								<input id="i_Answer1Mod" type="text" name="i_Answer1" placeholder="Respuesta incorrecta" class="form-control" >
+							</div>
+							<div class="form-group">
+								<input id="i_Answer2Mod" type="text" name="i_Answer2" placeholder="Respuesta incorrecta" class="form-control">
+							</div>
+							<div class="form-group">
+								<input id="i_Answer3Mod" type="text" name="i_Answer3" placeholder="Respuesta incorrecta" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="q_ImgMod"> Agregar una imagen a la pregunta (opcional) </label>
+								<input id="q_ImgMod" type="file" name="q_Img" class="form-control">
+							</div>
+							<input id="QuestionRegisterSubmit" type="submit" class="btn btn-primary btn-block" value="Guardar cambios">
+							<button type="button" class="btn btn-default btn-block" data-dismiss="modal"> Cancelar </button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="preguntaDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel"> Eliminar pregunta </h4>
+					</div>
+					<div class="modal-footer">
+						<button id="EliminarConfirm" type="button" class="btn btn-danger btn-block"> Eliminar </button>
+						<button type="button" class="btn btn-primary btn-block" data-dismiss="modal"> Cancelar </button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 	<script src="../js/profesor.js"></script>
 </html>
