@@ -160,7 +160,7 @@ $(document).ready(function(){
                     id: pregunta_id
                 },
                 function(data){
-                    $("#modalRegCoord").modal("show"); /* Se mutesra el modal de confirmacion de revision de pregunta */
+                    $("#modalRev").modal("show"); /* Se mutesra el modal de confirmacion de revision de pregunta */
                 });
             });
         });
