@@ -54,8 +54,13 @@ $(document).ready(function(){
             else if (data == "ERROR: CONTRASEÑA") /* Error por discordancia en las contraseñas */
                 $("#passwordCoordRegister").popover("show");
             else{
-                $("#RegisterForm").submit();
-                window.location.href = "";
+                $("#RegisterForm").submit(); /* Se envia el formulario */
+                $("#modalRegCoord").modal("show"); /* Se muestra el mensaje de confirmacion */
+                $("#coordRegister").val(""); /* Se eliminan  los campos de los inputs */
+                $("#areaCoord").val("");
+                $("#colegioCoord").val("");
+                $("#passwordCoordRegister").val("");
+                $("#passwordCoordRegister2").val("");
             }
         });
     });
@@ -77,7 +82,7 @@ $(document).ready(function(){
                 $("#ConsultaResult").append(data);
             }
             $(".EliminarLink").bind("click",function(){ /* Asignacion del modal de eliminacion a la nueva consulta */
-                $("#EliminarModal").modal();
+            $("#EliminarModal").modal();
             });
         });
     });
@@ -91,7 +96,8 @@ $(document).ready(function(){
         function(data){
             if(data == "SUCCESS"){ /* En caso de éxito */
                 $(".tab-result").remove(); /* Se borra el resultado de la busqueda */
-                $("#EliminarModal").modal("toggle"); /* Se oculta el modal de eliminacio */
+                $("#EliminarModal").modal("toggle"); /* Se oculta el modal de eliminacion */
+                $("#modalDelUser").modal("show"); /* Se muestra el mensaje de confirmacion */
             }
             else if(data == "ERROR: CAMPOS"){
                 $("#ConsultaUsuario").popover("show"); /* Error por campos vacios */

@@ -121,7 +121,7 @@ $(document).ready(function(){
                     id: pregunta_id
                 },
                 function(data){
-                    $("#modalRev").modal("show"); /* Se mutesra el modal de confirmacion de revision de pregunta */
+                    $("#modalRegCoord").modal("show"); /* Se mutesra el modal de confirmacion de revision de pregunta */
                 });
             });
         });

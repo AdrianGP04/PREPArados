@@ -55,92 +55,124 @@
 					</div>
 				</div>
 			</nav>
-      <ul class="nav nav-tabs text-center" role="tablist">
-        <li role="presentation" class="active"> <a href="#CreateAccounts" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span> Crear cuentas de coordinadores</a> </li>
-        <li role="presentation"> <a href="#SearchGraphics" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span> Consulta de gráficas mensuales </a></li>
-        <li role="presentation"> <a href="#SearchUsers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span> Consultar usuarios </a></li>
-      </ul>
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="CreateAccounts">
-			<br/>
-			<div class="row">
-				<div class="col-lg-6">
-					<section>
-						<form id="RegisterFormCoord" method="POST" action="./programs/registro.php" autocomplete="off">
-							<div class="form-group">
-								<label for="coordRegister"> Nombre del coordinador </label>
-								<input id="coordRegister" data-trigger="focus" name="userRegister" type="text" class="form-control" placeholder="Nombre">
-							</div>
-							<div class="form-group">
-								<label for="areaCoord"> Área de estudio a la que pertenece </label>
-								<select id="areaCoord" class="form-control">
-									<option value="1"> Área I: Ciencias Físico - Matemáticas y de las Ingenierías </option>
-									<option value="2"> Área II: Ciencias Biológicas y de la Salud </option>
-									<option value="3"> Área III: Ciencias Sociales </option>
-									<option value="4"> Área IV: Humanidades y Artes </option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="colegioCoord"> Colegio al que pertenece </label>
-								<select id="colegioCoord" class="form-control">
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="passwordCoordRegister"> Contraseña del coordinador </label>
-								<input id="passwordCoordRegister" data-trigger="focus" type="password" class="form-control password" placeholder="Contraseña">
-							</div>
-							<div class="form-group">
-								<label for="passwordCoordRegister2"> Repetir contraseña </label>
-								<input id="passwordCoordRegister2" data-trigger="focus" name="passwordRegister2" type="password" class="form-control password" placeholder="Repetir contraseña">
+			<ul class="nav nav-tabs text-center" role="tablist">
+				<li role="presentation" class="active"> <a href="#CreateAccounts" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span> Crear cuentas de coordinadores</a> </li>
+				<li role="presentation"> <a href="#SearchGraphics" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span> Consulta de gráficas mensuales </a></li>
+				<li role="presentation"> <a href="#SearchUsers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span> Consultar usuarios </a></li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="CreateAccounts">
+					<br/>
+					<div class="row">
+						<div class="col-lg-6">
+							<section>
+								<form id="RegisterFormCoord" method="POST" action="./programs/registro.php" autocomplete="off">
+									<div class="form-group">
+										<label for="coordRegister"> Nombre del coordinador </label>
+										<input id="coordRegister" data-trigger="focus" name="userRegister" type="text" class="form-control" placeholder="Nombre">
+									</div>
+									<div class="form-group">
+										<label for="areaCoord"> Área de estudio a la que pertenece </label>
+										<select id="areaCoord" class="form-control">
+										<option value="1"> Área I: Ciencias Físico - Matemáticas y de las Ingenierías </option>
+										<option value="2"> Área II: Ciencias Biológicas y de la Salud </option>
+										<option value="3"> Área III: Ciencias Sociales </option>
+										<option value="4"> Área IV: Humanidades y Artes </option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="colegioCoord"> Colegio al que pertenece </label>
+										<select id="colegioCoord" class="form-control">
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="passwordCoordRegister"> Contraseña del coordinador </label>
+										<input id="passwordCoordRegister" data-trigger="focus" type="password" class="form-control password" placeholder="Contraseña">
+									</div>
+									<div class="form-group">
+										<label for="passwordCoordRegister2"> Repetir contraseña </label>
+										<input id="passwordCoordRegister2" data-trigger="focus" name="passwordRegister2" type="password" class="form-control password" placeholder="Repetir contraseña">
+										<br/>
+										<span class="help"> <span class="glyphicon glyphicon-eye-close"></span> Mostrar contraseñas </span>
+									</div>
+									<button id="CoordRegisterSubmit" type="submit" class="btn btn-default btn-block"> Registrar coordinador </button>
+								</form>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="SearchUsers">
+					<br/>
+					<div class="row">
+						<div class="col-lg-6">
+							<section>
+								<form id="ConsultaUsuarioForm" method="POST" action="./programs/registro.php" autocomplete="off">
+									<div class="form-group">
+										<label for="ConsultaUsuario"> Número de cuenta o nombre del usuario</label>
+										<input id="ConsultaUsuario" data-trigger="focus" name="ConsultaUsuario" type="text" class="form-control" placeholder="Número de cuenta | Nombre">
+									</div>
+									<button id="ConsultaUsuarioSubmit" type="submit" class="btn btn-default btn-block"> Buscar </button>
+								</form>
 								<br/>
-								<span class="help"> <span class="glyphicon glyphicon-eye-close"></span> Mostrar contraseñas </span>
-							</div>
-							<button id="CoordRegisterSubmit" type="submit" class="btn btn-default btn-block"> Registrar coordinador </button>
-						</form>
-					</section>
+								<table id="ConsultaResult" class="table table-bordered">
+								</table>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="SearchGraphics">
+				<section>
+				<h2> Consulta de graficas </h2>
+				</section>
 				</div>
 			</div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="SearchUsers">
-			<br/>
-			<div class="row">
-				<div class="col-lg-6">
-					<section>
-						<form id="ConsultaUsuarioForm" method="POST" action="./programs/registro.php" autocomplete="off">
-							<div class="form-group">
-								<label for="ConsultaUsuario"> Número de cuenta o nombre del usuario</label>
-								<input id="ConsultaUsuario" data-trigger="focus" name="ConsultaUsuario" type="text" class="form-control" placeholder="Número de cuenta | Nombre">
-							</div>
-							<button id="ConsultaUsuarioSubmit" type="submit" class="btn btn-default btn-block"> Buscar </button>
-						</form>
-						<br/>
-						<table id="ConsultaResult" class="table table-bordered">
-						</table>
-					</section>
+			<div class="modal fade" id="EliminarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div data-trigger="focus"  id="modal-header-EliminarModal"  class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel"> Eliminar usuario </h4>
+						</div>
+						<div class="modal-body">
+							<button id="EliminarUsuario" class="btn btn-block btn-danger"> Eliminar </button>
+							<button class="btn btn-block btn-info" data-dismiss="modal"> Cancelar </button>
+						</div>
+					</div>
 				</div>
 			</div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="SearchGraphics">
-          <section>
-            <h2> Consulta de graficas </h2>
-          </section>
-        </div>
-      </div>
-	  <div class="modal fade" id="EliminarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		  <div class="modal-dialog" role="document">
-			  <div class="modal-content">
-				  <div data-trigger="focus"  id="modal-header-EliminarModal"  class="modal-header">
-					  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					  <h4 class="modal-title" id="myModalLabel"> Eliminar usuario </h4>
-				  </div>
-				  <div class="modal-body">
-						<button id="EliminarUsuario" class="btn btn-block btn-danger"> Eliminar </button>
-						<button class="btn btn-block btn-info" data-dismiss="modal"> Cancelar </button>
-				  </div>
-			  </div>
-		  </div>
-	  </div>
-    </div>
-  </body>
-  <script src="../js/administrador.js"></script>
+			<div id="modalRegCoord" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel"> Registro de coordinador </h4>
+						</div>
+						<div class="modal-body">
+							Se ha registrado al coordinador exitósamente
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary btn-block" data-dismiss="modal"> Cerrar </button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="modalDelUser" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel"> Eliminación de usuario </h4>
+						</div>
+						<div class="modal-body">
+							Se ha eliminado al usuario exitósamente
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary btn-block" data-dismiss="modal"> Cerrar </button>
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
+	</body>
+	<script src="../js/administrador.js"></script>
 </html>
