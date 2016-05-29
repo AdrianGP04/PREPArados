@@ -13,16 +13,16 @@
         $alumno_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT USER_NOCT FROM USUARIOS WHERE USER_NOCT LIKE '$consulta' "));
         $profesor_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT PROF_NAME FROM PROFESOR WHERE PROF_NAME LIKE '$consulta' "));
         if(isset($coord_extraido)){ /* Sistema de muestra si se encuentra un coordinador */
-            echo "Quizas queriar decir: ".$coord_extraido["COORD_NAME"];
+            echo "Quizas querias decir: ".$coord_extraido["COORD_NAME"];
         }
         elseif(isset($admin_extraido)){ /* Sistema de muestra si se encuentra un administrador */
-            echo "Quizas queriar decir: ".$admin_extraido["ADMIN_NAME"];
+            echo "Quizas querias decir: ".$admin_extraido["ADMIN_NAME"];
         }
         elseif(isset($alumno_extraido)){ /* Sistema de muestra si se encuentra un alumno */
-            echo "Quizas queriar decir: ".$alumno_extraido["USER_NOCT"];
+            echo "Quizas querias decir: ".$alumno_extraido["USER_NOCT"];
         }
         elseif(isset($profesor_extraido)){ /* Sistema de muestra si se encuentra un profesor */
-            echo "Quizas queriar decir: ".$profesor_extraido["PROF_NAME"];
+            echo "Quizas querias decir: ".$profesor_extraido["PROF_NAME"];
         }
         else
             echo "No se han encontrado resultados"; /* En caso de que no se hayan encontrado resultados */
