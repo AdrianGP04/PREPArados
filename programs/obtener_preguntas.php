@@ -39,13 +39,13 @@
             </tbody>';
         }
     }
+    else if(isset($_POST["badge"]) && isset($_POST["coordinador"])){
+        $badge_extraido=  mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(PREG_APROB) AS BADGES FROM PREGUNTA WHERE PREG_APROB = '0'"));
+        echo $badge_extraido["BADGES"];
+    }
     else if(isset($_POST["badge"])){
-        $numBadge = 0;
-        $badge_extraido= mysqli_query($con, "SELECT PREG_ID FROM PREGUNTA WHERE PREG_REV = '1'");
-        while ($preguntas = mysqli_fetch_assoc($badge_extraido)){
-            $numBadge++;
-        }
-        echo $numBadge;
+        $badge_extraido=  mysqli_fetch_assoc(mysqli_query($con, "SELECT COUNT(PREG_REV) AS BADGES FROM PREGUNTA WHERE PREG_REV = '1'"));
+        echo $badge_extraido["BADGES"];
     }
     else {
         $materia = mysqli_real_escape_string($con, $_POST["materia"]);

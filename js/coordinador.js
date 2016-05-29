@@ -1,4 +1,13 @@
 $(document).ready(function(){
+    $.post("../programs/obtener_preguntas.php",
+    {
+        badge: true,
+        coordinador: true,
+        profesor: true
+    },
+    function(data){
+        $(".badge").html(data);
+    });
 /* Mostrar contraseñas al hacer hover sobre el span*/
     $(".help").mouseenter(function(){
         $(".password").attr("type", "text");
@@ -110,6 +119,15 @@ $(document).ready(function(){
                 },
                 function(data){
                     $("#modalApprove").modal("show"); /* Se muestra el modal de confirmacion */
+                    $.post("../programs/obtener_preguntas.php",
+                    {
+                        badge: true,
+                        coordinador: true,
+                        profesor: true
+                    },
+                    function(data){
+                        $(".badge").html(data);
+                    });
                 });
             });
             $(".rev").click(function(){

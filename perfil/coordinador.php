@@ -108,7 +108,7 @@
 			</nav>
       <ul class="nav nav-tabs text-center" role="tablist">
         <li role="presentation" class="active"> <a href="#CreateAccounts" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span> Crear cuentas de profesores</a> </li>
-        <li role="presentation"> <a href="#ApproveQuestions" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span> Aprobar preguntas</a></li>
+        <li role="presentation"> <a href="#ApproveQuestions" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span> Aprobar preguntas  <span class="badge"></span> </a></li>
       </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="CreateAccounts">

@@ -4,13 +4,14 @@
         include("conexion.php");
         $con = mysqli_connect($dbHost,$dbUser,$dbPassword,"PREPArados") or die("Problemas con el servidor");
         mysqli_select_db($con,"PREPArados") or die ("Problemas al conectar la base de datos");
+        /* Eliminacion de posibles sentencias SQL en los POSTS y concatenacion del char %*/
         $consulta = mysqli_real_escape_string($con, $_POST["ConsultaUsuario"]);
         $consulta .= "%";
         mysqli_query ($con, "SET NAMES 'utf8'");
-/* Eliminacion de posibles sentencias SQL en los POSTS */
+        /* Busqueda de posibles resultados */
         $admin_extraido = mysqli_fetch_assoc(mysqli_query($con, "SELECT ADMIN_NAME FROM ADMINISTRADOR WHERE ADMIN_NAME LIKE '$consulta' "));
         $coord_extraido = mysqli_fetch_assoc(mysqli_query($con, "SELECT COORD_NAME FROM COORDINADOR WHERE COORD_NAME LIKE '$consulta' "));
-        $alumno_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT USER_NOCT FROM USUARIOS WHERE USER_NOCT LIKE '$consulta' "));
+        $alumno_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT USER_NOCT FROM USUARIOS WHERE USER_NOCT LIKE '%$consulta' "));
         $profesor_extraido = mysqli_fetch_assoc(mysqli_query($con,"SELECT PROF_NAME FROM PROFESOR WHERE PROF_NAME LIKE '$consulta' "));
         if(isset($coord_extraido)){ /* Sistema de muestra si se encuentra un coordinador */
             echo "Quizas querias decir: ".$coord_extraido["COORD_NAME"];
