@@ -13,7 +13,7 @@
                 $estado = "<span id='num".$preguntas["PREG_ID"]."' class='no-approve' data-toggle='tooltip' data-placement='top' title='¿Aprobar?'> No aprobada </span>";
             }
             else{
-                $estado = "<span class='approved'> Aprobada </span>";
+                $estado = "<span id='num".$preguntas["PREG_ID"]."' class='approved' data-toggle='tooltip' data-placement='top' title='¿Desaprobar?'> Aprobada </span>";
             }
             if($preguntas["PREG_APROB"] == "0" && $preguntas["PREG_REV"] == "0"){
                 $revision = '<button id="rev'.$preguntas["PREG_ID"].'" data-toggle="modal" data-target="#preguntaMod" type="button" class="btn btn-link rev"> Pedir revisión </button>';

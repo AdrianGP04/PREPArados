@@ -214,6 +214,22 @@
   			</div>
   		</div>
   	</div>
+	<div id="modalDesapprove" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  <div class="modal-dialog modal-sm">
+		  <div class="modal-content">
+			  <div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				  <h4 class="modal-title" id="myModalLabel"> Pregunta desaprobada </h4>
+			  </div>
+			  <div class="modal-body">
+				  La pregunta ha sido desaprobada exitosamente
+			  </div>
+			  <div class="modal-footer">
+				  <button type="button" class="btn btn-primary btn-block" data-dismiss="modal"> Cerrar </button>
+			  </div>
+		  </div>
+	  </div>
+  </div>
 	<div id="modalRev" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 	  <div class="modal-dialog modal-sm">
 		  <div class="modal-content">

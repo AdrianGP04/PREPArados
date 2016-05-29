@@ -130,6 +130,27 @@ $(document).ready(function(){
                     });
                 });
             });
+            $(".approved").click(function(){
+                $(".tab-result").remove(); /* Se elimina la consulta */
+                var pregunta_id = $(this).attr("id");
+                pregunta_id = pregunta_id.slice(3);
+                $.post("../programs/desaprobar_pregunta.php",
+                {
+                    id: pregunta_id
+                },
+                function(data){
+                    $("#modalDesapprove").modal("show"); /* Se muestra el modal de confirmacion */
+                    $.post("../programs/obtener_preguntas.php",
+                    {
+                        badge: true,
+                        coordinador: true,
+                        profesor: true
+                    },
+                    function(data){
+                        $(".badge").html(data);
+                    });
+                });
+            });
             $(".rev").click(function(){
                 $(".tab-result").remove(); /* Se elimina la consulta */
                 var pregunta_id = $(this).attr("id");
