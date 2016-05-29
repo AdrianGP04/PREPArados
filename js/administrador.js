@@ -13,7 +13,6 @@ $(document).ready(function(){
     $("#passwordCoordRegister").popover({title: "Contraseñas diferentes", content: "Las contraseñas deben ser iguales", placement: "right"});
     $("#passwordCoordRegister2").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
     $("#ConsultaUsuario").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
-    $("#ConsultaUsuarioSubmit").popover({title: "Sin resultados", content: "No se han encontrado usuarios", placement: "right"});
 
     /* Sistema para ocultar los popover al seleccionar cualquier input */
     $("input").focus(function(){
@@ -21,7 +20,9 @@ $(document).ready(function(){
         $("#passwordCoordRegister").popover("hide");
         $("#passwordCoordRegister2").popover("hide");
         $("#ConsultaUsuario").popover("hide");
-        $("#ConsultaUsuarioSubmit").popover("hide");
+        $("input").keypress(function(){
+            $("#posibles").popover("hide");
+        });
     });
 
 /* Sistema de registro de coordinadores*/
@@ -69,17 +70,26 @@ $(document).ready(function(){
     $("#ConsultaUsuarioSubmit").click(function(event){
         $(".tab-result").remove(); /* Remueve las consultas anteriores */
         event.preventDefault();
+        var consulta = $("#ConsultaUsuario").val();
         $.post("../programs/consulta_usuarios.php",
         {
-            ConsultaUsuario: $("#ConsultaUsuario").val()
+            ConsultaUsuario: consulta
         },
         function(data){
             if(data == "ERROR: CAMPOS")
                 $("#ConsultaUsuario").popover("show"); /* Error por campos vacios */
-            else if (data == "ERROR: 404")
-                $("#ConsultaUsuarioSubmit").popover("show"); /* Error al no encontrar resultados */
+            else if (data == "ERROR: 404"){
+                $("#posibles").popover("destroy");
+                $.post("../programs/consulta_usuarios_error.php",
+                {
+                    ConsultaUsuario: consulta.slice(0,5)
+                },
+                function(data){
+                    $("#posibles").popover({title: "Resultados posibles", content: data, placement: "right"});
+                    $("#posibles").popover("toggle");
+                });
+            }
             else{
-                $("#ConsultaUsuarioSubmit").popover("hide");
                 $("#ConsultaResult").append(data);
             }
             $(".EliminarLink").bind("click",function(){ /* Asignacion del modal de eliminacion a la nueva consulta */

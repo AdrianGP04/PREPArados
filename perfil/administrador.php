@@ -58,7 +58,7 @@
 			<ul class="nav nav-tabs text-center" role="tablist">
 				<li role="presentation" class="active"> <a href="#CreateAccounts" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span> Crear cuentas de coordinadores</a> </li>
 				<li role="presentation"> <a href="#SearchGraphics" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span> Consulta de gráficas mensuales </a></li>
-				<li role="presentation"> <a href="#SearchUsers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span> Consultar usuarios </a></li>
+				<li id="posibles" data-trigger="focus" role="presentation"> <a href="#SearchUsers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-search"></span> Consultar usuarios </a></li>
 			</ul>
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="CreateAccounts">
