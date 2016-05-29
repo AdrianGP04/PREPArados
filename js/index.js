@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $.post("./programs/registro_visita.php");
+
     $(".help").mouseenter(function(){
         $(".password").attr("type", "text");
     });
@@ -50,8 +51,8 @@ $(document).ready(function(){
             else if (data == "ERROR: CONTRASEÑA")
                 $("#passwordRegister").popover("show");
             else{
-                $("#RegisterForm").submit();
-                window.location.href = "index.html";
+                $("#modalRegUser").modal("show");
+                $("#modalRegister").modal("hide");
             }
         });
     });
