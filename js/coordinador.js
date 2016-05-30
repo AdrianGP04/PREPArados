@@ -25,11 +25,15 @@ $(document).ready(function(){
     $("#profRegister").popover({title: "Coordinador registrado", content: "El coordinador ingresado ya ha sido registrado", placement: "right"});
     $("#passwordProfRegister").popover({title: "Contraseñas diferentes", content: "Las contraseñas deben ser iguales", placement: "right"});
     $("#passwordProfRegister2").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
+    $("#configurePassword").popover({title: "Contraseñas diferentes", content: "Las contraseñas deben ser iguales", placement: "right"});
+    $("#newPassword").popover({title: "Campos vacios", content: "Debes llenar todos los campos", placement: "right"});
     /* Ocultar popovers al hacer focus en cualquier input*/
     $("input").focus(function(){
         $("#profRegister").popover("hide");
         $("#passwordProfRegister").popover("hide");
         $("#passwordProfRegister2").popover("hide");
+        $("#configurePassword").popover("hide");
+        $("#newPassword").popover("hide");
     });
     /* Obtener colegios por el area seleccionada */
     $("#areaCoord").mouseup(function(){
@@ -179,15 +183,22 @@ $(document).ready(function(){
     $("#configurePassword").click(function(event){
         event.preventDefault();
         if($("#newPassword").val() == $("#newPassword2").val())
-            $.post("../programs/cambiar_contraseña.php",
+            $.post("../programs/cambiar_contrasena.php",
             {
                 password: $("#newPassword").val()
 
             },
             function(data){
-                $("#approveColegio").append(data); /* Integrar nueva consulta */
+                if(data != "ERROR: CAMPOS"){
+                    $("#modalPassword").modal("toggle");
+                    $("#modalPasswordEx").modal("show");
+                }
+                else{
+                    $("#newPassword").popover("show");
+                    $("#configurePassword").popover("hide");
+                }
             });
         else
-            alert("Contraseñas");
+            $("#configurePassword").popover("show");
     });
 });

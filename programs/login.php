@@ -16,6 +16,7 @@
                 session_start();
                 $_SESSION["ID"] = $coord_extraido["COORD_ID"];
                 $_SESSION["name"] = $coord_extraido["COORD_NAME"];
+                $_SESSION["type"] = "coordinador";
                 header("Location: ../perfil/coordinador.html");
             }
             else
@@ -27,6 +28,7 @@
                 session_start();
                 $_SESSION["ID"] = $admin_extraido["ADMIN_ID"];
                 $_SESSION["name"] = $admin_extraido["ADMIN_NAME"];
+                $_SESSION["type"] = "admin";
                 header("Location: ../perfil/administrador.html");
             }
             else
@@ -38,6 +40,7 @@
                 session_start();
                 $_SESSION["ID"] = $alumno_extraido["USER_NOCT"];
                 $_SESSION["name"] = $alumno_extraido["USER_NAME"];
+                $_SESSION["type"] = "alumno";
                 header("Location: ../perfil/estudiante.php");
             }
             else
@@ -50,6 +53,7 @@
                 $_SESSION["ID"] = $profesor_extraido["PROF_ID"];
                 $_SESSION["name"] = $profesor_extraido["PROF_NAME"];
                 $_SESSION["COL"] = $profesor_extraido["COL_ID"];
+                $_SESSION["type"] = "profesor";
                 header("Location: ../perfil/profesor.html");
             }
             else

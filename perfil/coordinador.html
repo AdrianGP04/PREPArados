@@ -216,10 +216,10 @@
 					<div class="modal-content" >
 						<div data-trigger="focus"  id="modal-header-newName"  class="modal-header" >
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close" > <span aria-hidden="true" >&times;</span> </button>
-							<h4 class="modal-title" id="myModalLabel" > Configuración del coordinador <?php echo $_SESSION["name"]; ?> </h4>
+							<h4 class="modal-title" id="myModalLabel" > Configuración del coordinador </h4>
 						</div>
 						<div class="modal-body" >
-							<form id="ConfigurationName" method="POST" action="./programs/configurarNombre.php" autocomplete="off" >
+							<form id="ConfigurationName" autocomplete="off" >
 								<div class="form-group" >
 									<label for="newName" > Nuevo nombre </label>
 									<input id="newName" data-trigger="focus" name="newUserName" type="text" class="form-control" placeholder="Nuevo nombre" >
@@ -256,6 +256,22 @@
 								</div>
 								<button id="configurePassword" type="submit" class="btn btn-default btn-block" > Cambiar contraseña </button>
 							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="modalPasswordEx" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+							<h4 class="modal-title" id="myModalLabel"> Contraseña cambiada </h4>
+						</div>
+						<div class="modal-body">
+							Se ha cambiado la contraseña exitósamente
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary btn-block" data-dismiss="modal"> Cerrar </button>
 						</div>
 					</div>
 				</div>
