@@ -65,4 +65,7 @@ $(document).ready(function(){
         $("#passwordRegister").popover("hide");
         $("#modal-header-Register").popover("hide");
     });
+    $(document).ajaxError(function(){
+        $("#modalErrorServidor").modal("show");
+    });
 });

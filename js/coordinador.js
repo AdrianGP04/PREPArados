@@ -201,4 +201,7 @@ $(document).ready(function(){
         else
             $("#configurePassword").popover("show");
     });
+    $(document).ajaxError(function(){
+        $("#modalErrorServidor").modal("show");
+    });
 });

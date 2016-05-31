@@ -122,4 +122,7 @@ $(document).ready(function(){
             }
         });
     });
+    $(document).ajaxError(function(){
+        $("#modalErrorServidor").modal("show");
+    });
 });

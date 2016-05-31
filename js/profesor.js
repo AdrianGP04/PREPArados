@@ -153,4 +153,7 @@ $("#QuestionModSubmit").click(function(event){
             $(".badge").html(data);
         });
     });
+    $(document).ajaxError(function(){
+        $("#modalErrorServidor").modal("show");
+    });
 });
