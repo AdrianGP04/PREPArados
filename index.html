@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> PREPArados | Inicio </title>
+        <title> EvaluaP6 | Inicio </title>
         <link type="image/x-icon" href="./resources/favicon.ico" rel="icon" />
         <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="./styles/index.css">
@@ -13,128 +13,7 @@
     </head>
     <body>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-md-12 col-lg-12">
-                    <header>
-                        <img src="./resources/header.png" width="100%"/>
-                    </header>
-                </div>
-            </div>
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"> </span>
-                            <span class="icon-bar"> </span>
-                            <span class="icon-bar"> </span>
-                        </button>
-                        <span class="navbar-brand" href="#" disabled> Bienvenido </span>
-                    </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li> <a data-toggle="modal" data-target="#modalRegister"> Registrarse </a> </li>
-                            <li> <a data-toggle="modal" data-target="#modalLogIn"> Iniciar sesión </a> </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <div class="row text-center">
-                <div class="col-xs-12 col-md-12 col-lg-12 ">
-                    <img src="./resources/LOGO.png" alt="logo PREPArados" style="width:50%; height:50%;"/>
-                </div>
-            </div>
         </div>
-        <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div data-trigger="focus"  id="modal-header-Register"  class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                        <h4 class="modal-title" id="myModalLabel">Registrarse</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form id="RegisterForm" method="POST" action="./programs/registro.php" autocomplete="off">
-                            <div class="form-group">
-                                <label for="userRegister"> Nombre de usuario </label>
-                                <input id="userRegister" data-trigger="focus" name="userRegister" type="text" class="form-control" placeholder="Nombre de usuario">
-                            </div>
-                            <div class="form-group">
-                                <label for="noctaRegister"> Número de cuenta </label>
-                                <input id="numCuentaRegister" data-trigger="focus" name="numCuentaRegister" type="text" class="form-control" placeholder="Número de cuenta">
-                            </div>
-                            <div class="form-group">
-                                <label for="passwordRegister"> Contraseña </label>
-                                <input id="passwordRegister" data-trigger="focus" ="passwordRegister" type="password" class="form-control password" placeholder="Contraseña">
-                            </div>
-                            <div class="form-group">
-                                <label for="passwordRegister2"> Repetir contraseña </label>
-                                <input id="passwordRegister2" data-trigger="focus" name="passwordRegister2" type="password" class="form-control password" placeholder="Repetir contraseña">
-                                <br/>
-                                <span class="help"> <span class="glyphicon glyphicon-eye-close"> </span> Mostrar contraseñas </span>
-                            </div>
-                            <button id="RegisterSubmit" type="submit" class="btn btn-default btn-block"> Registrarse </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="modalLogIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div data-trigger="focus"  id="modal-header-LogIn" class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                        <h4 class="modal-title" id="myModalLabel"> Iniciar sesión </h4>
-                    </div>
-                    <div class="modal-body">
-                        <form id="logInForm" method="POST" action="./programs/login.php" autocomplete="off">
-                            <div class="form-group">
-                                <label for="noctaLogIn"> Número de cuenta </label>
-                                <input  data-trigger="focus"  id="numCuentaLogIn" name="numCuentaLogIn" type="text" class="form-control" placeholder="Número de cuenta">
-                            </div>
-                            <div class="form-group">
-                                <label for="passwordLogIn"> Contraseña </label>
-                                <input data-trigger="focus"  id="passwordLogIn" name="passwordLogIn" type="password" class="form-control password" placeholder="Contraseña">
-                                <br/>
-                                <span class="help"> <span class="glyphicon glyphicon-eye-close"> </span> Mostrar contraseña </span>
-                            </div>
-                            <button id="logInSubmit" type="submit" class="btn btn-default btn-block"> Iniciar sesión </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="modalRegUser" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                        <h4 class="modal-title" id="myModalLabel"> Registro del alumno </h4>
-                    </div>
-                    <div class="modal-body">
-                        Te has registrado correctamente
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary btn-block" data-dismiss="modal"> Cerrar </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="modalErrorServidor" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-						<h4 class="modal-title" id="myModalLabel"> Error en la petición al servidor </h4>
-					</div>
-					<div class="modal-body">
-						Ha ocurrido un error con el servidor
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary btn-block" data-dismiss="modal"> Cerrar </button>
-					</div>
-				</div>
-			</div>
-		</div>
     </body>
     <script src="./js/index.js"> </script>
 </html>
